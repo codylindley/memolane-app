@@ -1,0 +1,413 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+        - reset.css (resets browser defaults)
+        - defaults.css (default styles/base styles)
+        - commons.css (simple classes used globally)
+        - Modules
+                - Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+                modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+#tb-search{
+    float: right;
+    position: relative;
+}
+
+#tb-search input{
+    margin: 10px 20px 0 10px;
+    background-image: url(../../img/topBar/search-icon.png);
+    background-position: 12px 4px;
+    background-repeat: no-repeat;
+    background-color: #1F1F1F;
+    -moz-border-radius: 13px;
+    -webkit-border-radius: 13px;
+    border-radius: 13px;
+    border:none;
+    padding: 0px 9px 0 35px;
+    outline: none;
+    color: #999;
+    height: 26px;
+    font-weight: normal;
+    -moz-box-shadow:inset 0px 0px 3px #0F0F0F;
+    -webkit-box-shadow:inset 0px 0px 3px #0F0F0F;
+    box-shadow:inset 0px 0px 3px #0F0F0F;
+    float: left;
+    padding-right:20px;
+    width:58px;
+}
+
+.more1024 #tb-search input{
+    width:200px;
+}
+
+.touch .more1024 #tb-search input{
+    width:190px;
+}
+
+#tb-search input.search-focused{
+    background-position: 12px -40px;
+    -moz-box-shadow:inset 0 0 3px #999;
+    -webkit-box-shadow:inset 0 0 3px #999;
+    box-shadow:inset 0 0 3px #999;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+#close-search-btn {
+    background-image: url(../../img/topBar/search_close_icon.png);
+    width: 18px;
+    height: 17px;
+    text-indent: -999em;
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 24px;
+    top:14px;
+}
+
+
+/*search Dropdown*/
+
+#dd-search{
+    top:75px;
+    right:0;
+    position:absolute;
+    max-height:450px;
+    visibility: hidden; 
+    width:300px; 
+    background-color:#f1f1f1; 
+    z-index:999;
+    -moz-border-radius:0px 0px 0px 6px;
+    -webkit-border-radius:0px 0px 0px 6px;
+    border-radius:0px 0px 0px 6px;
+    -moz-box-shadow:-2px 3px 3px rgba(0%,0%,0%,0.3);
+    -webkit-box-shadow:-2px 3px 3px rgba(51%,51%,51%,0.3);
+    box-shadow:-2px 3px 3px rgba(0%,0%,0%,0.3);
+}
+
+.touch #dd-search{
+            width:294px; 
+}
+
+#search-types, #search-options{
+    width: 100%;
+    text-align: center;
+}
+
+#search-types{
+    margin: 10px 0 10px 0;
+}
+
+#search-options{
+    margin: 15px 0 0 0;
+}
+
+#search-types .smallButtonBar li a{
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+#search-options label{
+    display: inline;
+}
+
+#search-options label input{
+    margin-bottom: 15px;
+}
+
+#search-options label:first-child{
+    margin-right: 20px;     
+}
+
+.search-results{
+    border-top:1px solid #E9E9E9;
+    -moz-box-shadow:inset 0px 1px #fff;
+    -webkit-box-shadow:inset 0px 1px #fff;
+    box-shadow:inset 0px 1px #fff;
+}
+
+.search-results ul{
+    margin-bottom:0px;
+}
+
+
+/*search memos*/
+#search-memos a:hover{
+    text-decoration: none;
+}
+
+#search-memos ul li:hover{
+    background-color: #e1e1e1;
+}
+
+#search-memos li{
+    padding: 10px 15px 13px 15px;
+    clear:both;
+    border-bottom: 1px solid #e6e6e6;
+    position: relative;
+}
+
+#search-memos ul li:last-child{
+    border-bottom:none;
+}
+
+#search-memos img{
+    display: block;
+    float: left;
+    border: 2px solid #fff;
+    -moz-box-shadow:0px 0px 5px #000;
+    -webkit-box-shadow:0px 0px 5px #000;
+    box-shadow:0px 0px 5px #000;
+}
+
+#search-memos img:hover{
+    border: 2px solid #00BFF3;
+    cursor: pointer;
+}
+
+#search-memos .search-memos-txt {
+    float: left;
+    width: 205px;
+    overflow:hidden;
+    margin:4px 0 0 20px;
+    line-height: 1.5em;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#search-memos .search-service-icon {
+	width:16px;
+	height: 16px;
+	background-image: url(/img/common/list-icons.png?v=2);
+	overflow: hidden;
+	position: absolute;
+	top:24px;
+	left: 28px;
+}
+
+/*search lanes*/
+
+#search-lanes{
+    display: none;
+}
+
+#search-lanes li a:hover{
+    text-decoration: none;
+}
+
+#search-lanes li{
+    padding:12px 10px 7px 15px;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    min-height: 23px;
+}
+
+#search-lanes ul li:hover{
+    background-color: #e1e1e1;
+}
+
+#search-lanes li:last-child{
+    border-bottom:none;
+}
+
+#search-lanes img{
+    float: left;
+    margin: 0 10px 5px 0;
+    border: 2px solid #fff;
+    -moz-box-shadow:0px 0px 5px #000;
+    -webkit-box-shadow:0px 0px 5px #000;
+    box-shadow:0px 0px 5px #000;
+   
+    width:20px;
+    height:20px;
+}
+
+#search-lanes .search-lanes-rel{
+    color: #A1A1A1;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.search-lanes-result{
+    display: block;
+    margin-top: 1px;
+}
+
+
+/*search users*/
+
+#search-users{
+    display: none;
+}
+
+
+#search-users li a:hover{
+    text-decoration: none;
+}
+
+#search-users li{
+    padding:12px 40px 7px 15px;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    min-height: 23px;
+}
+
+#search-users ul li:hover{
+    background-color: #e1e1e1;
+}
+
+#search-users li:last-child{
+    border-bottom:none;
+}
+
+#search-users img{
+    float: left;
+    margin: 0 10px 5px 0;
+    border: 2px solid #fff;
+    -moz-box-shadow:0px 0px 5px #000;
+    -webkit-box-shadow:0px 0px 5px #000;
+    box-shadow:0px 0px 5px #000;
+}
+
+#search-users .search-users-username, #search-users .search-users-pending{
+    color: #A1A1A1;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+
+a.request-friendship {
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    height: 14px;
+    width: 19px;
+    background-image: url(/img/common/list-icons.png?v=2);
+    background-position: -102px 0px;
+    background-repeat: no-repeat;
+    display: block;
+    overflow: hidden;
+    text-indent: -999em;
+}
+
+a.request-friendship:hover {
+    background-position: -102px -46px;
+}
+
+.search-users-result{
+    display: block;
+    margin-top: 1px;
+}
+
+
+
+/* michael added... */
+
+.search-results-footer{
+	height:16px;
+	border-top:1px solid #E9E9E9;
+	-moz-box-shadow:inset 0px 1px #fff;
+	-webkit-box-shadow:inset 0px 1px #fff;
+	box-shadow:inset 0px 1px #fff;
+	padding:10px 20px 6px 20px;
+}
+
+.search-results-footer span{
+	color: #6D6D6D;
+	font-size: 12px;
+}
+
+
+.jspHorizontalBar {
+	display:none;
+}
+
+
+.search-results-scrollable {
+	overflow-x:hidden;
+	margin: 3px 4px 4px 0;
+	min-height: 64px;
+}
+
+
+.search-results-footer-hits {
+	float:right;
+	font-size:10px;
+	text-align:right;
+}
+
+.search-results-footer-more {
+	float:right;
+	margin-left:10px;
+	font-size:10px;
+	text-align:right;
+}
+
+.search-results-footer-loader {
+	
+}
+
+.search-filter {
+	text-align:center;
+	font-size:11px;
+}
+.search-filter label {
+	font-weight:normal;
+	color:#A1A1A1;
+	height:16px;
+	margin:10px 0 10px 0;
+}
+
+#search-lanes-filter-friends{
+	display: none;
+}
+
+.search-no-results{
+	text-align: center;
+	height: 64px;
+	line-height: 64px !important;
+	color: #999;
+	padding: 0 !important;
+	overflow: hidden;
+	font-weight: normal !important;
+	font-size: 12px !important;
+	overflow: hidden;
+}
+
+li.search-no-results:hover{
+	background-color: transparent !important;
+}
+
+
+#search-lanes .search-results-txt,#search-users .search-results-txt{
+	float: left;
+	display:block;
+	width:220px;
+	margin-top: 6px;
+}
+
+#search-users .search-results-txt{
+	width:190px;
+}
+
+.search-memos-date{
+	font-size: 10px;
+	color: #999;
+	display: block;
+}
+

@@ -1,0 +1,128 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+/*---------------------------
+  memo comments
+---------------------------*/
+
+	#memoCommentsDialog {
+		width:600px;
+	}
+	
+	#memoCommentsDialog .dialogTitle .commentCount {
+		display:none;
+	}
+		#memoComments {
+			width:570px;
+		}
+			#memoEnterComment {
+				padding-bottom:18px;
+				border-bottom:1px solid #ccc;
+			}
+				#memoEnterComment textarea {
+					width:97%;
+					margin:0 0 10px;
+					height:50px;
+					line-height:1.4em;
+					font-size: 13px;
+				}
+				#memoEnterComment .privacyTooltip {
+					float:right;
+					line-height:16px;
+					margin-top:2px;
+				}
+					#memoEnterComment .privacyTooltip span {
+						display:block;
+						height:16px;
+						width:16px;
+						float:left;
+						margin-right:5px;
+						background:url(/img/common/list-icons.png?v=4) no-repeat -1407px top;
+					}
+			
+			#memoComments li {
+				position:relative;
+				width:100%;
+				padding:15px 0;
+				border-bottom:1px solid #ccc;
+			}
+			
+				#memoComments li .commentHeader {
+					font-size:12px;
+				}
+				#memoComments li .commentHeader .commentDelete,
+				#memoComments li .commentHeader .commentDeleting {
+					float:right;
+					display:block;
+					visibility:hidden;
+					width:16px;
+					height:16px;
+					text-indent:-9999px;
+					background:url(/img/common/list-icons.png?v=4) no-repeat left top;
+				}
+				#memoComments li .commentHeader .commentDeleting {
+					visibility:visible;
+					background:url(/img/common/smallLoaderOnWhite.gif) no-repeat left top;
+				}
+				#memoComments li:hover .commentHeader .commentDelete {
+					visibility:visible;
+				}
+				#memoComments li .commentHeader .commentDelete:hover {
+					background-position:left -47px;
+				}
+				#memoComments li .commentHeader img {
+					float:left;
+					width:20px;
+					max-width:20px;
+					max-height:20px;
+					padding:2px;
+					border:1px solid #ccc;
+					margin:0 8px 8px 0;
+				}
+				#memoComments li .commentHeader .commentTime {
+					float:left;
+					padding-top:3px;
+					font-size:11px;
+					font-weight:normal;
+					color:#999;
+					margin-bottom:7px;
+				}
+				
+				#memoComments li .commentText {
+					clear:both;
+					padding:3px 15px 3px 0;
+					font-size:13px;
+					line-height:1.4;
+				}
+				
+					#memoComments li .commentText blockquote, #memoComments li .commentText q {
+						padding:7px;
+						border-radius:5px;
+						color:#666;
+						background:#ddd;
+					}
+					#memoComments li .commentText strong, #memoComments li .commentText b {
+						font-weight:bold;
+					}
+					#memoComments li .commentText em, #memoComments li .commentText i {
+						font-style:italic;
+					}
+			

@@ -1,0 +1,65 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+.formError{
+	position:absolute; 
+	cursor:pointer;
+	color: #fff;font-weight: bold;
+	z-index: 1001;
+}
+.memolaneDialog ~ .formError {
+	z-index: 1003;
+}
+
+.formError .head{
+	width: 15px;
+	height: 32px;
+	background-image: url(../../img/common/formErrorHead.png);
+	float: left;
+}
+
+.formError .body{
+	background-image: url(../../img/common/formErrorBody.png);
+	background-repeat: repeat-x;
+	float: left;
+	font-size: 11px;
+	font-weight: bold;
+	height: 32px;
+	line-height: 32px;
+}
+
+.formError .tail {
+	height: 32px;
+	width: 4px;
+	background-image: url(../../img/common/formErrorTail.png);
+	float: left;
+}
+
+/*
+ * Styles used by the summary output mode.
+ * '.validity-summary-container' is a container on the page that should contain a UL 
+ * which is the actual summary. The container can hold 
+ * an extra bit of text (or anything really) that explains what the summary is.
+ * '.validity-erroneous' is applied to every input that fails.
+ */
+.validity-summary-container { display:none; }
+.validity-summary-output ul { }
+.validity-erroneous { border:solid 2px #f56600 !important;}

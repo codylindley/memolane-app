@@ -1,0 +1,172 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+.smallButtonBar {
+	list-style: none;
+	-webkit-box-shadow: 0px 1px 3px 0px rgba(0%, 0%, 0%, 0.2);
+	-moz-box-shadow: 0px 1px 3px 0px rgba(0%, 0%, 0%, 0.2);
+	box-shadow: 0px 1px 3px 0px rgba(0%, 0%, 0%, 0.2);
+	display: inline-block;
+	background-color: transparent;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	height: 22px;
+}
+	.smallButtonBar li {
+		display:inline;
+	}
+		.smallButtonBar li a {
+			height: 16px;
+			line-height: 16px;
+			display: block;
+			float:left;
+			border: 1px solid #BDBCBD;
+			border-right:0;
+			color: #666;
+			padding: 2px 15px;
+			text-align: center;
+			font-size: 11px;
+			font-weight: bold;
+			cursor: pointer;
+			background-color: #F0F0F0;
+			background: -moz-linear-gradient(top, #ffffff 0%, #f0f0f0 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f0f0f0));
+			background: -webkit-linear-gradient(top, #ffffff 0%,#f0f0f0 100%);
+			background: -o-linear-gradient(top, #ffffff 0%,#f0f0f0 100%);
+			background: -ms-linear-gradient(top, #ffffff 0%,#f0f0f0 100%);
+			background: linear-gradient(top, #ffffff 0%,#f0f0f0 100%);
+		}
+		.smallButtonBar  li:first-child a {
+			-moz-border-radius-topleft: 4px;
+			-moz-border-radius-bottomleft: 4px;
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
+		}
+		.smallButtonBar  li:last-child a {
+			border-right: 1px solid #BDBCBD;
+			-moz-border-radius-topright: 4px;
+			-moz-border-radius-bottomright: 4px;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+		.smallButtonBar li a:hover {
+			text-decoration:none;
+			font-weight: bold;
+			color: #333;
+			background-color: #E9E9E9;
+			background: -moz-linear-gradient(top, #ffffff 0%, #dddddd 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#dddddd));
+			background: -webkit-linear-gradient(top, #ffffff 0%,#dddddd 100%);
+			background: -o-linear-gradient(top, #ffffff 0%,#dddddd 100%);
+			background: -ms-linear-gradient(top, #ffffff 0%,#dddddd 100%);
+			background: linear-gradient(top, #ffffff 0%,#dddddd 100%);
+		}
+		.smallButtonBar li a.smallButtonActive {
+			font-weight: bold;
+			color: #333;
+			text-shadow: 1px 1px 0px #f5f5f5;
+			background-color: #E9E9E9;
+			background: -moz-linear-gradient(top, #e9e9e9 0%, #d2d2d2 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9e9e9), color-stop(100%,#d2d2d2));
+			background: -webkit-linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			background: -o-linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			background: -ms-linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			background: linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			-webkit-box-shadow: inset 1px 1px 4px rgba(0%, 0%, 0%, 0.8);
+			-moz-box-shadow: inset 1px 1px 4px rgba(0%, 0%, 0%, 0.8);
+			box-shadow: inset 1px 1px 4px rgba(0%, 0%, 0%, 0.8);
+		}	
+
+
+.largeButtonBar {
+	list-style: none;
+	-webkit-box-shadow: 0px 3px 3px 0px rgba(0%, 0%, 0%, 0.2);
+	-moz-box-shadow: 0px 3px 3px 0px rgba(0%, 0%, 0%, 0.2);
+	box-shadow: 0px 3px 3px 0px rgba(0%, 0%, 0%, 0.2);
+	display: inline-block;
+	background-color: transparent;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	height: 30px;
+}
+	.largeButtonBar li {
+		display:inline;
+	}
+		.largeButtonBar li a {
+			height: 26px;
+			line-height: 26px;
+			display: block;
+			float:left;
+			border: 1px solid #BDBCBD;
+			border-right:0;
+			color: #666;
+			padding: 2px 30px;
+			text-align: center;
+			font-size: 12px;
+			font-weight: bold;
+			background-color: #F0F0F0;
+			background: -moz-linear-gradient(top, #FFFFFF 0%, #F0F0F0 100%);
+			cursor: pointer;
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFFFF), color-stop(100%,#F0F0F0));
+		}
+		
+		.largeButtonBar li:first-child a {
+			-moz-border-radius-topleft: 4px;
+			-moz-border-radius-bottomleft: 4px;
+			border-top-left-radius: 4px;
+			border-bottom-left-radius: 4px;
+		}
+		
+		.largeButtonBar li:last-child a {
+			border-right: 1px solid #BDBCBD;
+			-moz-border-radius-topright: 4px;
+			-moz-border-radius-bottomright: 4px;
+			border-top-right-radius: 4px;
+			border-bottom-right-radius: 4px;
+		}
+		
+		.largeButtonBar li a:hover {
+			text-decoration:none;
+			font-weight: bold;
+			color: #333;
+			background-color: #E9E9E9;
+			background: -moz-linear-gradient(top, #ffffff 0%, #dddddd 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#dddddd));
+			background: -webkit-linear-gradient(top, #ffffff 0%,#dddddd 100%);
+			background: -o-linear-gradient(top, #ffffff 0%,#dddddd 100%);
+			background: -ms-linear-gradient(top, #ffffff 0%,#dddddd 100%);
+			background: linear-gradient(top, #ffffff 0%,#dddddd 100%);
+		}
+		
+		.largeButtonBar li a.largeButtonActive{
+			font-weight: bold;
+			color: #333;
+			text-shadow: 1px 1px 0px #f5f5f5;
+			background-color: #E9E9E9;
+			background: -moz-linear-gradient(top, #e9e9e9 0%, #d2d2d2 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9e9e9), color-stop(100%,#d2d2d2));
+			background: -webkit-linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			background: -o-linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			background: -ms-linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			background: linear-gradient(top, #e9e9e9 0%,#d2d2d2 100%);
+			-webkit-box-shadow: inset 1px 1px 4px rgba(0%, 0%, 0%, 0.8);
+			-moz-box-shadow: inset 1px 1px 4px rgba(0%, 0%, 0%, 0.8);
+			box-shadow: inset 1px 1px 4px rgba(0%, 0%, 0%, 0.8);
+		}

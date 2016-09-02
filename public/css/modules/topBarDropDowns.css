@@ -1,0 +1,356 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+.dd-container{
+	visibility: hidden;
+	position:absolute;
+	max-height:450px; 
+	width:350px; 
+	background-color:#f1f1f1; 
+	z-index:999;
+	-moz-border-radius:0px 0px 6px 6px;
+	-webkit-border-radius:0px 0px 6px 6px;
+	border-radius:0px 0px 6px 6px;
+	-moz-box-shadow:0px 3px 3px rgba(0%,0%,0%,0.5);
+	-webkit-box-shadow:0px 3px 3px rgba(51%,51%,51%,0.5);
+	box-shadow:0px 3px 3px rgba(0%,0%,0%,0.5);
+	top:50px;
+	left: 50px;
+}
+
+.dd-list-content{
+	width:345px;
+	margin: 3px 0;
+	overflow:auto;
+	max-height:350px;
+}
+
+.dd-list-content ul li{
+	padding: 12px 10px 12px 15px;
+	clear: both;
+	border-bottom: 1px solid #e6e6e6;
+	line-height: 2.0em;
+}
+
+.dd-list-content ul li:last-child{
+	border-bottom:none;
+}
+
+.dd-list-content ul li img{
+	float: left;
+	border: 2px solid #fff;
+	-moz-box-shadow:0px 0px 5px #000;
+	-webkit-box-shadow:0px 0px 5px #000;
+	box-shadow:0px 0px 5px #000;
+	margin: 0 10px 0 0;
+	width:20px;
+	height:20px;
+}
+
+.dd-list-item{
+	float: left;
+	width:260px;
+}
+
+
+
+
+/*news dd*/
+
+.new-news{
+	background-color: #e8f3ce;
+}
+
+
+#dd-news .dd-list-content ul li img{
+	margin: 0 10px 0 0;
+}
+
+#dd-news .dd-list-content ul li{
+	padding: 8px 10px 8px 15px;
+	line-height: 2.0em;
+}
+
+.dd-news-item{
+	width:230px;
+	float: left;
+}
+
+#dd-news .dd-list-content{
+	max-height:444px;
+}
+
+.dd-news-item-date, .dd-news-friend-request{
+	width:70px;
+	text-align: right;
+	float: right;
+	font-size: 11px;
+	color: #A1A1A1;
+}
+
+
+
+
+/*friends dd*/
+
+#dd-friends .dd-list-content{
+	max-height:394px;
+	margin: 3px 0 3px 0;
+}
+
+
+#dd-friends.dd-container ul li:hover{
+	background-color: #f2f2e4;
+}
+
+
+#dd-friends.dd-container ul li.friend-request-list, #dd-friends.dd-container ul li.friend-request-list:hover{
+	background-color: #ffffcc;
+}
+
+
+#add-friends-dd{
+	border-top:1px solid #E9E9E9;
+	-moz-box-shadow:inset 0px 1px #fff;
+	-webkit-box-shadow:inset 0px 1px #fff;
+	box-shadow:inset 0px 1px #fff;
+	padding: 15px 11px 15px 15px;
+	text-align: left;
+}
+
+
+#add-friends-dd span{
+	color: #6D6D6D;
+	font-size: 12px;
+}
+
+
+#dd-friends .dd-list-content ul li{
+	line-height: 2em;
+	overflow: hidden;
+	padding:8px 10px 6px 15px;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+
+#dd-friends .dd-list-content li a, #dd-friends .dd-list-content li a:hover{
+	color: #00bff3;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+
+
+#dd-friends li:hover a span.name-friends-DD{
+	color: #00bff3;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+#dd-friends li a span.user-name-friends-DD{
+	color: #A1A1A1;
+	font-weight: normal;
+}
+
+
+.dd-friends-friend-yes, .dd-friends-friend-no, .dd-friends-pending-remove {
+	float: right;
+	height: 16px;
+	width: 16px;
+	overflow: hidden;
+	text-indent:9999em;
+	background-image: url(../../img/common/list-icons.png?v=4);
+	margin-top: 5px;
+	background-repeat: no-repeat;
+	margin-right: 6px;
+	display: block;
+}
+
+
+.dd-friends-friend-no, .dd-friends-pending-remove{
+	background-position: 0px -47px;
+}
+
+
+.dd-friends-friend-yes{
+	background-position: -33px -47px;
+}
+
+
+.dd-friends-types {
+	font-size: 11px;
+	padding: 10px 0 10px 0;
+	border-bottom:1px solid #fff;
+	-moz-box-shadow:inset 0px -1px #E9E9E9;
+	-webkit-box-shadow:inset 0px -1px #E9E9E9;
+	box-shadow:inset 0px -1px #E9E9E9;
+	color: #ccc;
+	text-align: center;
+}
+
+
+.dd-friends-remove{
+	float: right;
+	height: 16px;
+	width: 16px;
+	overflow: hidden;
+	text-indent:-999em;
+	background-image: url(/img/common/list-icons.png?v=4);
+	margin-top: 5px;
+	display: none;
+	background-repeat: no-repeat;
+	margin-right: 5px;
+}
+
+.dd-friends-remove{
+	background-position: 0px 0px;
+}
+
+.dd-friends-remove:hover{
+	background-position: 0px -47px;
+}
+
+#dd-friends .dd-list-content li:hover .dd-friends-remove{
+	display: block;
+}
+
+
+
+/*lanes dd*/
+
+#dd-lanes .dd-list-content{
+	max-height:360px;
+	margin: 2px 0 3px 0;
+}
+
+#dd-lanes .dd-list-content ul li:hover{
+	background-color: #f2f2e4;
+}
+
+
+
+.dd-lanes-title{
+	font-size: 11px;
+	padding: 10px 0 10px 0;
+	border-bottom:1px solid #fff;
+	-moz-box-shadow:inset 0px -1px #E9E9E9;
+	-webkit-box-shadow:inset 0px -1px #E9E9E9;
+	box-shadow:inset 0px -1px #E9E9E9;
+	color: #ccc;
+	text-align: center;
+}
+
+.dd-lanes-title label{
+	display: inline;
+	font-weight: normal;
+	color: #A1A1A1;
+	font-size: 11px;
+	margin-left: 6px;
+}
+
+.dd-lanes-title label input{
+	margin: 0 3px 0 0;
+	padding: 0;
+}
+
+#edit-lanes-dd{
+	border-top:1px solid #E9E9E9;
+	-moz-box-shadow:inset 0px 1px #fff;
+	-webkit-box-shadow:inset 0px 1px #fff;
+	box-shadow:inset 0px 1px #fff;
+	padding: 15px 0;
+	text-align: center;
+}
+
+#edit-lanes-dd span{
+	color: #6D6D6D;
+	font-size: 12px;
+}
+
+#dd-lanes .dd-list-content ul li{
+	line-height: 2em;
+	overflow: hidden;
+	padding:8px 10px 6px 15px;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+#dd-lanes .dd-list-content li a, #dd-lanes .dd-list-content li a:hover{
+	color: #00bff3;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+
+#dd-lanes .dd-list-content li:hover a span.lane-name-DD{
+	color: #00bff3;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#dd-lanes .dd-list-content li a span.lane-type-DD{
+	color: #A1A1A1;
+	font-weight: normal;
+	padding-left: 5px;
+}
+
+.dd-lanes-edit, .dd-lanes-remove, .dd-lanes-remove-contrib, .dd-lanes-fav-remove{
+	float: right;
+	height: 16px;
+	width: 16px;
+	overflow: hidden;
+	text-indent:-999em;
+	background-image: url(/img/common/list-icons.png?v=4);
+	margin-top: 5px;
+	display: none;
+	background-repeat: no-repeat;
+	margin-right: 5px;
+}
+
+.dd-lanes-edit{
+	background-position: -67px 0px;
+}
+
+.dd-lanes-edit:hover{
+	background-position: -67px -47px;
+}
+
+.dd-lanes-remove, .dd-lanes-fav-remove{
+	background-position: 0px 0px;
+}
+
+.dd-lanes-remove:hover, .dd-lanes-fav-remove:hover{
+	background-position: 0px -47px;
+}
+
+.dd-lanes-remove-contrib{
+	background-position: -141px 0px;
+}
+
+.dd-lanes-remove-contrib:hover{
+	background-position: -141px -46px;
+}
+
+#dd-lanes .dd-list-content li:hover .dd-lanes-edit, #dd-lanes .dd-list-content li:hover .dd-lanes-remove, #dd-lanes .dd-list-content li:hover .dd-lanes-remove-contrib, .dd-list-content li:hover .dd-lanes-fav-remove{
+	display: block;
+}
+

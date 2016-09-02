@@ -1,0 +1,89 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+#position-notifications{
+    position:absolute;
+    z-index:1001;
+    max-width:475px;
+}
+
+.notifications{
+    max-width:475px;
+    min-width:250px;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    background-color:#666;
+    margin-top:10px;
+    float:right;
+    overflow: hidden;
+    border:1px solid rgba(45%,51%,55%,0.1);
+    font-size: 12px;
+    line-height: 1.4em;
+    font-weight: bold;
+}
+
+#position-notifications.mobile .notifications{
+    float:left;
+}
+
+.close-notice{
+    position:absolute;
+    top:10px;
+    right:-35px;
+    color:#000;
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-image: url(../../img/common/closeNotification.png);
+    background-repeat: no-repeat;
+    text-indent: -9999em;
+}
+
+.notice-text{
+    border-right:1px solid rgba(45%,51%,55%,0.2);
+    margin-right:50px;
+    padding:12px;
+    position:relative;
+}
+
+.notice-text p:last-child{
+    margin-bottom:0;
+}
+
+.badnews-notice{
+    background-color:#FFD5D5;
+    color:#ED1C24;
+}
+
+.goodnews-notice{
+    background-color:#D4FFE9;
+    color:#00A551;
+}
+
+.warningnews-notice{
+    background-color:#FFF4D4;
+    color:#F16521;
+}
+
+.neturalnews-notice{
+    background-color:#F3F3F3;
+    color:#545454;
+}

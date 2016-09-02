@@ -1,0 +1,33 @@
+<div id="api_myServices">
+  <h2>Services you have registered:</h2>
+  <a class="registerService button btnGreen" href="/oauth/edit">Register Another Service</a>
+
+  <ul class="apiServiceList">
+    <% for client in @clients %>
+      <% next if client.deleted %>
+      <li class="serviceFullLayout underlineStandard">
+        <div class="serviceDescription">
+          <img src="<%= client.icon || "/images/oauth/default50.png" %>" />
+          <div>
+            <a href="<%= client.link %>"><%= client.display_name %></a>
+            <p><%= client.notes %></p>
+          </div>
+        </div>
+        <dl>
+          <dt>Registered:</dt>
+          <dd><%= client.created_at.to_date.to_s %></dd>
+          
+          <dt>Tokens Granted:</dt>
+          <dd><%= client.tokens_granted %></dd>
+          
+          <dt>Tokens Revoked:</dt>
+          <dd><%= client.tokens_revoked %></dd>
+        </dl>
+        <ul class="apiServiceActions">
+          <li><a href="/oauth/edit?id=<%= client.id %>">Details/Edit</a></li>
+          <li><a class="delete_client" href="<%= client.id %>" csrf_token="<%= Rack::Csrf.csrf_token(env) %>">Delete</a></li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+</div>

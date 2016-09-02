@@ -1,0 +1,117 @@
+{
+    "hits": 1,
+    "stories": [
+        {
+            "_id": "668b928191e89f3d15b9555f3b7689cc5",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's First Story",
+            "description": "A Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        },
+		{
+            "_id": "668b928191e89f3d15b9555f3b7689cd6",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's Second Story with a really, I mean REALLY, long title beginning with the word 'The'",
+            "description": "Another really long Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        },
+        {
+            "_id": "668b928191e89f3d15b9555f3b7689cc7",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's First Story",
+            "description": "A Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        },
+		{
+            "_id": "668b928191e89f3d15b9555f3b768",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's Second Story with a really, I mean REALLY, long title beginning with the word 'The'",
+            "description": "Another really long Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        },
+        {
+            "_id": "668b928191e89f3d15b9555f3b",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's First Story",
+            "description": "A Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        },
+		{
+            "_id": "668b928191e89f3d15b9555f3",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's Second Story with a really, I mean REALLY, long title beginning with the word 'The'",
+            "description": "Another really long Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        },
+        {
+            "_id": "668b928191e9cc",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's First Story",
+            "description": "A Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        },
+		{
+            "_id": "668bd15b9555f3b7689cd",
+            "privacy": "public",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "members": [
+                "cf74f62ec7f93e5be84899fa1a435b01"
+            ],
+            "title": "Mikey's LAST Story with a really, I mean REALLY, long title beginning with the word 'The'",
+            "description": "Another really long Memolane Test Story. Yo.",
+            "user": {
+                "username": "mikey",
+                "image": "https://graph.facebook.com/690965842/picture"
+            }
+        }
+    ]
+}

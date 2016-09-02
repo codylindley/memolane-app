@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <h1>Invites</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Count</td>
+          <td>Failed</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invites.each do |invite, data| %>
+          <tr>
+            <td><%= invite %></td>
+            <td><%= data[:left] %></td>
+            <td><%= data[:failed] %></td>
+            <td><a href="/admin/invites/delete/<%= invite %>">Delete</a></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+      
+    <h2>Add invite</h2>
+    <form action="/admin/invites", method="POST">
+      <%= csrf_hidden_field %>
+
+      <label>
+        Invite: <input type="text" name="invite[name]" />
+      </label>
+      <br />
+      <label>
+        Count: <input type="text" name="invite[count]" />
+      </label>
+      <br />
+      <input type="submit" value="Create" />
+    </form>
+  </body>
+</html>

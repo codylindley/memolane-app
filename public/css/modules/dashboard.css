@@ -1,0 +1,489 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+html.touch body {height:auto;}
+
+#header {
+	height:auto;
+}
+
+#content {
+	min-width:678px;
+	visibility:visible;
+	padding-top:25px;
+	color:#fff;
+}
+
+#centerDashBoard{
+	max-width: 855px;
+	min-width: 855px;
+	margin: 0 auto;
+	
+}
+
+#dashProfile {
+	width:855px;
+	margin-bottom: 30px;
+}
+
+#dashLanesNFaves {
+	float:left;
+	width:515px;
+	margin-right:45px;
+}
+
+#dashFeatured, #dashFriends {
+	float:left;
+	width:295px;
+}
+#dashFeatured {
+	margin:12px 0 30px 0;
+
+}
+#dashFeatured div:first-child {
+	padding-bottom:6px;
+
+}
+	#dashFeatured li {
+		margin-top:5px;
+	}
+		#dashFeatured a {
+			position:relative;
+			display:block;
+			background-color:#222;
+			border-radius:5px;
+			text-decoration:none;
+			padding: 5px 0;
+		}
+			#dashFeatured img {
+				position:absolute;
+				left:6px;
+				top:5px;
+				width:20px;
+				border:2px solid #fff;
+			}
+			#dashFeatured span {
+				display:block;
+				background-color:#222;
+				border-radius:5px;
+				text-decoration:none;
+				padding: 5px 0;
+			}
+				#dashFeatured img {
+					position:absolute;
+					left:6px;
+					top:10px;
+					width:20px;
+					border:2px solid #fff;
+				}
+				#dashFeatured span {
+					display:block;
+					padding:3px 0 5px 38px;
+				}
+				#dashFeatured .dashItemTitle {
+					margin:0;
+					padding-bottom:0px;
+					font-size:12px;
+				}
+				#dashFeatured a:hover .dashItemTitle {
+					text-decoration:underline;
+				}
+				#dashFeatured .dashItemDescription {
+					color:#ccc;
+					font-size:11px;
+				}
+
+#dashLanesNFaves {
+	margin-bottom:40px;
+}
+	.dashLanes ul {
+		padding-top:5px;
+	}
+		.dashLanes li {
+			position:relative;
+			clear:both;
+		}
+			.dashLanes a {
+				display:block;
+				padding:9px 55px 9px 5px;
+				overflow:hidden;
+				min-height:41px;
+			}
+			.notMyDashboard .dashLanes a {
+				margin-right:0;
+			}
+				.dashLanes li img {
+					position:absolute;
+					left:5px;
+					border:2px solid #bbb;
+					width:37px;
+					height:37px;
+				}
+				.dashLanes li span {
+					display:block;
+					padding:0 0 7px 51px;
+					text-decoration:none;
+				}
+				.dashLanes li .dashItemGray {
+					color:#999;
+					font-weight:normal;
+				}
+				.dashLanes li .dashItemDescription {
+					color:#ececec;
+					font-weight:normal;
+					font-size:12px;
+					line-height:1.2;
+				}
+				.dashLanes li:hover {
+					background:rgba(100,100,100,.2);
+				}
+				.dashLanes li a:hover .dashItemTitle em {
+					text-decoration:underline;
+				}
+				.dashLanes li a:hover, .dashLanes li a:hover .dashItemTitle .dashItemDescription, .dashLanes li a:hover .dashItemTitle .dashItemGray {
+					text-decoration:none;
+				}
+				
+	.dashFaves h3{
+		margin-top: 20px;
+	}
+	
+	.dashFaves ul {
+		padding-top:5px;
+	}
+		.dashFaves li {
+			position:relative;
+			clear:both;
+		}
+			.dashFaves a {
+				display:block;
+				padding:9px 55px 9px 5px;
+				overflow:hidden;
+				min-height:41px;
+			}
+			.notMyDashboard .dashLanes a {
+				margin-right:0;
+			}
+				.dashFaves li img {
+					position:absolute;
+					left:5px;
+					border:2px solid #bbb;
+					width:37px;
+					height:37px;
+				}
+				.dashFaves li span {
+					display:block;
+					padding:0 0 7px 51px;
+					text-decoration:none;
+				}
+				.dashFaves li .dashItemGray {
+					color:#999;
+					font-weight:normal;
+				}
+				.dashFaves li .dashItemDescription {
+					color:#ececec;
+					font-weight:normal;
+					font-size:12px;
+					line-height:1.2;
+				}
+				.dashFaves li:hover {
+					background:rgba(100,100,100,.2);
+				}
+				.dashFaves li a:hover .dashItemTitle em {
+					text-decoration:underline;
+				}
+				.dashFaves li a:hover, .dashFaves li a:hover .dashItemTitle .dashItemDescription, .dashFaves li a:hover .dashItemTitle .dashItemGray {
+					text-decoration:none;
+				}
+				
+				.dashFaves li a strong {
+					color:#999;
+					font-weight:normal;
+				}
+				
+				.dashFaves li span.lane-fav-owner, .dashFaves li span.lane-fav-owner-me {
+					display: inline !important;
+					padding: 0;
+					font-weight: normal;
+					color:#999;
+				}
+				
+				.dashFaves li span.lane-fav-owner:hover {
+					text-decoration: underline;
+					color:#00BFF3;
+					cursor: pointer;
+				}
+				
+				.dashFaves li span.lane-fav-owner-me:hover {
+					text-decoration: none;
+					color:#999;
+					cursor: pointer;
+				}
+				
+				.dashFaves a.remove-fav {
+					background:url(/img/common/list-icons.png?v=4) no-repeat top left;
+					position:absolute;
+					right:5px;
+					top:7px;
+					display:block;
+					width:16px;
+					height:16px;
+					padding:0;
+					margin:0;
+					overflow:hidden;
+					top:22px;
+					display: none;
+					text-indent: -999em;
+				}
+				
+				.dashFaves li:hover a.remove-fav{
+					display: block;
+				}
+				
+				.dashFaves li a.remove-fav:hover{
+					background-position:left -47px;
+					text-decoration:none;
+					color:#fff;
+					cursor: pointer;
+				}
+				
+				
+				
+				
+.dashFriendGroups {
+	margin-bottom:20px;
+}
+
+	.dashFriendGroups ul, .dashFriendGroups p {
+		padding:10px 0;
+	}
+	
+	.dashFriendGroups ul.dashFriends_pending, .dashFriendGroups ul.dashFriends_requested {
+		border-bottom:1px solid rgba(0,0,0, 0.2);
+		-webkit-box-shadow: 0px 1px 0px rgba(68, 68, 68, 0.5);
+		-moz-box-shadow: 0px 1px 0px rgba(68, 68, 68, 0.5);
+		box-shadow: 0px 1px 0px rgba(68, 68, 68, 0.5);
+	}
+		.dashFriendGroups li {
+			position:relative;
+			clear:both;
+		}
+			.dashFriendGroups li > a {
+				padding:7px 55px 7px 35px;
+				overflow:hidden;
+				display:block;
+				min-height:24px;
+				position:relative;
+				text-decoration:none;
+			}
+			.notMyDashboard .dashFriendGroups li > a {
+				margin-right:0;
+			}
+			.dashFriendGroups li:hover {
+				background:rgba(100,100,100,.2);
+			}
+				.dashFriendGroups img {
+					position:absolute;
+					left:3px;
+					border:2px solid #fff;
+					width:20px;
+				}
+				
+				.dashFriendGroups .dashFriendName {
+					display:inline-block;
+					margin-top:6px;
+					font-weight:bold;
+					color:#00BFF3;
+				}
+				.dashFriendGroups a:hover .dashFriendName {
+					text-decoration:underline;
+				}
+				
+				.dashFriendGroups span {
+					color:#999;
+					font-weight:normal;
+				}
+				.dashFriendGroups a:hover span {
+					text-decoration:none;
+				}
+
+#dashProfile img {
+	width:140px;
+	margin:4px 20px 30px 0;
+	border:1px solid #ddd;
+}
+#dashProfileInfo {
+	width:663px;
+	margin-bottom:10px;
+	margin-left: 30px;
+}
+
+	#dashProfileInfo ul {
+		overflow:hidden;
+	}
+	#dashProfileInfo li {
+		float:left;
+		margin:0 9px 9px 0;
+	}
+#dashIsFriend {
+	color:#aaa;
+	margin-bottom:10px;
+}
+	#dashIsFriend .icon {
+		padding-left:18px;
+		background:url(/img/common/iconsPrivacy.png) no-repeat left -25px;
+	}
+
+h2.header.typeB {
+	padding-bottom:8px;
+	margin:0 0 15px 0;
+}
+	h2.header a {font-size:12px; font-weight:normal; float:right; padding-top:12px;}
+h3 {
+	color:#fff;
+	font-weight:bold;
+	font-size:13px;
+	padding-bottom:7px;
+	border-bottom: 1px solid #000;
+	-webkit-box-shadow: 0px 1px 0px #444;
+	-moz-box-shadow: 0px 1px 0px #444;
+	box-shadow: 0px 1px 0px #444;
+}
+h4 {
+	padding-top:15px;
+}
+
+.content li {
+	color:#ccc;
+}
+
+.dashLoading {
+	text-align:center;
+	padding:10px 0;
+}
+	.dashLoading span {
+		display:inline-block;
+		height:16px;
+		line-height:16px;
+		padding-left:26px;
+		background:url(/img/common/smallGreyLoaderOnDark.gif) no-repeat left center;
+	}
+
+.dashItemTitle {
+	font-weight:bold;
+	margin-top:-2px;
+}
+
+
+.no-touch .dashLanes .editLane, .no-touch .dashLanes .removeLane,
+.no-touch .dashFriends_accepted .removeFriend
+{
+	visibility:hidden;
+}
+.no-touch .dashLanes li:hover .editLane, .no-touch .dashLanes li:hover .removeLane,
+.no-touch .dashFriends_accepted li:hover .removeFriend
+{
+	visibility:visible;
+}
+
+
+.dashX, .dashLanes a.dashX,
+.dashY, .dashLanes a.dashY,
+.dashE, .dashLanes a.dashE,
+.dashXContributor, .dashLanes a.dashXContributor {
+	background:url(/img/common/list-icons.png?v=4) no-repeat top left;
+	position:absolute;
+	right:5px;
+	top:7px;
+	display:block;
+	width:16px;
+	height:16px;
+	min-height:16px;
+	line-height:16px;
+	padding:0;
+	margin:0;
+	text-align:center;
+	font-weight:bold;
+	font-size:10px;
+	border-radius:3px;
+	overflow:hidden;
+	top:22px;
+	text-indent: -999em;
+}
+	a.dashX:hover, .dashLanes a.dashX:hover, .dashFriends a.dashX:hover, .dashLanes a.dashE:hover {
+		background-position:left -47px;
+		text-decoration:none;
+		color:#fff;
+		cursor: pointer;
+	}
+.dashY, .dashLanes a.dashY {
+	background-position:-33px top;
+	right:28px;
+}
+	a.dashY:hover, .dashLanes a.dashY:hover, .dashFriends a.dashY:hover {
+		background-position:-33px -47px;
+		text-decoration:none;
+		color:#fff;
+	}
+.dashE, .dashLanes a.dashE {
+	background-position:-67px top;
+	right:28px;
+	cursor: pointer;
+}
+	a.dashE:hover, .dashLanes a.dashE:hover {
+		background-position:-67px -47px;
+		text-decoration:none;
+		color:#fff;
+	}
+.dashX, .dashY, .dashE {
+	top:13px;
+}
+.dashXContributor, .dashLanes a.dashXContributor {
+	background-position:-141px 0;
+	text-decoration:none;
+}
+	.dashXContributor:hover, .dashLanes a.dashXContributor:hover {
+		background-position:-141px -46px;
+	}
+
+.dashAddFriend, .dashAddFriend:hover {
+	position:absolute;
+	right:5px;
+	top:12px;
+	padding-left:20px;
+}
+	.dashAddFriend .icon, .dashAddFriend:hover .icon {
+		display:block;
+		margin-left:2px;
+		width:13px;
+		height:7px;
+		float:left;
+		overflow:hidden;
+		background-image:url(/img/common/iconsPrivacy.png);
+		background-position:left -29px;
+		background-repeat:no-repeat;
+	}
+
+.dashMineOnly {
+	display:none;
+}
+
+#editServicesLink {float:left; margin-right:0; width:auto; background:none; text-indent:0;}

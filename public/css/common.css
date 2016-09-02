@@ -1,0 +1,1326 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+/* random */
+
+.isEmbeded{
+	display: none !important;
+}
+
+.display-none-important{
+	display: none !important;
+}
+
+.display-block-important{
+	display: block !important;
+}
+
+.display-none{
+	display: none;
+}
+
+.display-block{
+	display: block;
+}
+
+.float-right{
+	float: right;
+}
+
+.float-left{
+	float:left;
+}
+
+.clear {
+	clear:both;
+}
+
+.clearNoHeight {
+	clear:both; overflow: hidden; height: 0; line-height: 0;
+}
+
+.align-center{
+	text-align: center;
+}
+
+.visibility-hidden{ 
+	visibility: hidden; 
+}
+
+.visibility-visible{ 
+	visibility: visible; 
+}
+
+.zeroMarginBottom{
+	margin-bottom: 0;
+}
+
+#unsubscribe-message{
+	margin: 100px auto 0 auto;
+	padding: 20px 40px;
+	font-size: 28px;
+	color: #666666;
+	max-width: 500px;
+	text-shadow: 0px 1px 2px #000;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow:inset 4px 4px 13px -7px #000000;
+	-webkit-box-shadow:inset 4px 4px 13px -7px #000000;
+	box-shadow:inset 4px 4px 13px -7px #000000;
+	background-color: #2B2B2B;
+	text-align: center;
+	line-height: 1.2em;
+	background-image: url(/img/bg/bgpattern.png);
+}
+
+/* float clearing for everyone else */
+.clearfix:after{
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  font-size: 0;
+}
+
+
+/*Text*/
+.text{font-size: 12px; line-height: 19px;}
+.text.typeA{
+	color: #6e6e6e;
+}
+.text.typeB{
+	color: #333;
+}
+.text.typeC{
+	color: #ECECEC;
+}
+.text.typeD{
+	color: #BABABA;
+}
+.text.typeE{
+	color: #A1A1A1;
+	font-size:11px;
+}
+
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ */
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+	outline: none;
+	margin-right: 10px;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 100%;
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: red;
+}
+
+.jspVerticalBar *,
+.jspHorizontalBar *
+{
+	margin: 0;
+	padding: 0;
+}
+
+.jspCap
+{
+	display: block;
+
+}
+
+.jspVerticalBar .jspCap
+{
+	height: 2px;
+}
+
+.jspHorizontalBar .jspCap
+{
+	width: 0px;
+	height: 100%;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	background: #ccc;
+	position: relative;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-moz-box-shadow:inset 4px 4px 10px -7px #000000;
+-webkit-box-shadow:inset 4px 4px 10px -7px #000000;
+box-shadow:inset 4px 4px 10px -7px #000000;
+padding: 1px 0;
+
+}
+
+.jspDrag
+{
+	background: #666;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	margin:0 0 1px 1px;
+	width: 8px;
+	-moz-box-shadow:inset 2px 1px 5px 0px rgba(255%, 255%, 255%, 0.4);
+	-webkit-box-shadow:inset 2px 1px 5px 0px rgba(255%, 255%, 255%, 0.4);
+	box-shadow: inset 2px 1px 5px 0px rgba(255%, 255%, 255%, 0.4);
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{
+	background: #50506d;
+	text-indent: -20000px;
+	display: block;
+	cursor: pointer;
+}
+
+.jspArrow.jspDisabled
+{
+	cursor: default;
+	background: #80808d;
+}
+
+.jspVerticalBar .jspArrow
+{
+	height: 16px;
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Icons */
+
+.calendar-icon{
+	width:14px;
+	height:16px;
+	overflow: hidden;
+	background-image: url(/img/common/list-icons.png?v=4);
+	background-position: -251px 0;
+	background-repeat: no-repeat;
+}
+
+.gear-icon{
+	width:14px;
+	height:16px;
+	overflow: hidden;
+	background-image: url(/img/common/list-icons.png?v=4);
+	background-position: -216px -44px;
+	background-repeat: no-repeat;
+}
+
+.delete-icon{
+	width:14px;
+	height:16px;
+	overflow: hidden;
+	background-image: url(/img/common/list-icons.png?v=4);
+	background-position: -141px -44px;
+	background-repeat: no-repeat;
+}
+
+/* list of service icons used on drawer and dashboard */
+
+/* e.g. <ul class="services-used"><li class="services-used-twitter">Twitter</li><li class="services-used-facebook">Facebook</li></ul> */
+.services-used li {
+	height: 16px;
+	width: 16px;
+	overflow: hidden;
+	background-image: url(/img/common/list-icons.png?v=4);
+	background-position: -251px 0;
+	display: inline-block;
+	text-indent: -999em;
+	margin: 0 5px 5px 0;
+}
+
+/* e.g. <a href="#" class="service-icon twitter-icon">Twitter</a> */
+.service-icon {
+	height: 16px;
+	width: 16px;
+	overflow: hidden;
+	background-image: url(/img/common/list-icons.png?v=4);
+	background-position: -251px 0;
+	display: inline-block;
+	text-indent: -999em;
+}
+
+.services-used li.services-used-twitter, .twitter-icon {background-position: -321px 0;}
+.services-used li.services-used-instagram, .instagram-icon {background-position: -355px 0;}
+.services-used li.services-used-lastfm, .lastfm-icon {background-position: -391px 0;}
+.services-used li.services-used-vimeo, .vimeo-icon {background-position: -426px 0;}
+.services-used li.services-used-flickr, .flickr-icon {background-position: -463px 0;}
+.services-used li.services-used-picasa, .picasa-icon {background-position: -497px 0;}
+.services-used li.services-used-foursquare, .foursquare-icon {background-position: -533px 0;}
+.services-used li.services-used-feed, .feed-icon {background-position: -568px 0;}
+.services-used li.services-used-myspace, .myspace-icon {background-position: -604px 0;}
+.services-used li.services-used-wordpress, .wordpress-icon {background-position: -640px 0;}
+.services-used li.services-used-tripit, .tripit-icon {background-position: -676px 0;}
+.services-used li.services-used-gowalla, .gowalla-icon {background-position: -712px 0;}
+.services-used li.services-used-youtube, .youtube-icon {background-position: -820px 0;}
+.services-used li.services-used-facebook-pages, .facebook-pages-icon {background-position: -856px 0;}
+.services-used li.services-used-facebook, .facebook-icon {background-position: -891px 0;}
+.services-used li.services-used-tumblr, .tumblr-icon {background-position: -929px 0;}
+.services-used li.services-used-soundcloud, .soundcloud-icon {background-position:-999px top;}
+.services-used li.services-used-google-plus, .google-plus-icon {background-position:-1443px top;}
+.services-used li.services-used-mixi, .mixi-icon {background-position:-1479px top;}
+
+
+.small-loader{
+	background-image: url(/img/common/smallLoaderOnWhite.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.small-loader-on-grey{
+	background-image: url(/img/common/smallLoaderOnGrey.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+#ui-datepicker-div {
+border: 1px solid #ccc;
+padding: 10px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+background-color: #fff;
+-webkit-box-shadow: 1px 1px 8px 0px #424242;
+-moz-box-shadow: 1px 1px 8px 0px #424242;
+box-shadow: 1px 1px 1px 0px #424242;
+margin-left:93px;
+z-index: 99999999999999999999999 !important;
+}
+
+a.ui-datepicker-next {
+float: right;
+margin-top: 2px;
+font-weight: bold;
+font-size: 14px;
+cursor: pointer;
+}
+
+.ui-state-hover{
+background-color: #fff;
+}
+
+a.ui-datepicker-prev{
+	float:left;
+	margin-top: 2px;
+font-weight: bold;
+font-size: 14px;
+cursor: pointer;
+}
+
+
+.ui-datepicker-title {
+text-transform: uppercase;
+font-size: 11px;
+text-align: center;
+padding: 2px 0;
+}
+
+.ui-datepicker-title select{
+margin-bottom: 5px;
+}
+
+.ui-datepicker-calendar th {
+color: #777;
+padding: 4px;
+}
+
+.ui-datepicker-calendar td {
+text-align: center;
+padding: 1px;
+}
+
+.ui-datepicker-calendar td.ui-state-disabled {
+background: #FFF;
+}
+
+.ui-datepicker-calendar tbody a {
+text-decoration: none;
+background: #f1f1f1;
+display: block;
+padding: 4px;
+}
+
+.touch .ui-datepicker-calendar tbody a{
+	padding:8px;
+}
+
+.ui-datepicker-calendar tbody td a.ui-state-hover {
+
+background: #fff;
+
+}
+
+.ui-datepicker-buttonpane {
+margin-top: 5px;
+}
+
+button.ui-priority-primary {
+margin-left: 10px;
+}
+
+.no-dd-list-item{
+	padding: 20px 40px !important;
+	font-size: 13px !important;
+	font-weight: bold;
+	color: #b8b8b8;
+	text-shadow: 0px 1px 2px #fff;
+	filter: dropshadow(color=#fff, offx=0, offy=1);
+	text-align: center;
+	line-height: 1.4em !important;
+}
+
+.more-info-icon{
+	background-image: url(/img/common/moreInfoIcon.png);
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	text-indent: -999em;
+	line-height: 16px;
+	margin-left:1px;
+}
+
+/*date and time picker*/
+.AnyTime-pkr *
+{
+    border:0;
+    list-style-type:none;
+    white-space: nowrap;
+}
+
+.AnyTime-win
+{
+    margin-bottom: 0px;
+    position: relative;
+}
+
+/*
+ *  .AnyTime-cloak covers an AnyTime-pkr whenever an AnyTime-yr-selector is placed over
+ *  it.  The picker cannot be accessed until the AnyTime-yr-selector has been
+ *  dismissed (possibly by clicking the AnyTime-cloak). The style usually
+ *  includes a background-color and opacity (and filter for MSIE opacity).
+ */
+
+.AnyTime-pkr .AnyTime-cloak
+{
+	background-color: #fff;
+	background: -moz-linear-gradient(top, #fff 0%, #eee 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#eee));
+}
+
+/*
+ *  .AnyTime-hdr is the title bar at the top of a "window." In addition to
+ *  the title label, the title bar for popup (non-inline) pickers also
+ *  contains .AnyTime-x-btn.
+ */
+
+.AnyTime-pkr .AnyTime-hdr
+{
+  height:1em;
+  margin:0;
+  padding:0;
+}
+
+.AnyTime-pkr > h5
+{
+	display: none;
+}
+
+/*
+ *  .AnyTime-x-btn is a pseudo-button that, when clicked, causes the entire
+ *  picker to disappear (the picker also disappears if the user clicks 
+ *  almost anywhere off of it, or presses ESC).  This is designed to have,
+ *  at minumum, a border and float:right.
+ */
+
+.AnyTime-pkr .AnyTime-x-btn
+{
+  color:#00bff3;
+  cursor:default;
+  float:right;
+  position: absolute;
+  left: 73px;
+  top: 250px
+}
+
+/*
+ *  .AnyTime-btn is a pseudo-button for selection of a format field value.
+ *  Both height and float:left should be specified, but width is usually
+ *  left for different variations to specify (see classes .AnyTime-***-btn).
+ */
+
+.AnyTime-pkr .AnyTime-btn
+{
+  border:1px solid transparent;
+  color:#00bff3;
+  cursor:default;
+  float:left;
+  margin-bottom:1px;
+  margin-right:1px;
+  	height: 17px;
+	line-height: 17px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+/*
+ *  .AnyTime-date contains all content (labels and pseudo-buttons) for selecting
+ *  a date (or part thereof).  It is designed to be float:left and should
+ *  have a small amount of paddding.
+ */
+
+.AnyTime-pkr .AnyTime-date
+{
+  float:left;
+  border-right: 1px solid #e8e8e8;
+  padding-right: 10px;
+}
+
+/*
+ *  .AnyTime-lbl headings appear before each group of pseudo-buttons for a
+ *  particular format field.  Each specific label has a class, also.
+ *  Styles clear:left and height should be specified here.
+ */
+
+.AnyTime-pkr .AnyTime-lbl
+{
+  clear:left;
+  color:#606063;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:100%;
+  font-weight:normal;
+  font-style:normal;
+  height:18px;
+  margin:0;
+  padding:0;
+  text-align:center;
+}
+
+.AnyTime-pkr .AnyTime-lbl-yr,
+.AnyTime-pkr .AnyTime-lbl-mon,
+.AnyTime-pkr .AnyTime-lbl-dom,
+.AnyTime-pkr .AnyTime-lbl-hr,
+.AnyTime-pkr .AnyTime-lbl-min,
+.AnyTime-pkr .AnyTime-lbl-sec
+{
+}
+
+/*
+ *  .AnyTime-yrs contains the year-selection pseudo-buttons.
+ *  A height and width should be specified.
+ */
+
+.AnyTime-pkr .AnyTime-yrs
+{
+  height:2.6em;
+  text-align:center;
+  width:18.6em;
+}
+
+/*
+ *  Following are classes for the pseudo-buttons within .AnyTime-yrs
+ *  A width should be specified for each.
+ */
+
+.AnyTime-pkr .AnyTime-yrs-past-btn
+{
+  width:2.7em;
+}
+
+.AnyTime-pkr .AnyTime-yr-prior-btn,
+.AnyTime-pkr .AnyTime-yr-cur-btn,
+.AnyTime-pkr .AnyTime-yr-next-btn
+{
+  width:3.75em;
+}
+
+.AnyTime-pkr .AnyTime-yrs-ahead-btn
+{
+  width:2.7em;
+}
+
+/*
+ *  .AnyTime-mons
+ *  .AnyTime-mons contains the month-selection pseudo-buttons.
+ *  A height and width should be specified.
+ */
+
+.AnyTime-pkr .AnyTime-mons
+{
+  height:4.8em;
+  text-align:center;
+  width:18.8em;
+}
+
+/*
+ *  .AnyTime-mon-btn is for the pseudo-buttons within .AnyTime-mons
+ *  A width should be specified.
+ *  Each pseudo-button also has a class of its own.
+ */
+
+.AnyTime-pkr .AnyTime-mon-btn
+{
+  width:2.75em;
+}
+
+.AnyTime-pkr .AnyTime-mon1-btn,
+.AnyTime-pkr .AnyTime-mon2-btn,
+.AnyTime-pkr .AnyTime-mon3-btn,
+.AnyTime-pkr .AnyTime-mon4-btn,
+.AnyTime-pkr .AnyTime-mon5-btn,
+.AnyTime-pkr .AnyTime-mon6-btn,
+.AnyTime-pkr .AnyTime-mon8-btn,
+.AnyTime-pkr .AnyTime-mon9-btn,
+.AnyTime-pkr .AnyTime-mon10-btn,
+.AnyTime-pkr .AnyTime-mon11-btn,
+.AnyTime-pkr .AnyTime-mon12-btn
+{
+}
+
+.AnyTime-pkr .AnyTime-mon7-btn
+{
+	clear:left;
+}
+
+
+/*
+ *  .AnyTime-dom-table is the table containing days-of-the-month.
+ *  .AnyTime-dom-head is the table heading, containing days-of-the-week labels.
+ *  tr.AnyTime-dow is the row in the heading.
+ *  td.AnyTime-dow is a column heading; each heading has its own class, also.
+ *  .AnyTime-dom-body is the table heading, containing days-of-the-week labels.
+ *  .AnyTime-wk is a table row, containing pseudo-buttons for days.
+ *  Each week has its own class (.AnyTime-wk***), also.
+ */
+
+.AnyTime-pkr .AnyTime-dom-table
+{
+  border-spacing:1px;
+  width:18.6em;
+}
+
+.AnyTime-pkr .AnyTime-dom-head
+{
+	color: #999;
+	font-size: 11px;
+}
+
+.AnyTime-pkr tr.AnyTime-dow
+{
+}
+
+.AnyTime-pkr th.AnyTime-dow
+{
+
+}
+
+.AnyTime-pkr .AnyTime-dow1,
+.AnyTime-pkr .AnyTime-dow2,
+.AnyTime-pkr .AnyTime-dow3,
+.AnyTime-pkr .AnyTime-dow4,
+.AnyTime-pkr .AnyTime-dow5,
+.AnyTime-pkr .AnyTime-dow6,
+.AnyTime-pkr .AnyTime-dow7
+{
+}
+
+.AnyTime-pkr .AnyTime-dom-body
+{
+}
+
+.AnyTime-pkr .AnyTime-wk
+{
+}
+
+.AnyTime-pkr .AnyTime-wk1,
+.AnyTime-pkr .AnyTime-wk2,
+.AnyTime-pkr .AnyTime-wk3,
+.AnyTime-pkr .AnyTime-wk4,
+.AnyTime-pkr .AnyTime-wk5,
+.AnyTime-pkr .AnyTime-wk6
+{
+}
+
+/*
+ *  .AnyTime-dom-btn is a pseudo-button for a day-of-the-month.
+ *  Styles width, text-align:right and float:none should be specified.
+ *  .AnyTime-dom-btn-filled is a button containing a specific day-of-the-month.
+ *  .AnyTime-dom-btn-empty is a button for an empty cell (no day-of-the-month).
+ *  .AnyTime-dom-btn-empty-above-filled is an empty button above a filled button.
+ *  .AnyTime-dom-btn-empty-before-filled is empty, left of a filled button.
+ *  .AnyTime-dom-btn-empty-after-filled is empty, right of a filled button.
+ *  .AnyTime-dom-btn-empty-below-filled is empty, below a filled button.
+ */
+
+.AnyTime-pkr .AnyTime-dom-btn
+{
+  float:none;
+	height: 18px;
+	line-height: 18px;
+  text-align:center;
+  width: 20px;
+}
+
+.AnyTime-pkr .AnyTime-dom-btn-filled
+{
+}
+
+.AnyTime-pkr .AnyTime-dom-btn-empty
+{
+
+}
+
+.AnyTime-pkr .AnyTime-dom-btn-empty-above-filled,
+.AnyTime-pkr .AnyTime-dom-btn-empty-before-filled,
+.AnyTime-pkr .AnyTime-dom-btn-empty-after-filled,
+.AnyTime-pkr .AnyTime-dom-btn-empty-below-filled
+{
+}
+
+/*
+ *  .AnyTime-time contains all content (labels and pseudo-buttons) for selecting
+ *  a time (or part thereof).  It is designed to be float:left and should
+ *  have a small amount of paddding.
+ */
+
+.AnyTime-pkr .AnyTime-time
+{
+  float:left;
+  text-align:center;
+}
+
+/*
+ *  .AnyTime-hrs contains two columns (.AnyTime-hrs-am and .AnyTime-hrs-pm) of
+ *  pseudo-buttons for selecting hours. It is designed to be float:left, have
+ *  a width and padding.  The columns should each have width and float:left.
+ */
+
+.AnyTime-pkr .AnyTime-hrs
+{
+  float:left;
+  padding-left:0.5em;
+  padding-right:0.5em;
+  text-align:center;
+  width:7.2em;
+}
+
+.AnyTime-pkr .AnyTime-hrs-am,
+.AnyTime-pkr .AnyTime-hrs-pm
+{
+  float:left;
+  width:3.6em;
+}
+
+/*
+ *  .AnyTime-hr-btn is a pseudo-button for selecting an hour.
+ *  Style should include width.
+ *  Each button also has a style of its own. 
+ */
+
+.AnyTime-pkr .AnyTime-hr-btn
+{
+  width:37px; 
+}
+
+.AnyTime-pkr .AnyTime-hr0-btn,
+.AnyTime-pkr .AnyTime-hr1-btn,
+.AnyTime-pkr .AnyTime-hr2-btn,
+.AnyTime-pkr .AnyTime-hr3-btn,
+.AnyTime-pkr .AnyTime-hr4-btn,
+.AnyTime-pkr .AnyTime-hr5-btn,
+.AnyTime-pkr .AnyTime-hr6-btn,
+.AnyTime-pkr .AnyTime-hr7-btn,
+.AnyTime-pkr .AnyTime-hr8-btn,
+.AnyTime-pkr .AnyTime-hr9-btn,
+.AnyTime-pkr .AnyTime-hr10-btn,
+.AnyTime-pkr .AnyTime-hr11-btn,
+.AnyTime-pkr .AnyTime-hr12-btn,
+.AnyTime-pkr .AnyTime-hr13-btn,
+.AnyTime-pkr .AnyTime-hr14-btn,
+.AnyTime-pkr .AnyTime-hr15-btn,
+.AnyTime-pkr .AnyTime-hr16-btn,
+.AnyTime-pkr .AnyTime-hr17-btn,
+.AnyTime-pkr .AnyTime-hr18-btn,
+.AnyTime-pkr .AnyTime-hr19-btn,
+.AnyTime-pkr .AnyTime-hr20-btn,
+.AnyTime-pkr .AnyTime-hr21-btn,
+.AnyTime-pkr .AnyTime-hr22-btn,
+.AnyTime-pkr .AnyTime-hr23-btn
+{
+}
+
+/*
+ *  .AnyTime-mins contains two columns (.AnyTime-mins-tens and .AnyTime-mins-ones)
+ *  of pseudo-buttons for selecting minutes.
+ *  It is designed to be float:left, have a width and padding.
+ *  The columns should each have width and float:left.
+ */
+
+.AnyTime-pkr .AnyTime-mins
+{
+  float:left;
+  padding-left:0.5em;
+  padding-right:0.5em;
+  text-align:center;
+  width:4.7em;
+}
+
+.AnyTime-pkr .AnyTime-mins-tens,
+.AnyTime-pkr .AnyTime-mins-ones
+{
+  float:left;
+  width:2.3em;
+}
+
+/*
+ *  .AnyTime-min-ten-btn is a button in the .AnyTime-mins-tens column.
+ *  .AnyTime-min-one-btn is a button in the .AnyTime-ones-tens column.
+ *  A width should be specified.
+ *  Each button also has its own style.
+ */
+ 
+.AnyTime-pkr .AnyTime-min-ten-btn,
+.AnyTime-pkr .AnyTime-min-one-btn
+{
+  float:left;
+  text-align:center;
+  width:2em;
+}
+
+
+.AnyTime-pkr .AnyTime-min00-btn,
+.AnyTime-pkr .AnyTime-min10-btn, /*etc*/
+.AnyTime-pkr .AnyTime-min0-btn,
+.AnyTime-pkr .AnyTime-min1-btn /*etc*/
+{
+}
+
+/*
+ *  .AnyTime-secs contains two columns (.AnyTime-secs-tens and .AnyTime-secs-ones)
+ *  of pseudo-buttons for selecting seconds.
+ *  It is designed to be float:left, have a width and padding.
+ *  The columns should each have width and float:left.
+ */
+
+.AnyTime-pkr .AnyTime-secs
+{
+  float:left;
+  padding-left:0.5em;
+  padding-right:0.5em;
+  text-align:center;
+  width:4.7em;
+}
+
+.AnyTime-pkr .AnyTime-secs-tens,
+.AnyTime-pkr .AnyTime-secs-ones
+{
+  float:left;
+  width:2.3em;
+}
+
+/*
+ *  .AnyTime-sec-ten-btn is a button in the .AnyTime-secs-tens column.
+ *  .AnyTime-sec-one-btn is a button in the .AnyTime-ones-tens column.
+ *  A width should be specified.
+ *  Each button also has its own style.
+ */
+
+.AnyTime-pkr .AnyTime-sec-ten-btn,
+.AnyTime-pkr .AnyTime-sec-one-btn
+{
+  float:left;
+  text-align:center;
+  width:2em;
+}
+
+.AnyTime-pkr .AnyTime-sec00-btn,
+.AnyTime-pkr .AnyTime-sec10-btn, /*etc*/
+.AnyTime-pkr .AnyTime-sec0-btn,
+.AnyTime-pkr .AnyTime-sec1-btn /*etc*/
+{
+}
+
+
+
+/*
+ *  .AnyTime-offs contains the UTC offset (timezone) selection pseudo-buttons.
+ *  The container is designed to have clear:left, float:left and padding. 
+ *  The two buttons have their own styles, and .AnyTime-off-select-btn should
+ *  include a width.
+ *  The width of the container and the .AnyTime-off-cur-btn should not be
+ *  specified, as they are computed based on the width of the
+ *  .AnyTime-off-select-btn and the .AnyTime-time container.
+ */
+ 
+.AnyTime-pkr .AnyTime-offs
+{
+  clear:left;
+  float:left;
+  padding-left:0.5em;
+  padding-top:0.5em;
+  text-align:center;
+}
+
+.AnyTime-pkr .AnyTime-off-btn,
+.AnyTime-pkr .AnyTime-off-cur-btn
+{
+}
+
+.AnyTime-pkr .AnyTime-off-select-btn
+{
+  width:1.5em;
+}
+
+/*
+ *  .AnyTime-yr-selector is an overlay (popup) for selecting a specific year.
+ *  The picker attempts to size the overlay automatically, based on
+ *  whether "era" buttons are displayed; therefore, do not set width.
+ *  AnyTime-hdr-yr-selector is its title bar. 
+ *  AnyTime-body-yr-selector is its body.
+ */
+
+.AnyTime-pkr .AnyTime-yr-selector
+{
+margin-left:150px;
+padding: 15px;
+}
+
+.AnyTime-pkr .AnyTime-hdr-yr-selector h5
+{
+	display: block;
+}
+
+.AnyTime-pkr .AnyTime-body-yr-selector
+{
+  padding:1em;	
+}
+
+/*
+ *  .AnyTime-yr-mil is the column of millenium-selector pseudo-buttons.
+ *  .AnyTime-yr-cent is the column of century-selector pseudo-buttons.
+ *  .AnyTime-yr-dec is the column of decade-selector pseudo-buttons.
+ *  .AnyTime-yr-yr is the column of year-selector pseudo-buttons.
+ *  A width and float:left should be specified for each.
+ *
+ *  .AnyTime-mil-btn is a millenium-selector button.
+ *  .AnyTime-cent-btn is a century-selector button.
+ *  .AnyTime-dec-btn is a decade-selector button.
+ *  .AnyTime-yr-btn is a year-selector button.
+ *  Each button has its own class, also.
+ */
+
+.AnyTime-pkr .AnyTime-yr-mil,
+.AnyTime-pkr .AnyTime-yr-cent,
+.AnyTime-pkr .AnyTime-yr-dec,
+.AnyTime-pkr .AnyTime-yr-yr
+{
+  float:left;
+  width:2.5em;
+}
+
+.AnyTime-pkr .AnyTime-mil-btn,
+.AnyTime-pkr .AnyTime-cent-btn,
+.AnyTime-pkr .AnyTime-dec-btn,
+.AnyTime-pkr .AnyTime-yr-btn
+{
+  float:left;
+  text-align:center;
+  width:2em;
+}
+
+.AnyTime-pkr .AnyTime-mil0-btn,
+.AnyTime-pkr .AnyTime-mil1-btn, /* etc */
+.AnyTime-pkr .AnyTime-cent0-btn,
+.AnyTime-pkr .AnyTime-cent1-btn, /* etc */
+.AnyTime-pkr .AnyTime-dec0-btn,
+.AnyTime-pkr .AnyTime-dec1-btn, /* etc */
+.AnyTime-pkr .AnyTime-yr0-btn,
+.AnyTime-pkr .AnyTime-yr1-btn /* etc */
+{
+}
+
+/*
+ *  .AnyTime-yr-era contains the column of era-selection pseudo-buttons.
+ *  A width and float:left should be specified.
+ *  Each era button has class .AnyTime-era-btn (with width) as well as
+ *  its own class.
+ */
+
+.AnyTime-pkr .AnyTime-yr-era
+{
+  float:left;
+  padding-left:1em;
+  width:4.1em;
+}
+
+.AnyTime-pkr .AnyTime-era-btn
+{
+  text-align:center;
+  width:3em;
+}
+
+.AnyTime-pkr .AnyTime-bce-btn,
+.AnyTime-pkr .AnyTime-ce-btn
+{
+}
+
+
+/*
+ *  .AnyTime-off-selector is an overlay (popup) for selecting a specific year.
+ *  The picker attempts to size the overlay automatically, based on
+ *  its contents; therefore, do not set width.
+ *  .AnyTime-hdr-off-selector is its title bar. 
+ *  .AnyTime-body-off-selector is its body.
+ *  .AnyTime-off-off is the column of offset-selector pseudo-buttons.
+ *  .AnyTime-off-off-btn is an offset-selector pseudo-button.
+ *  .AnyTime-off-off-last-btn is the last offset-selector pseudo-button.
+ */
+
+.AnyTime-pkr .AnyTime-off-selector
+{
+}
+
+.AnyTime-pkr .AnyTime-hdr-off-selector
+{
+}
+
+.AnyTime-pkr .AnyTime-body-off-selector
+{
+  margin:0.5em;  
+}
+.AnyTime-pkr .AnyTime-off-off
+{
+}
+
+.AnyTime-pkr .AnyTime-off-off-btn
+{
+  clear:left;
+  padding-left:1em;
+  padding-right:1em;
+  text-align:left;
+}
+
+.AnyTime-pkr .AnyTime-off-off-last-btn
+{
+}
+
+/*
+ *  .AnyTime-cur-btn is applied to every pseudo-button that represents
+ *  a currently-selected value.  They should stand out from the other
+ *  buttons, using a different background-color, border, color, font,
+ *  font-style and/or font-weight.  Note that color alone is not
+ *  sufficient for color-blind users to differentiate the buttons.
+ */
+
+.AnyTime-pkr .AnyTime-cur-btn
+{
+  color:#666;
+  background-color: #ffffcc;
+  font-weight: bold;
+}
+
+/*
+ *  .AnyTime-out-btn is applied to every pseudo-button that represents
+ *  a value that should not be selected because it would make the value.
+ *  out-of-range.  Typically, this is to give it a "grayed-out" appearance.
+ *  Note that color alone is not sufficient for color-blind users to
+ *  differentiate the buttons, but since there's no harm in pressing these
+ *  buttons, it's probably no big deal.  
+ */
+
+.AnyTime-pkr .AnyTime-out-btn
+{
+    background-color:#F0F0F1;
+    border:1px solid #C0C0c1;
+}
+
+/*
+ *  .AnyTime-focus-btn is applied to the single pseudo-button that appears to
+ *  have keyboard focus.  It should stand out from all other buttons,
+ *  using a different background-color, border, color, font, font-style
+ *  and/or font-weight.  Note that color alone is not sufficient for
+ *  color-blind users to differentiate the button.  Because most UIs
+ *  represent focus using a dashed or dotted border, this is recommended.
+ */
+
+.AnyTime-pkr .AnyTime-focus-btn
+{
+  cursor: default;
+}
+
+/*
+ *  END OF FILE
+ */
+ 
+#memoDateInput{
+	height: 0;
+	width: 0;
+	border:0;
+}
+
+.AnyTime-hdr-yr-selector{
+	text-align: center;
+}
+
+/*tag editor*/
+
+.text-core {
+  position: relative;
+  background: #fff;
+  	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+
+}
+.text-core .text-wrap {
+  position: absolute;
+}
+.text-core .text-wrap textarea,
+.text-core .text-wrap input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+	font-size:11px;
+	font-weight:normal;
+	color:#333;
+  outline: none;
+  resize: none;
+  position: absolute;
+  z-index: 1;
+  background: none;
+  overflow: hidden;
+  margin: 0;
+  padding: 5px 5px 4px 5px;
+  white-space: nowrap;
+  height: auto;
+  	border:1px solid #ddd;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	line-height: 16px;
+}
+
+.text-core .text-wrap .text-prompt {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 3px 0 0 3px;
+  font-size: 11px;
+  color: #c0c0c0;
+  overflow: hidden;
+  white-space: pre;
+}
+.text-core .text-wrap .text-prompt.text-hide-prompt {
+  display: none;
+}
+
+.text-core .text-wrap .text-tags {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 3px 35px 3px 3px;
+  cursor: text;
+}
+.text-core .text-wrap .text-tags.text-tags-on-top {
+  z-index: 2;
+}
+.text-core .text-wrap .text-tags .text-tag {
+  float: left;
+}
+.text-core .text-wrap .text-tags .text-tag .text-button {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  background: #D1D1D1;
+  color: #484848;
+  padding: 0px 17px 0px 3px;
+  margin: 2px 1px 2px 2px;
+  cursor: pointer;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+
+
+.text-core .text-wrap .text-tags .text-tag .text-button a.text-remove {
+  position: absolute;
+right: 0px;
+top: 1px;
+display: block;
+width: 11px;
+height: 11px;
+font-size: 9px;
+font-weight: bold;
+color: #999;
+}
+
+.text-core .text-wrap .text-tags .text-tag .text-button a.text-remove:hover {
+color: #000;
+}
+
+.text-core .text-wrap .text-tags .text-tag .text-button a.text-remove:before {
+  content: 'X';
+}
+
+
+.text-core .text-wrap .text-tags .text-tag .text-button a.text-remove:hover {
+  background-position: 0 -11px;
+}
+.text-core .text-wrap .text-tags .text-tag .text-button a.text-remove:active {
+  background-position: 0 -22px;
+}
+
+/*mini color*/
+
+.miniColors-trigger {
+	height: 22px;
+	width: 22px;
+	background: url(/img/common/trigger.png) center no-repeat;
+	vertical-align: middle;
+	margin: 0 .25em;
+	display: inline-block;
+	outline: none;
+}
+
+.miniColors-selector {
+	position: absolute;
+	width: 175px;
+	height: 150px;
+	background: #FFF;
+	border: solid 1px #BBB;
+	-moz-box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+	box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 5px;
+	z-index: 999999;
+}
+
+.miniColors-selector.black {
+	background: #000;
+	border-color: #000;
+}
+
+.miniColors-colors {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 150px;
+	height: 150px;
+	background: url(/img/common/gradient.png) center no-repeat;
+	cursor: crosshair;
+}
+
+.miniColors-hues {
+	position: absolute;
+	top: 5px;
+	left: 160px;
+	width: 20px;
+	height: 150px;
+	background: url(/img/common/rainbow.png) center no-repeat;
+	cursor: crosshair;
+}
+
+.miniColors-colorPicker {
+	position: absolute;
+	width: 11px;
+	height: 11px;
+	background: url(/img/common/circle.gif) center no-repeat;
+}
+
+.miniColors-huePicker {
+	position: absolute;
+	left: -3px;
+	width: 26px;
+	height: 3px;
+	background: url(/img/common/line.gif) center no-repeat;
+}

@@ -1,0 +1,75 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+/* for ie 8 */
+html{
+	background:#f1f0f1;
+}
+body{
+	background:none;
+}
+#header {
+	background:#333 url(/img/bg/spotlight.jpg) no-repeat center top;
+}
+
+/* for everything but IE 8 */
+html.multiplebgs{
+	background:#f1f0f1;
+}
+.multiplebgs body{
+	background:none;
+}
+.multiplebgs body #header{
+	background-color: #333;
+	background-image: url(/img/bg/bgpattern.png),url(/img/bg/spotlight.jpg);
+	background-repeat: repeat, no-repeat;
+	background-position: left top, center 0;
+}
+
+
+#content {
+	width:100%;
+	background-color:#f1f0f1;
+	visibility:visible;
+	padding-top:35px;
+	padding-bottom:10px;
+	-moz-box-shadow:inset 0px 8px 5px -7px #333;
+	-webkit-box-shadow:inset 0px 8px 5px -7px #333;
+	box-shadow:inset 0px 8px 5px -7px #333;
+	text-align:center;
+	border-bottom: 2px solid #000;
+	
+	margin-top:0;
+	margin-bottom:0;
+	border:0;
+	border-radius:0;
+}
+	#innerContent {
+		text-align:left;
+		margin:0 auto 30px auto;
+		width:760px;
+		border:1px solid #ddd;
+		border-radius:10px;
+		padding:20px 25px;
+		overflow:hidden;
+		box-shadow:0 0 0 1px #fff;
+		background:#eee;
+	}

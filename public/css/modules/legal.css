@@ -1,0 +1,52 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+/* ------------- Legal and privacy -------------- */
+
+#mainLegalContent h3, #mainLegalContent h4 {
+	color: #333;
+	font-family: Arial, sans-serif;
+}
+
+#mainLegalContent h4 {
+    font-size: 15px;
+    margin: 20px 0;
+}
+
+
+#mainLegalContent{font-family:"Helvetica Neue", Arial, Helvetica, sans-serif; background-color:#fff; padding:15px; border-radius:4px; margin:0 auto 30px auto; width:700px; min-width: 400px; }
+  #mainLegalContent h3{ margin: 0px; color:#000; font-size: 28px; }
+  #mainLegalContent h4{}
+  
+  #mainLegalContent p{ font-size: 12px; line-height: 18px; margin-left: 15px; color: #000; }
+  
+  #mainLegalContent ul{font-size: 12px;  margin-left: 15px; color: #000;}
+  #mainLegalContent li{line-height: 18px; padding:10px 0 10px 0; color: #000;}
+  .date{
+    font-size: 10px;
+    font-style: italic;
+    padding: 5px 0 5px 0;
+    display: block;
+    color: #777;
+  }
+  
+  #mainLegalContent ol{font-size: 12px;  margin-left: 15px; color: #000; }
+  #mainLegalContent ol li{line-height: 18px; padding:10px 0 10px 0; color: #000;}

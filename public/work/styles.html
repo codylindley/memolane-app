@@ -1,0 +1,564 @@
+<!doctype html>
+
+<!--[if IE 8]> <html class="ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	   Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Memolane | Styles</title>
+	
+	<meta name="title" content="Memolane | See, search, and share your life" />
+	<meta name="description" content="Keep your memories alive. Capture photos, music, tweets, posts, and much more. View and share your entire online life in one place. Explore and search your history. One timeline, a million memories." />
+	
+	<!-- Tablet Optimized -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
+	<!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	<!-- CSS: implied media="all" -->
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/defaults.css">
+	<link rel="stylesheet" href="/css/common.css">
+	<link rel="stylesheet" href="/css/modules/dialogs.css">
+	<link rel="stylesheet" href="/css/modules/header.css">
+	<link rel="stylesheet" href="/css/modules/memos.css">
+	<link rel="stylesheet" href="/css/modules/drawer.css">
+	<link rel="stylesheet" href="/css/modules/headings.css">
+	<link rel="stylesheet" href="/css/modules/buttons.css">
+	<link rel="stylesheet" href="/css/modules/timeline.css">
+	<link rel="stylesheet" href="/css/modules/lane.css">
+	<link rel="stylesheet" href="/css/modules/laneNavBtns.css">
+	<link rel="stylesheet" href="/css/modules/tooltips.css">
+	<link rel="stylesheet" href="/css/modules/notifications.css">
+	<link rel="stylesheet" href="/css/modules/validation.css">
+	<link rel="stylesheet" href="/css/modules/buttonBars.css">
+	
+	<style type="text/css">
+		html, body {overflow:auto; height:auto; background:#f8f8f8;}
+		.bgDark{
+			padding:20px;
+			background-color: #333;
+			background-image: url(..//img/bg/bgpattern.png),url(..//img/bg/spotlight.jpg);
+			background-repeat: repeat, no-repeat;
+			background-position: left top, center top;
+		}
+		#styleContent{margin: 20px;}
+		.type-label{ display: block; margin: 40px 0px 15px 0px; font-size: 11px; color: #666; padding-bottom: 3px; border-bottom: 1px solid #aaa; }
+		
+		#gravity { width: 100%; margin: 5px 0; border-spacing: 5px; }
+  #gravity td { text-align: center; vertical-align: middle; padding: 5px 0; width: 33%; }
+
+	</style>
+	
+	
+  	
+	
+	<!-- Memolane namespace -->
+	<script type="text/javascript">
+	/*-----------------------------
+	setup application namespace
+	-----------------------------*/
+	window.memolane = {};
+	//setup shortcut
+	window.m = memolane;
+	</script>
+
+
+</head>
+
+<body ontouchmove="function(event){event.preventDefault()}">
+<div id="styleContent">
+
+	<span class="type-label">Headers</span>
+
+
+	<h1 class="header typeA">header typeA 24px #3e3e3e</h1>
+	<h1 class="header typeD">header typeD 13px #000</h1>
+	<h1 class="header typeE">header typeE 13px #3e3e3e</h1>
+	<h1 class="header typeF">header typeF 13px #1d1d1d</h1>
+	<h1 class="header typeI">header typeI 11px #787878</h1>
+	<h1 class="header typeJ">header typeJ 18px #3e3e3e</h1>
+	
+
+	<div class="bgDark">
+		<h1 class="header typeB">header typeB 24px #fefefe</h1>
+		<h1 class="header typeC">header typeC 16px #fefefe</h1>
+		<h1 class="header typeG">header typeG 12px #fefefe</h1>
+		<h1 class="header typeH">header typeH 12px #fefefe</h1>
+	</div>
+	
+	<span class="type-label">Text (e.g. Used on paragraphs showing links for paragraphs)</span>
+	
+	<p class="text typeA">#6e6e6e typeA Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever <a href="#">since</a> <a href="#">the</a> 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+	<p class="text typeB">#333 typeB Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text <a href="#">ever</a> since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type s===ecimen book. It has survived not only five centuries</p>
+	<p class="text typeE last">#A1A1A1 typeE Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text <a href="#">ever</a> since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type s===ecimen book. It has survived not only five centuries</p>
+	
+	<br /><br />
+
+	<div class="bgDark">
+		<p class="text typeC">#ECECEC typeC Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+		<p class="text typeD">#BABABA typeD Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummmy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
+		<p class="text typeE last">#A1A1A1 typeE Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text <a href="#">ever</a> since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type s===ecimen book. It has survived not only five centuries</p>
+	</div>
+	
+	<span class="type-label">Links</span>
+	<a class="link" href="#">Link Text</a>
+	<br /><br />
+	<div class="bgDark">
+		<a class="link" href="#">Link Text</a>
+	</div>
+	
+	
+	<span class="type-label">Small Buttons</span>
+	<ul>
+		<li style="margin-bottom:10px;"><a class="sml-btn-yellow" href="#">Yellow Button</a></li>
+		<li style="margin-bottom:10px;"><a class="sml-btn-grey" href="#">Grey Button</a></li>
+		<li style="margin-bottom:10px;"><a class="sml-btn-green" href="#">Green Button</a></li>
+		<li style="margin-bottom:10px;"><a class="sml-btn-blue" href="#">Blue Button</a></li>
+		<li style="margin-bottom:10px;"><a class="sml-btn-black" href="#">Black Button</a></li>
+	</ul>
+	
+	<div class="bgDark">
+		<ul>
+			<li style="margin-bottom:10px;"><a class="sml-btn-yellow" href="#">Yellow Button</a></li>
+			<li style="margin-bottom:10px;"><a class="sml-btn-grey" href="#">Grey Button</a></li>
+			<li style="margin-bottom:10px;"><a class="sml-btn-green" href="#">Green Button</a></li>
+			<li style="margin-bottom:10px;"><a class="sml-btn-blue" href="#">Blue Button</a></li>
+			<li style="margin-bottom:10px;"><a class="sml-btn-black" href="#">Black Button</a></li>
+		</ul>
+	</div>
+	
+	
+	<span class="type-label">Small Buttons - Using &lt;button&gt; element</span>
+	<ul>
+		<li><button class="sml-btn-yellow">Small Yellow Button &#60;button&#62;</button><br /><br /></li>
+		<li><button class="sml-btn-yellow hover">Small Yellow Button hovered &#60;button&#62;</button><br /><br /></li>
+	</ul>
+	
+	<span class="type-label">Small Buttons - Using &lt;input type="button"&gt; element</span>
+	<ul>
+		<li><input type="button" class="sml-btn-yellow" value="Small Yellow Button &#60;input&#62;" /><br /><br /></li>
+		<li><input type="button" class="sml-btn-yellow hover" value="Small Yellow Button hovered &#60;input&#62;" /><br /><br /></li>
+	</ul>
+	
+	
+	<span class="type-label">Small Buttons with Icon</span>
+	<ul>
+		<li style="margin-bottom:10px;"><a class="sml-btn-yellow" href="#"><span class="icon"></span>Make Favorite</a></li>
+		<li style="margin-bottom:10px;"><a class="sml-btn-black" href="#"><span class="icon"></span>Favorited!</a></li>
+		<li style="margin-bottom:10px;"><a class="sml-btn-blue" href="#"><span class="icon"></span>Share</a></li>
+	</ul>
+	
+	<div class="bgDark">
+		<ul>
+			<li style="margin-bottom:10px;"><a class="sml-btn-yellow" href="#"><span class="icon"></span>Make Favorite</a></li>
+			<li style="margin-bottom:10px;"><a class="sml-btn-black" href="#"><span class="icon"></span>Favorited!</a></li>
+			<li style="margin-bottom:10px;"><a class="sml-btn-blue" href="#"><span class="icon"></span>Share</a></li>
+		</ul>
+	</div>
+	
+	
+	<span class="type-label">Buttons</span>
+	<ul>
+		<li><a href="#" class="btn-blue">Blue Button &#60;a&#62;</a><br /><br /></li>
+		<li><a href="#" class="btn-blue inactive">Blue Button inactive &#60;a&#62;</a><br /><br /></li>
+		<li><a href="#" class="btn-blue active">Blue Button active &#60;a&#62;</a><br /><br /></li>
+		<li><a href="#" class="btn-light-blue">Light Blue Button &#60;a&#62;</a><br /><br /></li>
+		<li><a href="#" class="btn-light-blue inactive">Light Blue Button inactive &#60;a&#62;</a><br /><br /></li>
+		<li><a href="#" class="btn-light-blue active">Light Blue Button active &#60;a&#62;</a><br /><br /></li>
+		<li><a href="#" class="btn-green">Green Button</a><br /><br /></li>
+		<li><a href="#" class="btn-green inactive">Green Button inactive </a><br /><br /></li>
+		<li><a href="#" class="btn-green active">Green Button active</a><br /><br /></li>
+		<li><a href="#" class="btn-orange">Orange Button</a><br /><br /></li>
+		<li><a href="#" class="btn-orange inactive">Orange Button inactive </a><br /><br /></li>
+		<li><a href="#" class="btn-orange active">Orange Button active</a><br /><br /></li>
+		<li><a href="#" class="btn-red">Red Button</a><br /><br /></li>
+		<li><a href="#" class="btn-red inactive">Red Button inactive </a><br /><br /></li>
+		<li><a href="#" class="btn-red active">Red Button active</a><br /><br /></li>
+		<li><a href="#" class="btn-purple">Purple Button</a><br /><br /></li>
+		<li><a href="#" class="btn-purple inactive">Purple Button inactive </a><br /><br /></li>
+		<li><a href="#" class="btn-purple active">Purple Button active</a><br /><br /></li>
+		<li><a href="#" class="btn-grey">Grey Button</a><br /><br /></li>
+		<li><a href="#" class="btn-grey inactive">Grey Button inactive </a><br /><br /></li>
+		<li><a href="#" class="btn-grey active">Grey Button active</a><br /><br /></li>
+	</ul>
+	
+	<span class="type-label">Buttons - Using &lt;button&gt; element</span>
+	<ul>
+		<li><button class="btn-blue">Blue Button &#60;button&#62;</button><br /><br /></li>
+		<li><button class="btn-blue inactive">Blue Button inactive &#60;button&#62;</button><br /><br /></li>
+		<li><button class="btn-blue active">Blue Button active&#60;button&#62;</button><br /><br /></li>
+	</ul>
+	
+	<span class="type-label">Buttons - Using &lt;input type="button"&gt; element</span>
+	<ul>
+		<li><input type="button" class="btn-blue" value="Blue Button &#60;input&#62;" /><br /><br /></li>
+		<li><input type="button" class="btn-blue inactive" value="Blue Button inactive &#60;input&#62;" /><br /><br /></li>
+		<li><input type="button" class="btn-blue active" value="Blue Button active &#60;input&#62;" /><br /><br /></li>
+	</ul>
+	
+	<div class="bgDark">
+		<ul>
+			<li><a href="#" class="btn-blue">Blue Button &#60;a&#62;</a><br /><br /></li>
+			<li><a href="#" class="btn-blue inactive">Blue Button inactive &#60;a&#62;</a><br /><br /></li>
+			<li><a href="#" class="btn-blue active">Blue Button active &#60;a&#62;</a><br /><br /></li>
+			<li><a href="#" class="btn-light-blue">Light Blue Button &#60;a&#62;</a><br /><br /></li>
+			<li><a href="#" class="btn-light-blue inactive">Light Blue Button inactive &#60;a&#62;</a><br /><br /></li>
+			<li><a href="#" class="btn-light-blue active">Light Blue Button active &#60;a&#62;</a><br /><br /></li>
+			<li><a href="#" class="btn-green">Green Button</a><br /><br /></li>
+			<li><a href="#" class="btn-green inactive">Green Button inactive </a><br /><br /></li>
+			<li><a href="#" class="btn-green active">Green Button active</a><br /><br /></li>
+			<li><a href="#" class="btn-orange">Orange Button</a><br /><br /></li>
+			<li><a href="#" class="btn-orange inactive">Orange Button inactive </a><br /><br /></li>
+			<li><a href="#" class="btn-orange active">Orange Button active</a><br /><br /></li>
+			<li><a href="#" class="btn-red">Red Button</a><br /><br /></li>
+			<li><a href="#" class="btn-red inactive">Red Button inactive </a><br /><br /></li>
+			<li><a href="#" class="btn-red active">Red Button active</a><br /><br /></li>
+			<li><a href="#" class="btn-purple">Purple Button</a><br /><br /></li>
+			<li><a href="#" class="btn-purple inactive">Purple Button inactive </a><br /><br /></li>
+			<li><a href="#" class="btn-purple active">Purple Button active</a><br /><br /></li>
+			<li><a href="#" class="btn-grey">Grey Button</a><br /><br /></li>
+			<li><a href="#" class="btn-grey inactive">Grey Button inactive </a><br /><br /></li>
+			<li><a href="#" class="btn-grey active">Grey Button active</a><br /><br /></li>
+		</ul>
+		
+		<span class="type-label">Buttons - Using &lt;button&gt; element</span>
+		<ul>
+			<li><button class="btn-blue">Blue Button &#60;button&#62;</button><br /><br /></li>
+			<li><button class="btn-blue inactive">Blue Button inactive &#60;button&#62;</button><br /><br /></li>
+			<li><button class="btn-blue active">Blue Button active&#60;button&#62;</button><br /><br /></li>
+		</ul>
+		
+		<span class="type-label">Buttons - Using &lt;input type="button"&gt; element</span>
+		<ul>
+			<li><input type="button" class="btn-blue" value="Blue Button &#60;input&#62;" /><br /><br /></li>
+			<li><input type="button" class="btn-blue inactive" value="Blue Button inactive &#60;input&#62;" /><br /><br /></li>
+			<li><input type="button" class="btn-blue active" value="Blue Button active &#60;input&#62;" /><br /><br /></li>
+		</ul>
+	</div>
+	
+	<span class="type-label">Forms</span>
+	
+	<form action="" enctype="multipart/form-data" onsubmit="return false;">
+	    <fieldset>
+	      <p>Each checkbox and radio input gets its OWN &lt;label&gt; (i.e. one &lt;label&gt; cannot contain more than one), as per the HTML spec.</p>
+	      
+	      <label><input type="checkbox" name="someVar" value="1" /> checkbox label 1</label>
+	      <label><input type="checkbox" name="someVar" value="2" /> checkbox label 2</label>
+	      <label><input type="checkbox" name="someVar" value="3" /> checkbox label 3</label>
+	      <br /><br />
+	      <label><input type="radio" name="someOtherVar" value="a" /> radio label 1</label>
+	      <label><input type="radio" name="someOtherVar" value="b" /> radio label 2</label>
+	      <label><input type="radio" name="someOtherVar" value="c" /> radio label 3</label>
+	    </fieldset>
+	    
+	    <fieldset>
+	      <label>
+		Select drop-down
+		<select>
+		  <optgroup label="Group 1">
+		    <option value="1">Some text goes here</option>
+		    <option value="2">Another choice could be here</option>
+		    <option value="3">Yet another item to be chosen</option>
+		  </optgroup>
+		  <optgroup label="Group 2">
+		    <option value="4">Some text goes here</option>
+		    <option value="5">Another choice could be here</option>
+		    <option value="6">Yet another item to be chosen</option>
+		  </optgroup>
+		  <optgroup label="Group 3">
+		    <option value="7">Some text goes here</option>
+		    <option value="8">Another choice could be here</option>
+		    <option value="9">Yet another item to be chosen</option>
+		  </optgroup>
+		</select>
+	      </label>
+	    </fieldset>
+	    
+	    <fieldset>
+		<p>We are NOT using HTML5's placeholder attribute because of the poor browser compatibility &amp; consistency.  Instead, use "data-placeholder".</p>
+		<label>
+		    Text Input <span class="formHelpText">This is help text</span>
+		    <input type="text" data-placeholder="Placeholder text" />
+		</label>
+		<label>
+		    Textarea <span class="requiredIndicator">*</span>
+		    <textarea id="textarea" name="" rows="5" data-placeholder="Placeholder text"></textarea>
+		</label>
+	    </fieldset>
+      </form>
+      
+      
+      <div class="bgDark">
+	<form action="" enctype="multipart/form-data" onsubmit="return false;">
+	    <fieldset>
+	      <p>Each checkbox and radio input gets its OWN &lt;label&gt; (i.e. one &lt;label&gt; cannot contain more than one), as per the HTML spec.</p>
+	      
+	      <label><input type="checkbox" name="someVar" value="1" /> checkbox label 1</label>
+	      <label><input type="checkbox" name="someVar" value="2" /> checkbox label 2</label>
+	      <label><input type="checkbox" name="someVar" value="3" /> checkbox label 3</label>
+	      <br /><br />
+	      <label><input type="radio" name="someOtherVar" value="a" /> radio label 1</label>
+	      <label><input type="radio" name="someOtherVar" value="b" /> radio label 2</label>
+	      <label><input type="radio" name="someOtherVar" value="c" /> radio label 3</label>
+	    </fieldset>
+	    
+	    <fieldset>
+	      <label>
+		Select drop-down
+		<select>
+		  <optgroup label="Group 1">
+		    <option value="1">Some text goes here</option>
+		    <option value="2">Another choice could be here</option>
+		    <option value="3">Yet another item to be chosen</option>
+		  </optgroup>
+		  <optgroup label="Group 2">
+		    <option value="4">Some text goes here</option>
+		    <option value="5">Another choice could be here</option>
+		    <option value="6">Yet another item to be chosen</option>
+		  </optgroup>
+		  <optgroup label="Group 3">
+		    <option value="7">Some text goes here</option>
+		    <option value="8">Another choice could be here</option>
+		    <option value="9">Yet another item to be chosen</option>
+		  </optgroup>
+		</select>
+	      </label>
+	    </fieldset>
+	    
+	    <fieldset>
+		<p>We are NOT using HTML5's placeholder attribute because of the poor browser compatibility &amp; consistency.  Instead, use "data-placeholder".</p>
+		<label>
+		    Text Input <span class="formHelpText">This is help text</span>
+		    <input type="text" data-placeholder="Placeholder text" />
+		</label>
+		<label>
+		    Textarea <span class="requiredIndicator">*</span>
+		    <textarea id="textarea" name="" rows="5" data-placeholder="Placeholder text"></textarea>
+		</label>
+	    </fieldset>
+	</form>
+      </div>
+      
+    <span class="type-label">Validation for forms</span>
+    
+    <form method="get" action="" id="validate">
+            <label>Name:</label>
+            <input type="text" id="name" name="name" />
+
+            <label>Bio:</label>
+            <textarea id="bio" name="bio"></textarea>
+
+            <input type="submit" title="submit" />
+   </form>
+
+      
+    <span class="type-label">Dialogs</span>
+    
+    <div id="" class="memolaneDialog" >
+    	<div class="dialogTopBar">
+		    	<div class="dialogTitle">Title</div>
+		    	<div class="close closeMemolaneDialog">close</div>
+		    	<div class="clearFloatNoHeight"></div>
+    	</div>
+    	<div class="dialogContent">
+		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    	</div>
+   </div>
+   <br /><br />
+   <div class="bgDark" style="padding:30px;">
+		<div id="" class="memolaneDialog" >
+		<div class="dialogTopBar">
+		    	<div class="dialogTitle">Title</div>
+		    	<div class="close closeMemolaneDialog">close</div>
+		    	<div class="clearFloatNoHeight"></div>
+		</div>
+		<div class="dialogContent">
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		</div>
+		</div>
+   </div>
+   
+   <span class="type-label">Tooltips</span>
+   
+   <table id='gravity' cellspacing='5'>
+  <tr>
+    <td>
+      <a class='north-west' href='#' title='This is an example of north-west gravity'>Northwest</a>
+    </td>
+    <td>
+      <a class='north' href='#' title='<p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity</p>'>North</a>
+    </td>
+    <td>
+      <a class='north-east' href='#' title='This is an example of north-east gravity'>Northeast</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a class='west' href='#' title='This is an example of west gravity'>West</a>
+    </td>
+    <td>&nbsp;</td>
+    <td>
+      <a class='east' href='#' title='This is an example of east gravity'>East</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a class='south-west' href='#' title='This is an example of south-west gravity'>Southwest</a>
+    </td>
+    <td>
+      <a class='south' href='#' title='<p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity</p>'>South</a>
+    </td>
+    <td>
+      <a class='south-east' href='#' title='This is an example of south-east gravity'>Southeast</a>
+    </td>
+  </tr>
+</table>
+
+   <div class="bgDark" style="padding:30px;">
+   
+      <table id='gravity' cellspacing='5'>
+  <tr>
+    <td>
+      <a class='north-west' href='#' title='This is an example of west gravity'>Northwest</a>
+    </td>
+    <td>
+      <a class='north' href='#' title='<p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity</p>'>North</a>
+    </td>
+    <td>
+      <a class='north-east' href='#' title='This is an example of north-east gravity'>Northeast</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a class='west' href='#' title='This is an example of west gravity'>West</a>
+    </td>
+    <td>&nbsp;</td>
+    <td>
+      <a class='east' href='#' title='This is an example of east gravity'>East</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a class='south-west' href='#' title='This is an example of south-west gravity'>Southwest</a>
+    </td>
+    <td>
+      <a class='south' href='#' title='<p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity with html and with auto detection for bottom of page!</p><p>This is an example of north-west gravity</p>'>South</a>
+    </td>
+    <td>
+      <a class='south-east' href='#' title='This is an example of south-east gravity'>Southeast</a>
+    </td>
+  </tr>
+</table>
+
+   </div>
+   
+   <span class="type-label">Notifications</span>
+   <div style="position:relative;max-width:475px;">
+   <div class="notifications goodnews-notice"><div class="notice-text">This is a test with a very long name This is a test with a very long nameThis is a test with a very long nameThis is a test with a very long nameThis is a test with a very long nameThis is a test with a very long nameThis is a test with a very long nameThis is a test with a very long name<a href="#" class="close-notice">X</a></div></div>
+<br />
+<div class="notifications badnews-notice"><div class="notice-text">This is a test with a very long nameThis is a test with a very long nameThis is a test with a very long name<a href="#" class="close-notice">X</a></div></div>
+<br />
+<div class="notifications warningnews-notice"><div class="notice-text">This is a test<a href="#" class="close-notice">X</a></div></div>
+<br />
+<div class="notifications neturalnews-notice"><div class="notice-text">This is a test with a very long name<a href="#" class="close-notice">X</a></div></div>
+</div>
+<div style="clear:both"></div>
+	<span class="type-label">Loaders</span>
+	
+	generic small loader on white
+	<img src="/img/common/smallLoaderOnWhite.gif" alt="loading icon" width="16" height="16" />
+	<br /><br />
+	<div style="background-color:#f1f1f1;padding:5px;display:inline-block;">generic small loader on #f1f1f1 (almost white)<img src="/img/common/smallLoaderOnGrey.gif" alt="loading icon" width="16" height="16" /></div>
+	<br /><br />
+	generic larger loader on white<img src="/img/common/largeLoaderOnWhite.gif" alt="loading icon" width="32" height="32" />
+	<br /><br />
+	<div style="background-color:#f1f1f1;padding:5px;display:inline-block;">generic larger loader on #f1f1f1 (almost white)<img src="/img/common/largeLoaderOnGrey.gif" alt="loading icon" width="32" height="32" /></div>
+	<br /><br />
+	Build Lane
+	<img src="/img/common/loadServices.gif" alt="load services icon" width="220" height="19" />
+	
+	<span class="type-label">Button Bar</span>
+	
+	<ul class="smallButtonBar">
+		<li><a href="#">Memos</a></li>
+		<li><a href="#" class="smallButtonActive">Stories</a></li>
+		<li><a href="#">Another</a></li>
+		<li><a href="#">Another</a></li>
+		<li><a href="#">Users</a></li>
+	</ul>
+	
+	<br /><br />
+	<ul class="largeButtonBar">
+		<li><a href="#" class="largeButtonActive">Memos</a></li>
+		<li><a href="#">Stories</a></li>
+		<li><a href="#">Another</a></li>
+		<li><a href="#">Another</a></li>
+		<li><a href="#">Users</a></li>
+	</ul>
+	<br /><br />
+	<div class="bgDark" style="padding:30px;">
+		
+		<ul class="smallButtonBar">
+			<li><a href="#" class="smallButtonActive">Memos</a></li>
+			<li><a href="#">Stories</a></li>
+			<li><a href="#">Another</a></li>
+			<li><a href="#">Another</a></li>
+			<li><a href="#">Users</a></li>
+		</ul>
+		
+		<br /><br />
+		<ul class="largeButtonBar">
+			<li><a href="#">Memos</a></li>
+			<li><a href="#">Stories</a></li>
+			<li><a href="#">Another</a></li>
+			<li><a href="#" class="largeButtonActive">Another</a></li>
+			<li><a href="#">Users</a></li>
+		</ul>
+	</div>
+	
+<!-- Thirdparty Scripts -->
+<script src="/js/thirdparty/jquery-1.6.4.js"></script>
+<script src="/js/thirdparty/jquery.tipsy.js"></script>
+<script src="/js/thirdparty/jquery.validity.js"></script>
+
+<script type="text/javascript">
+	$('.north-west').tipsy({gravity: 'nw',offset:5});
+    $('.south').tipsy({gravity: 's',offset:5,html:true});
+    $('.east').tipsy({gravity: 'e',offset:5});
+    $('.west').tipsy({gravity: 'w',offset:5});
+    $('.north').tipsy({gravity: 'n',offset:5, html:true});
+    $('.north-east').tipsy({gravity: 'ne',offset:5});
+    $('.south-west').tipsy({gravity: 'sw',offset:5});
+    $('.south-east').tipsy({gravity: 'se',offset:5});
+    
+    $.validity.setup({ outputMode:"modal" });
+    //form style, check out http://validity.thatscaptaintoyou.com/Demos/index.htm
+    $('form#validate').validity(function(){
+   
+    	$('#bio').require();
+    	$('#name').require();
+    
+    });
+    
+    //ajax style...
+
+    	
+   $('#name,#bio').blur(function(){
+    		$.validity.start();
+    		$(this).require();
+    		$.validity.end();
+    	});
+</script> 
+
+</div>
+</body>
+</html>

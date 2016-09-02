@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" class="no-js"><head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>API - Edit Service</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	<link rel="stylesheet" href="css/style.css?v=2">
+
+	<script src="js/libs/modernizr-1.7.min.js"></script></head>
+<body id="api_editService">
+	<div id="all">
+		<header>
+			<div id="headerInner">
+				<a href="/me">Back to my lane</a>
+				<h1><img src="images/logo.png" /> <span>Memolane</span></h1>
+			</div>
+		</header>
+
+		<div id="main" role="main">
+			<h2>Edit Service</h2>
+			
+			<form id="apiService" action='/oauth/edit' enctype='multipart/form-data' method='post'>
+				<div class="formBtnsTop">
+					<input type="submit" value="Save" class="btnGreen" />
+					<a href="" class="linkSecondary topCancelBtn">Cancel</a>
+				</div>
+				
+				<label>Title
+				<input type="text" name="title" class="required" value="" />
+				</label>
+				
+				<label>Description
+				<textarea name="description" class="required"></textarea>
+				</label>
+				
+				<label>Homepage
+				<input type="text" name="homepage" value="" />
+				</label>
+				
+				<label>Callback URI
+				<input type="text" name="callback" class="required" value="" />
+				</label>
+				
+				<fieldset>
+					<div class="half fileUpload">
+						<div>
+							<div>
+								Large <span>(50x50)</span><br />
+								<img src="images/thumbDefault50.png" alt="service thumbnail - 50x50" />
+							</div>
+							<a href="#" class="btnOrange" id="btnUploadFile50">Select Image</a>
+							<input id="icon50" name="icon50" type="file" />
+						</div>
+						<div>
+							<div>
+								Medium <span>(32x32)</span><br />
+								<img src="images/thumbDefault32.png" class="thumb32x32" alt="service thumbnail - 32x32" />
+							</div>
+							<a href="#" class="btnOrange" id="btnUploadFile32">Select Image</a>
+							<input id="icon32" name="icon32" type="file" />
+						</div>
+						<div>
+							<div>
+								Small <span>(16x16)</span><br />
+								<img src="images/thumbDefault16.png" class="thumb16x16" alt="service thumbnail - 16x16" />
+							</div>
+							<a href="#" class="btnOrange" id="btnUploadFile16">Select Image</a>
+							<input id="icon16" name="icon16" type="file" />
+						</div>
+					</div>
+					<div class="half fileUpload explanatoryText">
+						<p>If you do not upload an image (for each size), the Memolane default will be used (shown at left).</p>
+						<p id="icon50status" class="explainIcon"><strong>Large Icon:</strong> used to identify your service throughout Memolane.<span></span></p>
+						<p id="icon32status" class="explainIcon"><strong>Medium Icon:</strong> used in the timeline to show memo origination.<span></span></p>
+						<p id="icon16status" class="explainIcon"><strong>Small Icon:</strong> used in the news feed to show memo origination.<span></span></p>
+					</div>
+				</fieldset>
+				
+				<fieldset>
+					<div class="half">
+						<label>Small Memo Template
+						<textarea name="smlTemplate" class="required"></textarea>
+						</label>
+						
+						<label>Expanded Memo Template
+						<textarea name="lrgTemplate" class="required"></textarea>
+						</label>
+					</div>
+					<div class="half explanatoryText">
+						<p>You can use HTML (no &lt;h1&gt;, &lt;h2&gt; &lt;iframe&gt;, or &lt;script&gt;), inline CSS (no position:absolute, please), and Mustache templates to create normal and expanded memo types.</p>
+						<p>Mustache variables available to you:<br />
+							<strong>{{{title}}}, {{{description}}}, {{{geo}}}, {{{image}}}, {{{video}}}</strong></p>
+						<p>Example:<br />
+							&lt;div&gt;&lt;h3&gt;{{{title}}}&lt;/h3&gt;&lt;p&gt;{{{description}}}&lt;/p&gt;&lt;div&gt;
+						</p>
+					</div>
+				</fieldset>
+				
+				<div class="keySecret">
+					<p><em>Key</em> <span>1234567890</span></p>
+					<p><em>Secret</em> <span>12345678901234567890</span></p>
+				</div>
+				
+				
+				<input type="submit" value="Save" class="btnGreen" />
+				<a href="" class="linkSecondary bottomCancelBtn">Cancel</a>
+			</form>
+		</div>
+	</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.5.1.min.js"%3E%3C/script%3E'))</script>
+	<script src="js/plugins.js"></script>
+	<script src="js/global.js"></script>
+	<script>
+		$(function() {
+			// upload management
+			$("input[type=file]").change(function (){
+				var $this = $(this);
+				if ($this.val().length > 0) {
+					var $thisImg = $this.siblings('div').find('img');
+					$thisImg.attr('src', $thisImg.attr('src').replace("Default", "Custom") );
+					var newVal = $this.val();
+					// remove path stuff in Chrome (e.g. C:\fakepath\test.png)
+					if (newVal.indexOf('/') != -1) newVal = newVal.substr( (newVal.lastIndexOf('/')+1) );
+					if (newVal.indexOf('\\') != -1) newVal = newVal.substr( (newVal.lastIndexOf('\\')+1) );
+					$( "#"+ $this.attr('id') +"status" ).find("span").html(newVal +" (<em>ready to be uploaded</em>)").show()
+				}
+			}).hover(
+				function(){
+					$(this).siblings("input").addClass("hover");
+				},
+				function(){
+					$(this).siblings("input").removeClass("hover");
+				}
+			);
+			
+			// form validation
+			$('form').submit(function(){
+				var $this = $(this);
+				var returnage = true;
+				// kill all the old error messages
+				$this.find('.formErrorMsg').remove();
+				// recheck for errors
+				var errorCount = 0;
+				$this.find('.required').each(function(){
+					var $this = $(this);
+					if ( $.trim($this.val()) <= 0 ) {
+						showFormFieldError( $this );
+						$this.keypress(function(){
+							$(this).siblings('.formErrorMsg').fadeOut('slow', function(){ $(this).remove(); });
+						});
+						
+						if (errorCount == 0) $this.select();
+						errorCount++;
+						returnage = false;
+					}
+				});
+				return returnage;
+			});
+		});
+		
+		
+		// show error messaging
+		function showFormFieldError( jQfield ) {
+			// set the error message
+			var p = jQfield.position();
+			var errorPos = Math.round(p.left) + jQfield.outerWidth();
+			jQfield.after('<div class="formErrorMsg" style="left:'+ errorPos +'px;"><div class="formErrorMsgX">X</div>Required</div>');
+			// move the message left as needed, based on its width
+			var errorMsg = jQfield.siblings('.formErrorMsg');
+			errorMsg.css('left', errorPos-errorMsg.outerWidth());
+		}
+	</script>
+	<script>
+		var _gaq=[['_setAccount','UA-18503349-2'],['_trackPageview']];
+		(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+		g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script></body>
+</html>

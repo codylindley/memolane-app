@@ -1,0 +1,100 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+#utilityNavRight{
+	text-align: right;
+	padding: 8px 50px 9px 5px;
+}
+
+
+#utilityNavRight li{
+	display: inline;
+}
+
+#utilityNavRight li a{
+	color: #A1A1A1;
+	font-size: 10px;
+	border-right: 1px solid #555;
+	border-bottom: transparent;
+	border-top: transparent;
+	padding-left:7px;
+	padding-right:9px;
+	text-shadow: 1px 0 0 #333;
+}
+
+
+#utilityNavRight li a:hover{
+	text-decoration: underline; color: #00bff3;
+}
+
+#utilityNavLeft{
+	float: left;
+	padding: 8px 50px 9px 5px;
+	margin-left: 10px;
+}
+
+
+#utilityNavLeft li{
+	display: inline;
+}
+
+#utilityNavLeft li a{
+	color: #A1A1A1;
+	font-size: 10px;
+	border-right: 1px solid #555;
+	border-bottom: transparent;
+	border-top: transparent;
+	padding-left:7px;
+	padding-right:9px;
+	text-shadow: 1px 0 0 #333;
+}
+
+#utilityNavLeft li:last-child a{
+	border-right: none;
+}
+
+#utilityNavLeft li a:hover{
+	text-decoration: underline; color: #00bff3;
+}
+
+#language-settings{
+	position: absolute;
+	height: 11px;
+	width: 16px;
+	top:9px;
+	right: 20px;
+	text-indent: -999em;
+	overflow: hidden;
+	background-image: url(/img/common/iconsFlags.gif);
+	background-repeat: no-repeat;
+}
+#top #language-settings{
+	top:0;
+	left:5px;
+}
+
+#language-settings.en{
+	background-position: 0px 0px;
+}
+
+#language-settings.ja{
+	background-position: 0 -30px;
+}

@@ -1,0 +1,37 @@
+<% if current_user %>
+
+	<ul id="utilityNavLeft" class="user-is-logged-in">
+   		<li><a href="http://blog.memolane.com/" title='<%= i18n("Blog", "Link in topbar" )%>'><%= i18n("Blog", "Link in topbar" )%></a></li>
+   		<li><a href="javascript:UserVoice.showPopupWidget();" title='<%= i18n("Feedback", "Link in topbar" )%>'><%= i18n("Feedback", "Link in topbar" )%></a></li>
+   		<li><a href="/terms" title='<%= i18n("Terms", "Link in topbar" )%>'><%= i18n("Terms", "Link in topbar" )%></a></li>
+   		<li><a href="/privacy" title='<%= i18n("Privacy", "Link in topbar" )%>'><%= i18n("Privacy", "Link in topbar" )%></a></li>
+   		<li><a href="/copyright" title='<%= i18n("Copyright", "Link in topbar" )%>'><%= i18n("Copyright", "Link in topbar" )%></a></li>
+	</ul>
+	
+	<ul id="utilityNavRight" class="user-is-logged-in">
+        <li><a href="/settings/services" title='<%= i18n("My Services", "Link in topbar" )%>'><%= i18n("My Services", "Link in topbar" )%></a></li>
+        <li><a href="/settings/account" title='<%= i18n("My Settings", "Link in topbar" )%>'><%= i18n("My Settings", "Link in topbar" )%></a></li>
+        <li><a href="/logout" title='<%= i18n("Log Out", "Link in topbar" )%>'><%= i18n("Log Out", "Link in topbar" )%></a></li>
+	</ul>
+	
+	
+<% else %>
+	
+	<ul id="utilityNavLeft" class="user-is-not-logged-in">
+
+   		<li><a href="http://blog.memolane.com/" title='<%= i18n("Blog", "Link in topbar" )%>'><%= i18n("Blog", "Link in topbar" )%></a></li>
+   		<li><a href="javascript:UserVoice.showPopupWidget();" title='<%= i18n("Feedback", "Link in topbar" )%>'><%= i18n("Feedback", "Link in topbar" )%></a></li>
+   		<li><a href="/terms" title='<%= i18n("Terms", "Link in topbar" )%>'><%= i18n("Terms", "Link in topbar" )%></a></li>
+   		<li><a href="/privacy" title='<%= i18n("Privacy", "Link in topbar" )%>'><%= i18n("Privacy", "Link in topbar" )%></a></li>
+   		<li><a href="/copyright" title='<%= i18n("Copyright", "Link in topbar" )%>'><%= i18n("Copyright", "Link in topbar" )%></a></li>
+	</ul>
+	
+	<ul id="utilityNavRight" class="user-is-not-logged-in">
+
+   		 <li><a href="/login" title="<%= i18n("Log In", "Link in topbar" )%>"><%= i18n("Log In", "Link in topbar")%></a></li>
+	</ul>
+
+ <% end %>
+
+	<a href="#" id="language-settings" title="<%= i18n("Language Settings")%>" class="<%= session["language"] %>">Language Settings</a>
+	

@@ -1,0 +1,247 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+h1{
+	background-image: url(/img/siteB/logo.png);
+	width:304px;
+	height: 31px;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	text-indent: -9000px;
+	margin: 20px auto 0 auto;
+}
+
+h2{
+	background-image: url(/img/siteB/tagline.png);
+	height: 42px;
+	width: 608px;
+	margin: 50px auto 40px auto;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	text-indent: -9000px;
+}
+
+h4{
+	background-image: url(/img/siteB/services.png);
+	height: 103px;
+	width: 532px;
+	margin: 50px auto 0 auto;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	text-indent: -9000px;
+}
+
+#site-footer{
+	background-image: url(/img/siteB/siteFooter.png);
+	background-repeat: repeat-x;
+	height: 69px;
+	line-height: 69px;
+	text-align: center;
+	color: #A1A1A1;
+	margin-top: 60px;
+}
+
+#site-slider{
+	position:relative;
+	height: 300px;
+	border-bottom: 2px solid #323232;
+	border-top:2px solid #323232;
+	background-image: url(/img/bg/bgpattern.png);
+	background-repeat: repeat;
+	background-color: #333;
+	width: 100%;
+}
+
+#site-slider-border{
+	overflow:hidden;
+	border-bottom:1px solid #000;
+	border-top:1px solid #000;
+	-moz-box-shadow: 0px 0px 40px -14px #000000;
+	-webkit-box-shadow: 0px 0px 40px -14px #000000;
+	box-shadow: 0px 0px 40px -14px #000000;
+	margin: 50px 0;
+	position: absolute;
+	left: 0;
+	top: 385px;
+	z-index: 1;
+	width: 100%;
+}
+
+#centered-content{
+	width: 933px;
+	margin: 0 auto 0 auto;
+	position: relative;
+	height: 760px;
+}
+
+#facebookBigButtonTop{
+	display: block;
+	position: absolute;
+	top:40px;
+	left: 80px;
+	overflow: hidden;
+	text-indent: -9000px;
+	height: 45px;
+	width: 308px;
+	background-image: url(/img/siteB/facebookBigButton.png);
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+#facebookBigButtonBottom{
+	display: block;
+	position: absolute;
+	top: 630px;
+	right: 125px;
+	overflow: hidden;
+	text-indent: -9000px;
+	height: 45px;
+	width: 308px;
+	background-image: url(/img/siteB/facebookBigButton.png);
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+}
+
+#facebookBigButtonBottom:hover, #facebookBigButtonTop:hover{
+	-moz-box-shadow: 0px 0px 23px 2px #505050;
+-webkit-box-shadow: 0px 0px 23px 2px #505050;
+box-shadow: 0px 0px 23px 2px #505050;
+}
+
+#signup-email{
+	position: absolute;
+	top:127px;
+	right: 544px;
+	text-align: right;
+	width: 200px;
+	color: #C9C9C9;
+	font-size: 13px;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+#services-text{
+	position: absolute;
+	top:537px;
+	right: 34px;
+	text-align: right;
+	height: 237px;
+	width: 405px;
+	background-image: url(/img/siteB/servicesText.png);
+}
+
+#carouselTopImage{
+	position: absolute;
+	top:0px;
+	right: 34px;
+	display: block;
+	width:473px;
+	height:197px;
+}
+
+#carouselBottomImage{
+	position: absolute;
+	top:503px;
+	left: 34px;
+	display: block;
+	width:440px; 
+	height:212px;
+}
+
+#carouselBottomImage, #carouseTopImage{
+
+
+}
+
+#carouselBottomImage img, #carouselTopImage img{
+	position: absolute;
+	-webkit-box-shadow: 0px 0px 18px 0px #000; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 0px 0px 18px 0px #000; /* FF3.5 - 3.6 */
+    box-shadow: 0px 0px 18px 0px #000; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
+}
+
+#c1TopLeft{
+	top:31px;
+	left:40px;
+	  -webkit-transform: rotate(-5deg);  /* Saf3.1+, Chrome */
+     -moz-transform: rotate(-5deg);  /* FF3.5+ */
+      -ms-transform: rotate(-5deg);  /* IE9 */
+       -o-transform: rotate(-5deg);  /* Opera 10.5 */
+          transform: rotate(-5deg);
+}
+
+#c1TopRight{
+	top:19px;
+	left:260px;
+	  -webkit-transform: rotate(3.5deg);  /* Saf3.1+, Chrome */
+     -moz-transform: rotate(7.5deg);  /* FF3.5+ */
+      -ms-transform: rotate(7.5deg);  /* IE9 */
+       -o-transform: rotate(7.5deg);  /* Opera 10.5 */
+          transform: rotate(7.5deg);
+}
+
+#c1BottomLeft{
+	top:-35px;
+	left:10px;
+	  -webkit-transform: rotate(3.5deg);  /* Saf3.1+, Chrome */
+     -moz-transform: rotate(3.5deg);  /* FF3.5+ */
+      -ms-transform: rotate(3.5deg);  /* IE9 */
+       -o-transform: rotate(3.5deg);  /* Opera 10.5 */
+          transform: rotate(3.5deg);
+}
+
+#c1BottomRight{
+	top:-23px;
+	left:190px;
+	  -webkit-transform: rotate(-3.5deg);  /* Saf3.1+, Chrome */
+     -moz-transform: rotate(-3.5deg);  /* FF3.5+ */
+      -ms-transform: rotate(-3.5deg);  /* IE9 */
+       -o-transform: rotate(-3.5deg);  /* Opera 10.5 */
+          transform: rotate(-3.5deg);
+}
+
+.rs-carousel-item {
+	overflow:hidden;
+	float:left;
+	height:300px;
+	background-repeat:no-repeat;
+	background-position:left center;
+}
+
+#carouselNavigation {
+	position:absolute;
+	top:755px;
+	right:275px;
+}
+	#carouselNavigation li {
+		float:left;
+	}
+		#carouselNavigation li a {
+			display:block;
+			width:20px;
+			height:20px;
+			background:#66F;
+			border:1px solid #111;
+			border-radius:20px;
+		}
+		#carouselNavigation li a:hover {
+			background:navy;
+		}

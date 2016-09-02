@@ -1,0 +1,310 @@
+<!doctype html>
+
+<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	   Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title><%= i18n("Memolane | See, search, and share your life", "The memolane Catchphrase") %></title>
+	
+	<meta name="title" content='<%= i18n("Memolane | See, search, and share your life", "The memolane Catchphrase") %>' />
+	
+	<meta name="description" content='<%= i18n("Keep your memories alive. Capture photos, music, tweets, posts, and much more. View and share your entire online life in one place. Explore and search your history. One timeline, a million memories.") %>' />
+	
+	<!-- Tablet Optimized -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
+	<!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	<!-- CSS: implied media="all" -->
+        <% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+        <%= include_css_bundle "services.css" %>
+        <% else %> 
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/defaults.css">
+	<link rel="stylesheet" href="/css/common.css">
+		<!-- CSS modules used on this page -->
+	<link rel="stylesheet" href="/css/modules/utilityNav.css">
+	<link rel="stylesheet" href="/css/modules/search.css">
+	<link rel="stylesheet" href="/css/modules/topBar.css">
+	<link rel="stylesheet" href="/css/modules/headings.css">
+	<link rel="stylesheet" href="/css/modules/buttons.css">
+	<link rel="stylesheet" href="/css/modules/topBarDropDowns.css">
+	<link rel="stylesheet" href="/css/modules/header.css">
+	<link rel="stylesheet" href="/css/modules/dialogs.css">
+	<link rel="stylesheet" href="/css/modules/buttonBars.css">
+	<link rel="stylesheet" href="/css/modules/notifications.css">
+	<link rel="stylesheet" href="/css/modules/validation.css">
+	<link rel="stylesheet" href="/css/modules/language.css">
+		<!-- Page Specific CSS -->
+	<link rel="stylesheet" href="/css/modules/services.css">
+	<% end %>
+
+<!-- start Mixpanel -->
+<script type="text/javascript">
+   mpq=[];mpq.push(["init","<%= MIXPANEL_KEY %>"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
+</script>
+<!-- end Mixpanel -->    	
+	
+	<!-- Memolane namespace -->
+	<script type="text/javascript">
+	/*-----------------------------
+	setup application namespace
+	-----------------------------*/
+	window.memolane = {};
+	//setup shortcut
+	window.m = memolane;
+	</script>
+
+</head>
+
+<body>
+
+<div id="header" class="more1024">
+	
+<%= partial 'includes/utilityNav', @includes %>
+	
+<%= partial 'includes/topBar', @includes %>
+</div>
+
+
+<div id="content" class="content">
+	
+	<div id="innerContent">
+		
+		<h1 class="header typeA"><%= i18n("My Services", "Header on service settings page" )%></h1>
+		
+		<div id="services-all">
+			<div class="services-available">
+				<h2><%= i18n("Services Available", "Header for list of availabele services in service settings page") %></h2>
+				<ul>
+					<!-- IMPORTANT: the service names listed as classes on the <a> MUST match up to account.service in the database (or the "adding" state can't be removed -->
+					
+					<% if current_user.early_access.include?("mixi") %>
+                                        <li>
+                                                <a class="mixi" href="/services/mixi" target="_blank" title='<%= i18n("Authorize Mixi Page", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/mixi.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+					<% end %>
+					
+					<li>
+                                                <a class="facebook" href="/services/facebook" target="_blank" title='<%= i18n("Authorize Facebook", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/facebook.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="facebook-pages" href="/services/facebook-pages" target="_blank" title='<%= i18n("Authorize Facebook Page", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/facebook-pages.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="twitter" href="/services/twitter" target="_blank" title='<%= i18n("Authorize Twitter", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/twitter.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="flickr" href="/services/flickr" target="_blank" title='<%= i18n("Authorize Flickr", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/flickr.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+					<li>
+                                                <a class="google-plus" href="/services/google-plus" target="_blank" title='<%= i18n("Authorize Google+ Page", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/google-plus.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+					<li>
+                                                <a class="picasa" href="/services/picasa" target="_blank" title='<%= i18n("Authorize Picasa", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/picasa.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="lastfm" href="/services/lastfm" target="_blank" title='<%= i18n("Authorize LastFM", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/lastfm.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <!--
+        <li>
+                                                <a class="gowalla" href="/services/gowalla" target="_blank" title='<%= i18n("Authorize Gowalla", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/gowalla.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+        -->
+                                        <li>
+                                                <a class="foursquare" href="/services/foursquare" target="_blank" title='<%= i18n("Authorize Foursquare", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/foursquare.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="instagram" href="/services/instagram" target="_blank" title='<%= i18n("Authorize Instagram", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/instagram.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <!--<li>
+                                                <a class="tumblr" href="/services/tumblr" target="_blank" title='<%= i18n("Authorize Tumblr", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/tumblr.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>-->
+                                        <li>
+                                                <a class="tripit" href="/services/tripit" target="_blank" title='<%= i18n("Authorize TripIt", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/tripit.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="youtube" href="/services/youtube" target="_blank" title='<%= i18n("Authorize YouTube", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/youtube.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="myspace" href="/services/myspace" target="_blank" title='<%= i18n("Authorize MySpace", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/myspace.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="vimeo" href="/services/vimeo" target="_blank" title='<%= i18n("Authorize Vimeo", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/vimeo.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="soundcloud" href="/services/soundcloud" target="_blank" title='<%= i18n("Authorize SoundCloud", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/soundcloud.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="wordpress" href="/services/wordpress" target="_blank" title='<%= i18n("Authorize WordPress.com", "Mouse over of add service button on service settings page") %>' >
+                                                        <img src="/img/common/services/wordpress.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+                                        <li>
+                                                <a class="feed" href="/services/feed" target="_blank" title='<%= i18n("Add Feed", "Mouse over of add service button (for rss/atom feed) on service settings page") %>' >
+                                                        <img src="/img/common/services/feed.png">
+                                                        <span class="add-service"><span class="defaultText"><%= i18n("Add", "Call to action on available service on service settings page") %></span><span class="addingText"><%= i18n("Adding", "Text shown while a service is in the process of being added on service settings page") %></span><span class="add-service-icon add"></span></span>
+                                                </a>
+                                        </li>
+				</ul>
+			</div>
+			
+			<div class="services-added">
+				<h2><%= i18n("Services Added", "Header for list of services already added on service settings page") %></h2>
+				<ul>
+					<!-- insert services here - reference original HTML file for format -->
+				</ul>
+				<h6><%= i18n("You haven\'t added any services yet, select a service to the left and click \"Add\".") %></h6>
+			</div>
+		</div>
+		
+	</div>
+
+</div>
+
+
+<!-- DROPDOWNS  -->
+<%= partial 'includes/topBarDropDowns', @includes %>
+<%= partial 'includes/topBarSearchDropDowns', @includes %>
+
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+
+<!-- translation from english, CAN'T be bundles, must be load before eveything -->
+<script src="/lang.js"></script>
+
+<!-- Thirdparty Scripts -->
+<%= partial 'includes/jsThirdParty', @includes %>
+
+<!-- inline JS for this html page  -->
+<script type="text/javascript">
+	m.csrf = "<%= Rack::Csrf.csrf_token(env) %>";
+
+	<% if current_user %>
+	m.currentUser = {
+		userID : '<%= current_user.id %>',
+		username : '<%= current_user.username%>',
+		firstname : '<%= current_user.first_name%>',
+		lastname: '<%= current_user.last_name%>',
+		avatar : '<%= "#{current_user.username}/image" %>'
+	};
+	
+	<% else %>
+	m.currentUser = null; 
+	<% end %>
+	m.currentLanguage = '<%= session["language"] %>';
+</script>
+
+
+<% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+<%= include_js_bundle "services.js" %>
+<% else %> 
+
+<!-- Memolane application setup / modules -->
+<script src="/js/utilities.js"></script>
+<script src="/js/globalTemplates.js"></script>
+<script src="/js/appSetup.js"></script>
+<!-- Start adding modules to be used on this page -->
+<script src="/js/modules/language.js"></script>
+<script src="/js/modules/topBar.js"></script>
+<script src="/js/modules/topBarDropDowns.js"></script>
+<script src="/js/modules/addFriends.js"></script>
+<script src="/js/modules/search.js"></script>
+<script src="/js/modules/share.js"></script>
+<script src="/js/modules/services.js"></script>
+<!-- /End modules to be used on this page -->
+<script src="/js/runApp.js"></script>
+
+<% end %>
+
+<!--Uservoice-->
+<%= include_uservoice_js %>
+
+<!--GOOGLE ANALYTICS-->
+<script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-18503349-1']);
+ _gaq.push(['_setDomainName', '.memolane.com']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+
+<% if current_user %>
+<!-- Mixpanel -->
+<script type="text/javascript">
+mpq.name_tag('<%= current_user.username%>'); 
+</script>
+<!-- Mixpanel -->
+<% end %>
+
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!doctype html>
+
+<!--[if IE 8]> <html class="ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js <% if @is_embedded%>embededLane<%end%>" lang="en" > <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	   Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="fragment" content="!">
+	
+	<title><%= i18n("%s | %s | Memolane | See, search, and share your life", "The memolane Catchphrase", [@lane.title, @user.full_name]) %></title>
+	
+	<meta name="title" content="<%= i18n("%s | %s | Memolane | See, search, and share your life", "The memolane Catchphrase", [@lane.title, @user.full_name]) %>" />
+	
+	<meta name="description" content='<%= @lane.description %>' />
+
+	<meta property="og:title" content="<%= @lane.title %> | <%= @user.full_name %> | Memolane"/>
+	<meta property="og:type" content="article"/>
+	<meta property="og:url" content="<%= MEMOLANE_HOST %><%= request.path %>?<%= request.query_string %>"/>
+	<meta property="og:image" content="<%= MEMOLANE_HOST %>/<%= @lane.avatar_url ? @lane.avatar_url : "/img/defaults/lane.png" %>"/>
+	<meta property="og:site_name" content="Memolane"/>
+	<meta property="og:description" content="<%= @lane.description %>"/>
+	<meta property="fb:admins" content="<%= FACEBOOK_FRANCOIS_ID %>"/>
+	
+	<meta itemprop="name" content="<%= @lane.title %> | <%= @user.full_name %> | Memolane">
+	<meta itemprop="description" content="<%= @lane.description %>">
+	<meta itemprop="image" content="<%= MEMOLANE_HOST %>/<%= @lane.avatar_url ? @lane.avatar_url : "/img/defaults/lane.png" %>">
+	
+	<!-- Tablet Optimized -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
+	<!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	<!-- CSS: implied media="all" -->
+        <% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+        <%= include_css_bundle "app.css" %>
+        <% else %> 
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/defaults.css">
+	<link rel="stylesheet" href="/css/common.css">
+		<!-- CSS modules used on this page -->
+	<link rel="stylesheet" href="/css/modules/utilityNav.css">
+	<link rel="stylesheet" href="/css/modules/search.css">
+	<link rel="stylesheet" href="/css/modules/topBar.css">
+	<link rel="stylesheet" href="/css/modules/headings.css">
+	<link rel="stylesheet" href="/css/modules/buttons.css">
+	<link rel="stylesheet" href="/css/modules/topBarDropDowns.css">
+	<link rel="stylesheet" href="/css/modules/header.css">
+	<link rel="stylesheet" href="/css/modules/memos.css">
+	<link rel="stylesheet" href="/css/modules/drawer.css">
+	<link rel="stylesheet" href="/css/modules/timeline.css">
+	<link rel="stylesheet" href="/css/modules/lane.css">
+	<link rel="stylesheet" href="/css/modules/laneNavBtns.css">
+	<link rel="stylesheet" href="/css/modules/dialogs.css">
+	<link rel="stylesheet" href="/css/modules/tooltips.css">
+	<link rel="stylesheet" href="/css/modules/notifications.css">
+	<link rel="stylesheet" href="/css/modules/buttonBars.css">
+	<link rel="stylesheet" href="/css/modules/share.css">
+	<link rel="stylesheet" href="/css/modules/language.css">
+	<link rel="stylesheet" href="/css/modules/memoComments.css">
+	<link rel="stylesheet" href="/css/modules/embedLane.css">
+		<!-- Page Specific CSS -->
+	
+        <% end %>
+	
+<!-- start Mixpanel -->
+<script type="text/javascript">
+   mpq=[];mpq.push(["init","<%= MIXPANEL_KEY %>"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
+</script>
+<!-- end Mixpanel -->    	
+	
+	<!-- Memolane namespace -->
+	<script type="text/javascript">
+	/*-----------------------------
+	setup application namespace
+	-----------------------------*/
+	window.memolane = {};
+	//setup shortcut
+	window.m = memolane;
+
+	</script>
+
+</head>
+
+<body>
+
+<!-- lane messages -->
+<div id="empty-lane-message"><%= i18n('Flux capacitors retrieve no viewable memos') %></div>
+
+<div id="header" class="more1024 <% if @is_embedded%>isEmbeded<%end%>">
+
+<%= partial 'includes/utilityNav', @includes %>
+	 
+<%= partial 'includes/topBar', @includes %>
+		
+		<div class="clearNoHeight"></div>
+		
+		<h2 class="header typeH lane-title" title="<%= h @lane.description %>"><%= h @lane.title %><span><%= i18n("by", "used on lane page in the context: Some Lane by Some Name. Cannot be translated as a whole...") %></span> <a href="/<%= h @user.username %>" title="<%= h @user.username %>"><%= h @user.full_name %></a></h2>
+		
+		<div class="lane-name-divider">&nbsp;</div>
+		
+		<div id="embed-lane">
+			<a href="#" title="<%= i18n("Embed this lane on your own web page.") %>"><%= i18n("Embed lane") %></a>
+		</div>
+		
+		<div id="follow-lane">
+			<% if current_user %>	
+			<a class="<%= @lane.is_favorite( current_user ) ? i18n( "followed", "user is following this lane" ) : "" %>" data-fav="<%= @lane.is_favorite( current_user ) ? "true" : "false" %>" data-follow-text="<%= i18n( "Follow lane", "Button text for following a lane" ) %>" data-following-text="<%= i18n( "Following lane", "Already following lane") %>" data-unfollow-text="unFollow lane" href="#" id="follow-unfollow" title="<%= @lane.is_favorite( current_user ) ? i18n( 'Unfollow lane', 'tooltip for icon to add this lane as a favorite' ) : i18n( 'Follow lane', 'tooltip for icon to add this lane as a favorite' )%>"><img src="/img/lane/follow-lane-plus-icon.png" alt="follow-lane-plus-icon" width="6" height="7" style="margin-right:5px;" /><span><%= @lane.is_favorite( current_user ) ? i18n( 'Following lane', 'tooltip for icon to add this lane as a favorite' ) : i18n( 'Follow lane', 'tooltip for icon to add this lane as a favorite' ) %></span></a> 
+				
+				<a href="#" id="lane-followers" style="visibility:<%= @lane.favorite_count != 0 ? "visible" : "hidden" %>;"><span><%= @lane.favorite_count.to_s %></span> <%= i18n('follower(s)', 'text representing people who follow lane') %></a>
+				
+			<% end %>
+		</div>
+		
+		<!-- <%= @lane.is_favorite( current_user ) ? "followed" : "" %> -->
+
+		<div style="position:absolute;top:90px;right:106px;">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://memolane.com/lanes/<%= @lane.id %>" data-text="<%= @lane.title %> by <%= @user.full_name %>" data-via="memolane" data-count="none"></a>
+		</div>
+		
+		<div style="position:absolute;top:90px;right:55px;height:20px;width:48px;">
+		<div class="fb-like" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
+		</div>
+		
+		<div style="position:absolute;top:90px;right:20px;">
+		<div class="g-plusone" data-size="medium" data-annotation="none"></div>
+		</div>
+
+</div>
+	
+<div id="lane-drawer" class="<% if @is_embedded%>isEmbeded<%end%>">
+	<div id="lane-drawer-content"></div>
+	<div id="lane-drawer-tab"><span>
+		<img src="/img/common/arrowLeft.png" alt="arrowLeft" width="6" height="11" /><img src="/img/common/arrowLeft.png" alt="arrowLeft" width="6" height="11" /></span>
+	</div>
+</div>
+
+<div id="content">
+	<div id="screenLeftBtn" class="screenBtn"><span><img src="/img/common/arrowLeft.png" alt="arrowLeft" width="6" height="11" /><img src="/img/common/arrowLeft.png" alt="arrowLeft" width="6" height="11" /></span></div>
+	<div id="screenRightBtn" class="screenBtn"><span><img src="/img/common/arrowRight.png" alt="arrowLeft" width="6" height="11" /><img src="/img/common/arrowRight.png" alt="arrowLeft" width="6" height="11" /></span></div>
+	<div id="lane-viewport">
+		<div id="shadow"></div>
+		<div id="lane" data-lane-id="<%= h @lane.id %>" data-lane-title="<%= h @lane.title %>" data-lane-description="<%= h @lane.description %>" data-user-id="<%= h @user.id %>">
+		</div>
+	</div>
+	<div id="timeline">
+		<a href="#" id="timelineBeginDate">Sep '92</a>
+		<div id="timelineCurrent" style="left:650px;">
+			<div class="timelineIndicator">&nbsp;</div>
+			<span id="timelineDate">Jan 1, 2000</span>
+		</div>
+		<div href="#" id="timelineHover" style="left:250px;">
+			<div class="timelineIndicator">&nbsp;</div>
+		</div>
+		<a href="#" id="timelineEndDate">Apr '11</a>
+	</div>
+	
+    <div id='embedded-branding' style="display:none;">
+            <span class="source">
+                    <a id="embedded-source-link" href="<%= MEMOLANE_HOST + "/" + @lane.owner.username + "/" + @lane.title  %>" target="_blank">
+                            <p><%= i18n('View full size') %></p>
+                    </a>
+            </span>
+            <span class="powered-logo">
+                    <a href="http://memolane.com/site" target="_blank">
+                            <img src="/img/embedded/powered-by-memolane.png" />
+                    </a>
+            </span>
+    </div>
+</div>
+
+<div id="timeline-tooltip"></div>
+<div id="slot-loader-left" class="slot-loader"></div>
+<div id="slot-loader-right" class="slot-loader"></div>
+<div id="preMemoLeft" class="visibility-hidden"></div>
+<div id="preMemoRight" class="visibility-hidden"></div>
+
+<!-- DROPDOWNS  -->
+<%= partial 'includes/topBarDropDowns', @includes %>
+<%= partial 'includes/topBarSearchDropDowns', @includes %>
+
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+<!-- translation from english, CAN'T be bundles, must be load before eveything -->
+<script src="/lang.js"></script>
+
+<!-- Thirdparty Scripts -->
+<%= partial 'includes/jsThirdParty', @includes %>
+
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<!-- inline JS for this html page  -->
+<script type="text/javascript">
+	m.csrf = '<%= Rack::Csrf.csrf_token(env) %>';
+	
+	//user info
+	<% if current_user %>
+		m.currentUser = {
+			userID : '<%= current_user.id %>',
+			username : '<%= current_user.username%>',
+			fullname : '<%= h current_user.full_name%>',
+			firstname : '<%= h current_user.first_name%>',
+			lastname: '<%= h current_user.last_name%>',
+			avatar : '<%= "#{current_user.username}/image" %>',
+			music_provider : '<%= current_user.music_provider%>',
+			friend_ids: '<%= current_user.friend_ids.join(",") %>'
+		};
+	<% else %>
+		m.currentUser = null;
+	<% end %>
+	
+	//lane data from server on page load
+	m.currentLane = <%= @lane.metadata( @is_embedded ? nil : current_user ).to_json %>;
+	m.currentLane.mode = '<%= @lane_mode %>'
+	m.isEmbedded = ( window.top != window.self );
+	m.embeddedParams = {
+		background: '<%= @embedded_background %>',
+		border: '<%= @embedded_border %>',
+		custom_hostname: '<%= @embedded_custom_hostname %>',
+		custom_pathname: '<%= @embedded_custom_pathname %>',
+		hide_branding: '<%= @embedded_hide_branding %>'
+	};
+	m.currentLanguage = '<%= session["language"] %>';
+	m.fbAppID = '<%= FACEBOOK_APP_ID %>';
+
+</script>
+
+<% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+<%= include_js_bundle "app.js" %>
+<% else %> 
+
+<!-- Memolane application setup / modules -->
+<script src="/js/utilities.js"></script>
+<script src="/js/globalTemplates.js"></script>
+<script src="/js/appSetup.js"></script>
+
+<!-- Start adding modules to be used on this page -->
+<script src="/js/modules/language.js"></script>
+<script src="/js/modules/topBar.js"></script>
+<script src="/js/modules/topBarDropDowns.js"></script>
+<script src="/js/modules/addFriends.js"></script>
+<script src="/js/modules/search.js"></script>
+<script src="/js/modules/timeline.js"></script><!-- include before laneLayout (dependency) -->
+<script src="/js/modules/laneLayout.js"></script>
+<script src="/js/modules/drawer.js"></script>
+<script src="/js/modules/laneNavBtns.js"></script>
+<script src="/js/modules/lane.js"></script>
+<script src="/js/modules/memos.js"></script>
+<script src="/js/modules/laneLoadMemos.js"></script>
+<script src="/js/modules/share.js"></script>
+<script src="/js/modules/memoComments.js"></script>
+<script src="/js/modules/embedLane.js"></script>
+<script src="/js/modules/fbConnect.js"></script>
+<!-- /End modules to be used on this page -->
+
+<script src="/js/runApp.js"></script>
+
+<% end %>
+
+<!--Uservoice-->
+<%= include_uservoice_js %>
+<!--GOOGLE ANALYTICS-->
+<script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-18503349-1']);
+ _gaq.push(['_setDomainName', '.memolane.com']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+
+<!-- Share -->
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=289687984381582";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+<% if current_user %>
+<!-- Mixpanel -->
+<script type="text/javascript">
+mpq.name_tag('<%= current_user.username%>'); 
+</script>
+<!-- Mixpanel -->
+<% end %>
+
+</body>
+</html>

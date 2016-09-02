@@ -1,0 +1,33 @@
+<% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+<%= include_js_bundle "thirdparty.js" %>
+<% else %> 
+<script src="/js/thirdparty/jquery-1.7.1.js"></script>
+<script src="/js/thirdparty/jquery-ui-1.8.17.custom.js"></script>
+<script src="/js/thirdparty/jquery.event.drag.js"></script>
+<script src="/js/thirdparty/jquery.easing.1.3.js"></script>
+<script src="/js/thirdparty/jquery.mousewheel.js"></script>
+<script src="/js/thirdparty/underscore.js"></script>
+<script src="/js/thirdparty/jquery-animate-css-rotate-scale.js"></script>
+<script src="/js/thirdparty/jquery-css-transform.js"></script>
+<script src="/js/thirdparty/modernizr-2.0.6.js"></script>
+<script src="/js/thirdparty/jquery.isotope.js"></script>
+<script src="/js/thirdparty/jquery.jscrollpane.js"></script>
+<script src="/js/thirdparty/jquery.validity.js"></script>
+<script src="/js/thirdparty/jquery.tmpl.js"></script>
+<script src="/js/thirdparty/jquery.lightbox_me.js"></script>
+<script src="/js/thirdparty/jquery.tipsy.js"></script>
+<script src="/js/thirdparty/jquery.notify.js"></script>
+<script src="/js/thirdparty/jquery.alphanumeric.js"></script>
+<script src="/js/thirdparty/jquery.ajaxfileupload.js"></script>
+<script src="/js/thirdparty/jquery.hash.js"></script>
+<script src="/js/thirdparty/jquery.i18n.js"></script>
+<script src="/js/thirdparty/jquery.imagesloaded.js"></script>
+<script src="/js/thirdparty/jquery.anytime.js"></script>
+<script src="/js/thirdparty/jquery.texttext.js"></script>
+<script src="/js/thirdparty/jquery.rs.carousel.js"></script>
+<script src="/js/thirdparty/jquery.rs.carousel-continuous.js"></script>
+<script src="/js/thirdparty/jquery.rs.carousel-autoscroll.js"></script>
+<script src="/js/thirdparty/jquery.rs.carousel-touch.js"></script>
+<script src="/js/thirdparty/jquery.miniColors.js"></script>
+<% end %>
+

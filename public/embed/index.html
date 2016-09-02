@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="farbtastic.js"></script>
+		<script type="text/javascript" src="main.js"> </script>
+		<link rel="stylesheet" href="farbtastic.css" type="text/css"/>
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	</head>
+	<body>
+		<div class = "container">
+			<div id = "header">
+				Customize Your Memolane Embed
+			</div>
+			<div id = "embed_type">
+				Embed Type
+				<form id="embed_form">
+					<input type="radio" name="embed" value="html" id="html_embed" checked="checked"> HTML<br>
+					<input type="radio" name="embed" value="wordpress" id="wordpress_embed"> WordPress Shortcode (download <a href="http://wordpress.org/extend/plugins/memolane-embedded-timeline-view/" target="_blank">plugin</a>)<br>
+				</form>
+			</div>
+			<div id = "controls">
+				<form id="get_name">
+					Memolane name:
+					<input type="text" id="memolane_name" autofocus/>
+					<input type="submit" id="button"/>					
+				</form>
+			</div>
+			<div id = "sample_lane">
+			</div>
+			<div id = "embed_code">
+				<div>
+					Embed Code
+				</div>
+			</div>
+			<div id="customize">
+				<div id="size_selector">
+					Size
+						<input type="text" id="frame_height" value="500">Height</input>
+						<input type="text" id="frame_width" value="500">Width</input>
+				</div>
+				<div id="background_selector">
+					Background
+					<form id="background_form">
+						<input type="radio" name="background" value="default" id="def_back" checked="checked"> Memolane Default<br>
+						<input type="radio" name="background" value="none" id="none_back"> None(transparent)<br>
+						<input type="radio" name="background" value="custom" id="cust_back"> Custom<br>	
+					</form>
+					<div id="background_widget">
+						<input type="text" id="color_background" value="#123456" />
+						<div id="picker_background"></div>
+					</div>
+				</div>
+				
+				<div id="border_selector">
+					Border
+					<form id="background_form">
+						<input type="radio" name="background" value="none" id="no_border" checked="checked">No Border<br>
+						<input type="radio" name="background" value="border" id="border">Border<br>
+					</form>
+					<div id="border_widget">
+						Border Thickness
+						<input type="text" id="thickness_border" value="1"/>
+						Border Type
+						<select id="border_type">
+						  <option value="solid">Solid</option>
+						  <option value="double">Double</option>
+						  <option value="dotted">Dotted</option>
+						  <option value="dashed">Dashed</option>
+						</select>	
+						Border Color						
+						<input type="text" id="color_border" value="#123456" />
+						<div id="picker_border"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

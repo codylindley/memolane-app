@@ -1,0 +1,77 @@
+{
+    "hits": 9,
+    "users": [
+        {
+            "_id": "a125f0b9fbff5855a26f85b858bce8e5",
+            "username": "mikusi",
+            "first_name": "Mikey",
+            "last_name": "Usi",
+            "image": "http://memolane.com/mikusi/image",
+            "type": "user"
+        },
+        {
+            "_id": "586b7ef2115749aa676956a35265e980",
+            "username": "mikeyames",
+            "first_name": "Mikey",
+            "last_name": "Ames",
+            "image": "http://memolane.com/mikeyames/image",
+            "type": "user"
+        },
+        {
+            "_id": "796af20484649596c425ac63630a341e",
+            "username": "mikeymamamia",
+            "first_name": "Mikey",
+            "last_name": "Mamamia",
+            "image": "http://memolane.com/mikeymamamia/image",
+            "type": "user"
+        },
+        {
+            "_id": "996f7c5dda67d99106e3562676fcc70f",
+            "username": "mikeyparker",
+            "first_name": "Mike",
+            "last_name": "Parker",
+            "image": "http://memolane.com/mikeyparker/image",
+            "type": "user"
+        },
+        {
+            "_id": "86a540a15cb50b2013fec18cd1d34533",
+            "username": "mikey901",
+            "first_name": "Mike",
+            "last_name": "Harford",
+            "image": "http://memolane.com/mikey901/image",
+            "type": "user"
+        },
+        {
+            "_id": "f794f054f3c2a773fe0be91a94088b57",
+            "username": "mikeyjhay",
+            "first_name": "Michael",
+            "last_name": "Hay",
+            "image": "http://memolane.com/mikeyjhay/image",
+            "type": "user"
+        },
+        {
+            "_id": "6417539543ddf8ac98520d9545784b98",
+            "username": "mikeyw",
+            "first_name": "Michael",
+            "last_name": "Wolfe",
+            "image": "http://memolane.com/mikeyw/image",
+            "type": "user"
+        },
+        {
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "username": "mikey",
+            "first_name": "Michael",
+            "last_name": "Richardson",
+            "image": "http://memolane.com/mikey/image",
+            "type": "user"
+        },
+        {
+            "_id": "bc691260062b85b5a6e12f1ac9a6c6dc",
+            "username": "mikeyperks",
+            "first_name": "Michael ",
+            "last_name": "Perkins",
+            "image": "http://memolane.com/mikeyperks/image",
+            "type": "user"
+        }
+    ]
+}

@@ -1,0 +1,183 @@
+<!doctype html>
+
+<!--[if IE 8]> <html class="ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	   Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title><%= i18n("Memolane | See, search, and share your life", "The memolane Catchphrase") %></title>
+	
+	<meta name="title" content='<%= i18n("Memolane | See, search, and share your life", "The memolane Catchphrase") %>' />
+	
+	<meta name="description" content='<%= i18n("Keep your memories alive. Capture photos, music, tweets, posts, and much more. View and share your entire online life in one place. Explore and search your history. One timeline, a million memories.") %>' />
+	
+	<!-- Tablet Optimized -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
+	<!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	<!-- CSS: implied media="all" -->
+        <% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+        <%= include_css_bundle "signUp.css" %>
+        <% else %> 
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/defaults.css">
+	<link rel="stylesheet" href="/css/common.css">
+		<!-- CSS modules used on this page -->
+	<link rel="stylesheet" href="/css/modules/topBar.css">
+	<link rel="stylesheet" href="/css/modules/headings.css">
+	<link rel="stylesheet" href="/css/modules/buttons.css">
+	<link rel="stylesheet" href="/css/modules/header.css">
+	<link rel="stylesheet" href="/css/modules/dialogs.css">
+	<link rel="stylesheet" href="/css/modules/validation.css">
+	<link rel="stylesheet" href="/css/modules/tooltips.css">
+	<link rel="stylesheet" href="/css/modules/notifications.css">
+	<link rel="stylesheet" href="/css/modules/whiteBackground.css">
+		<!-- Page Specific CSS -->
+	<link rel="stylesheet" href="/css/modules/signInAndUp.css">
+	<% end %>
+	
+	<!-- start Mixpanel -->
+	<script type="text/javascript">
+	   mpq=[];mpq.push(["init","<%= MIXPANEL_KEY %>"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
+	</script>
+	<!-- end Mixpanel -->    	
+	
+	<!-- Memolane namespace -->
+	<script type="text/javascript">
+	/*-----------------------------
+	setup application namespace
+	-----------------------------*/
+	window.memolane = {};
+	//setup shortcut
+	window.m = memolane;
+	</script>
+
+</head>
+
+<body>
+
+
+<div id="header" class="more1024">
+	<div id="top-bar">
+		<h1><a href="/site">Memolane</a></h1>
+		<ul class="signupSteps">
+			<li class="current"><%= i18n("Step 1. Fill out this little form.", "description of steps needed to signup")%></li>
+			<li><%= i18n("Step 2. Connect your services.", "description of steps needed to signup")%></li>
+			<li><%= i18n("Step 3. Done! Building your lane...", "description of steps needed to signup")%></li>
+		</ul>
+	</div>
+</div>
+
+
+<div id="content">
+<div id="innerContent" style="width:380px;">
+	<h1 class="header typeE" style="text-align:left; font-size:16px; padding:20px 0 0 20px;"><%= i18n("Sign Up", "Main heading on signup page") %></h1>
+	
+	<div id="facebookSignupChoice">
+		<div class="facebookLoginBtn btn-blue inactive"><%= i18n("Login with Facebook") %></div>
+		<p>OR</p>
+	</div>
+	
+	<form action="/users" enctype="multipart/form-data" method="post" id="signup">	
+		<label>
+			<em style="font-weight:normal; text-decoration:none; color:#a1a1a1;">memolane.com/</em><div id="signup-username-txt" style="display:inline;"><%= i18n("username", "dummy username in preview url on signup page")%></div><div class="formHelpText float-right" style="display:inline;"><%= i18n("Min 3 Chars", "constraint of username on signup page") %></div>
+			<input type="text" name="username" id="username" title="Username" />
+		</label>
+		
+		<label class="float-left">
+			<%= i18n("First Name", "name of edit field on settings/signup page") %>
+			<input type="text" name="first_name" id="first-name" title="First Name" style="width:115px; margin-right:10px;" />
+		</label>
+		<label class="float-left">
+			<%= i18n("Last Name", "name of edit field on settings/signup page") %>
+			<input type="text" name="last_name" id="last-name" title="Last Name" style="width:170px;" />
+		</label>
+		<label style="clear:both;">
+			<%= i18n("Email", "name of edit field on settings/signup page") %>
+			<input type="text" name="email" id="email" title="Email" />
+		</label>
+		
+		<label>
+			<%= i18n("Password", "name of edit field on signup page") %><div class="formHelpText float-right" style="display:inline;"><%= i18n("Min 8 Chars", "help text for password input on signup page")%></div>
+			<input type="password" name="password" id="password" title="Password" data-tooltip="Min 8 Chars" />
+		</label>
+		
+		<div id="form-actions">
+			<input type="submit" value='<%= i18n("Sign Up", "Title of signup button on signup page")%>' class="btn-green float-right" style="font-size:13px; padding-left:18px; padding-right:18px;" id="signup-btn" />
+			
+		</div>
+	</form>
+	
+	<p class="text typeE clear" style="text-align:left; padding-left:30px;"><%= i18n("Already have an account? <a href=\"login\">Log In</a>", "Link on signup page for users who already have an account")%> </p>
+</div>
+</div>
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+<!-- translation from english, CAN'T be bundles, must be load before eveything -->
+<script src="/lang.js"></script>
+
+<!-- Thirdparty Scripts -->
+<%= partial 'includes/jsThirdParty', @includes %>
+
+<!-- inline JS for this html page  -->
+<script type="text/javascript">
+	document.getElementById('username').focus();
+	m.csrf = "<%= Rack::Csrf.csrf_token(env) %>";
+	m.currentLanguage = '<%= session["language"] %>';
+	m.fbAppID = '<%= FACEBOOK_APP_ID %>';
+</script>
+
+<% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+<%= include_js_bundle "signUp.js" %>
+<% else %> 
+
+<!-- Memolane application setup / modules -->
+<script src="/js/utilities.js"></script>
+<script src="/js/globalTemplates.js"></script>
+<script src="/js/appSetup.js"></script>
+
+<!-- Start adding modules to be used on this page -->
+<script src="/js/modules/topBar.js"></script>
+<script src="/js/modules/signup.js"></script>
+<script src="/js/modules/fbConnect.js"></script>
+<!-- /End modules to be used on this page -->
+	
+<script src="/js/runApp.js"></script>
+  
+<% end %>
+
+
+<!--GOOGLE ANALYTICS-->
+<script type="text/javascript">
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-18503349-1']);
+ _gaq.push(['_setDomainName', '.memolane.com']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+</script>
+
+<% if current_user %>
+<!-- Mixpanel -->
+<script type="text/javascript">
+mpq.name_tag('<%= current_user.username%>'); 
+</script>
+<!-- Mixpanel -->
+<% end %>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+#innerContent {width:850px;}
+
+#addFriendsList {
+	
+}
+	#addFriendsList .dialogContent h2 {
+		font-size:20px;
+		font-weight:bold;
+		color:#777;
+		margin:0;
+		padding-bottom:0;
+	}
+	#addFriendsList .dialogContent a {
+		font-weight:bold;
+		text-decoration:none;
+	}
+	#addFriendsList .dialogContent ul {
+		max-height:200px;
+		overflow:auto;
+		margin-top:10px;
+		margin-bottom:20px;
+		border:1px solid #e1e1e1;
+		border-width:1px 0;
+	}
+		#addFriendsList .dialogContent li {
+			position:relative;
+			height:37px;
+			line-height:37px;
+			overflow:hidden;
+			padding:10px 0;
+			border-bottom:1px solid #e1e1e1;
+		}
+		#addFriendsList .dialogContent li:last-child {
+			border-bottom:0;
+		}
+			#addFriendsList .dialogContent ul input {
+				position:absolute;
+				top:24px;
+			}
+			#addFriendsList .dialogContent ul img {
+				position:absolute;
+				width:37px;
+				left:20px;
+			}
+			#addFriendsList .dialogContent .noCheckbox img {
+				left:0;
+			}
+			#addFriendsList .dialogContent ul p {
+				padding-top:5px;
+				padding-left:67px;
+			}
+			#addFriendsList .dialogContent .addFriendsFacebook ul p {
+				padding-top:13px;
+			}
+			#addFriendsList .dialogContent .noCheckbox p {
+				padding-top:13px;
+				padding-left:47px;
+			}
+			
+				#addFriendsList .dialogContent ul p span {
+					color:#999;
+				}
+	#addFriendsList .addFriendsStep,
+	#addFriendsList .loading {
+		display:none;
+	}
+	#addFriendsList img.loading {
+		position:relative;
+		top:4px;
+		left:8px;
+	}
+	#addFriendsList .addFriendsStep:first-child {
+		display:block;
+	}
+	
+	
+	
+	
+	
+	
+		#addFriendsList .addFriendsStep {
+			display:block;
+			padding-top:30px;
+		}
+		#addFriendsList .addFriendsStep.twoSteps {
+			width:50%;
+			float:left;
+		}
+			.twoSteps .addFriendsStep1 {
+				margin-right:10px;
+			}
+			.twoSteps .addFriendsStep2 {
+				padding-left:10px;
+				border-left:1px solid #bbb;
+			}
+				#addFriendsList .addFriendsStep h3 {
+					position:relative;
+					color:#777;
+					font-weight:bold;
+					font-size:13px;
+					padding-bottom:5px;
+				}
+					#addFriendsList .addFriendsStep h3 span {
+						position:absolute;
+						right:0;
+						font-size:11px;
+						font-weight:normal;
+					}
+				
+				#addFriendsList .dialogContent ul p {
+					padding-top:12px;
+				}

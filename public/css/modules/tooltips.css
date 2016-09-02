@@ -1,0 +1,105 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+.tipsy {
+font-size:12px;
+position:absolute;
+z-index:10000000000000000000000000000 !important;
+padding:5px;
+line-height: 1.3em;
+}
+
+.tipsy-inner {
+background-color:#000;
+color:#FFF;
+max-width:300px;
+-moz-box-shadow:0 0 20px 5px rgba(0,0,0,0.5);
+-webkit-box-shadow:0 0 20px 5px rgba(0,0,0,0.5);
+box-shadow:0 0 20px 5px rgba(0,0,0,0.5);
+-moz-border-radius:4px;
+-webkit-border-radius:4px;
+border-radius:4px;
+padding:10px;
+}
+
+.tipsy-arrow {
+position:absolute;
+width:0;
+height:0;
+border:10px solid transparent;
+}
+
+.tipsy-arrow-n {
+border-bottom-color:#000;
+}
+
+.tipsy-arrow-s {
+border-top-color:#000;
+}
+
+.tipsy-arrow-e {
+border-left-color:#000;
+}
+
+.tipsy-arrow-w {
+border-right-color:#000;
+}
+
+.tipsy-n .tipsy-arrow,.tipsy-nw .tipsy-arrow,.tipsy-ne .tipsy-arrow {
+top:-5px;
+border-top:none;
+}
+
+.tipsy-s .tipsy-arrow,.tipsy-sw .tipsy-arrow,.tipsy-se .tipsy-arrow {
+bottom:0;
+border-bottom:none;
+}
+
+.tipsy-n .tipsy-arrow,.tipsy-s .tipsy-arrow {
+left:50%;
+margin-left:-10px;
+bottom:-5px;
+}
+
+.tipsy-nw .tipsy-arrow,.tipsy-sw .tipsy-arrow {
+left:20px;
+bottom:-5px;
+}
+
+.tipsy-ne .tipsy-arrow,.tipsy-se .tipsy-arrow {
+right:20px;
+bottom:-5px;
+}
+
+.tipsy-e .tipsy-arrow,.tipsy-w .tipsy-arrow {
+top:50%;
+margin-top:-10px;
+}
+
+.tipsy-e .tipsy-arrow {
+right:-5px;
+border-right:none;
+}
+
+.tipsy-w .tipsy-arrow {
+left:-5px;
+border-left:none;
+}
+

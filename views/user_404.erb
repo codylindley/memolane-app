@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<style type="text/css">
+#horizon {
+	background-color: transparent;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 100%;
+	margin-top: -200px;
+	text-align: center;
+	min-width: 900px; 
+}
+#wrapper {
+	position: relative;
+	text-align: left;
+	width: 900px;
+	height: 380px;
+	margin: 0px auto;
+	}
+	
+H1 {
+	color: #FC0;
+	font: 3em Arial, san-serif;
+	font-weight: bold;
+	letter-spacing: -.02em;
+	text-shadow: 0px -1px 1px #000;
+	filter: dropshadow(color=#000, offx=0, offy=-1); 
+	}
+	
+p {
+	color: #FFF;
+	font: 1.2em Arial, san-serif;
+	letter-spacing: -.02em;
+	text-shadow: 0px -1px 1px #000;
+	filter: dropshadow(color=#000, offx=0, offy=-1); 
+	line-height: 1.4em;
+	}
+
+a {
+	color: #00BFF3;
+	text-decoration: none;
+	font-weight: bold;
+}
+</style>
+<title><%= i18n("Ghost found!","404") %></title>
+
+	<!-- start Mixpanel -->
+	<script type="text/javascript">
+	   mpq=[];mpq.push(["init","<%= MIXPANEL_KEY %>"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
+	</script>
+	<!-- end Mixpanel -->    	
+
+</head>
+<body style="background-color: #333;">
+
+
+	<div id="horizon">
+		<div id="wrapper" style="text-align: center;">
+		<h1><%= i18n("Well that\'s weird.","404") %></h1>
+		<p><%= i18n("We\'ve scoured every server but we can\'t find the person you\'re looking for. <br />But, since you\'re here, why not check out <a href=\"/site\">memolane.com?</a>","404") %></p>
+		<img style="padding-top: 20px;" src="/img/common/logoErrorPages.png" alt="Memolane logo" />
+		</div>
+	</div>
+
+<!--Uservoice-->
+<%= include_uservoice_js %>
+
+<!--GOOGLE ANALYTICS-->
+<script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-18503349-1']);
+ _gaq.push(['_setDomainName', '.memolane.com']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+
+<% if current_user %>
+<!-- Mixpanel -->
+<script type="text/javascript">
+mpq.name_tag('<%= current_user.username%>'); 
+</script>
+<!-- Mixpanel -->
+<% end %>
+
+</body>
+</html>

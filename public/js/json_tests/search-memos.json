@@ -1,0 +1,206 @@
+{
+    "hits": 39,
+    "memos": [
+        {
+            "title": "Timeglider's SSL cert is back up and running : )",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:40119043029467136",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1298400099,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "=&gt; mnemograph &lt;=  will soon be  =&gt;  timeglider &lt;= on twitter",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:1033770434043904",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1289081444,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "ah, a nice timezone tool: http://everytimezone.com/",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:16244609451",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1276626473,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "3.46 billion yrs ago: \"Some single-celled organisms may be feeding on methane by this time.\" New Scientist: http://bit.ly/vgMbE",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:8354865731",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1264740460,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "Bobby McFerrin lecture demo will take just a few minutes of your time.  http://vimeo.com/5732745",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:facebook:690965842:115835512979",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "facebook",
+            "created_at": 1249919771,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "there's a parabola to time & our psche: kids hope/aspire themselves fwd; but as we get older we try to go back. midlife = zero gravity",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:1319121067",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1236902852,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "fielding lots of feedback from people who saw us on Slashdot: http://bit.ly/qYUYv, a story about the Wilson Center's Rosenberg timeline",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:1874171111",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1242932738,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "Countdown to oblivion: Why time itself could end  in the  New Scientist http://t.co/LvSZlRp. Don't worry, have 5 bil. years  #time",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:25932194156",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1285806648,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "@kpoulsen See you're using Timeglider for the Manning timeline: let me know if you have thoughts or ideas. Cheers, michael@timeglider.com",
+            "id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:45182566583640064",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:45182566583640064",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "privacy": "friends",
+            "created_at": 1299607337,
+            "service_id": 13102112,
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "Pretty ridiculous that computers think that time began in 1970. Makes managing dates @ 10,000,000 bce a bit of a pain.",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:43530334435942400",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "created_at": 1299213415,
+            "privacy": "friends",
+            "service_id": "",
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "Whoa: MIT rsrchr recorded every moment of the first 2 years of his sons life. He can scroll back in time... http://bit.ly/f4NCw2",
+            "id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:54997378037592064",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:54997378037592064",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "privacy": "friends",
+            "created_at": 1301947371,
+            "service_id": 13102112,
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "Timeglider given a nice mention in Smashing Magazine's \"Useful JavaScript and jQuery Tools, Libraries, Plugins\" http://goo.gl/woYzv  #woot",
+            "id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:56178577758097408",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:56178577758097408",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "privacy": "friends",
+            "created_at": 1302228991,
+            "service_id": 13102112,
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "@FattusMannus Don't see it. Best way to convey bugs is via Github: https://github.com/timeglider/jquery_widget/issues",
+            "id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:57474845251866624",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:57474845251866624",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "privacy": "friends",
+            "created_at": 1302538045,
+            "service_id": 13102112,
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        },
+        {
+            "title": "@jordanarseno Thx re. Timeglider ==sick; Also, check this out and if (http://timeglider.com/blog/?p=148 == interesting) let me know : )",
+            "id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:57560300400033792",
+            "_id": "cf74f62ec7f93e5be84899fa1a435b01:twitter:13102112:57560300400033792",
+            "user_id": "cf74f62ec7f93e5be84899fa1a435b01",
+            "service": "twitter",
+            "privacy": "friends",
+            "created_at": 1302558419,
+            "service_id": 13102112,
+            "type": "memo",
+            "user": {
+                "username": "mikey",
+                "image": "http://memolane.com/mikey/image"
+            }
+        }
+    ]
+}

@@ -1,0 +1,65 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+.embed-lane-option{
+	margin-bottom: 15px;
+border-bottom: 1px solid #DFDFDF;
+padding-bottom: 15px;
+}
+
+.embed-lane-option p{
+	margin-bottom:7px;
+	font-weight: bold;
+	display: inline;
+	padding-right:10px;
+}
+
+.embed-lane-option .bgChoice,.embed-lane-option .bChoice{
+	margin:0 4px 0 10px;
+}
+
+.embed-lane-option label{
+	margin-bottom:7px;
+	font-weight: bold;
+	display: inline-block;
+	padding-right:10px;
+	width:104px;
+	text-align: right;
+}
+
+
+.embed-lane-option input{
+	margin: 0;
+	display: inline;
+}
+
+.embed-lane-option .transparentInput{
+	background-image:url('/img/common/transparentBGImage.png');
+}
+
+
+#embedALaneUI textarea{
+
+	width: 387px;
+	font-size: 13px;
+	padding: 10px;
+	min-height: 70px;
+
+}

@@ -1,0 +1,122 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+#timeline{
+	position:relative;
+	overflow:hidden;
+	height:42px;
+	width:100%;
+	background:url(../../img/bottomBar/bgTimeline.jpg) repeat-x center bottom;
+	cursor:pointer;
+}
+
+#timelineBeginDate, #timelineEndDate {
+	position:absolute;
+	display:block;
+	height:100%;
+	line-height:42px;
+	padding:0 8px;
+	background:url(../../img/bottomBar/bgTimeline.jpg) repeat-x left top;
+	color:#333;
+	font-size:12px;
+	font-weight:bold;
+	text-shadow: 0px 1px 2px #ccc;
+	filter: dropshadow(color=#cccccc, offx=0, offy=1);
+}
+#timelineBeginDate {
+	left:0;
+	background-position:right top;
+	padding-right:10px;
+}
+#timelineEndDate {
+	right:0;
+	padding-left:10px;
+}
+
+#timelineCurrent, #timelineHover {
+	position:absolute;
+	top:0;
+	display: none;
+}
+#timelineHover {
+	display:none;
+}
+#timelineCurrent .timelineIndicator, #timelineHover .timelineIndicator {
+	display:block;
+	position:absolute;
+	top:0;
+	width:6px;
+	height:22px;
+	background: #89bde5;
+	background: -moz-linear-gradient(top, #89bde5 0%, #004182 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#89bde5), color-stop(100%,#004182));
+	background: -webkit-linear-gradient(top, #89bde5 0%,#004182 100%);
+	background: -o-linear-gradient(top, #89bde5 0%,#004182 100%);
+	background: -ms-linear-gradient(top, #89bde5 0%,#004182 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#89BDE5', endColorstr='#004182',GradientType=0 );
+	background: linear-gradient(top, #89bde5 0%,#004182 100%);
+	
+	-moz-border-radius:2px;
+	border-radius:2px;
+}
+#timelineCurrent.indicatorRight .timelineIndicator {
+	right:0;
+}
+#timelineHover .timelineIndicator {
+	filter:alpha(opacity=50);
+	opacity:0.5;
+}
+#timelineDate {
+	display:block;
+	position:relative;
+	top:26px;
+	padding:0 3px;
+	white-space:nowrap;
+	font-size:11px;
+	color:#ccc;
+}
+
+#timeline-tooltip{
+	position: absolute;
+	bottom: 45px;
+	left: 0px;
+	z-index: 10000000000000000000000000000;
+   border:solid 1px #262626;
+   background-color:#414141;
+   color:#fff; 
+   display:none;
+   width: 100px;
+   text-align: center;
+    border-radius: 3px;
+    padding:5px 0;
+    font-size:11px;
+    font-family: "Helvetica Neue", Arial;
+    text-shadow: 1px 1px 1px #000;
+    font-weight: bold;
+    box-shadow: 0px 2px 5px 1px #262626;
+    background: #c4c4c4;
+	background: -moz-linear-gradient(top, #c4c4c4 0%, #686868 2%, #414141 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c4c4c4), color-stop(2%,#686868), color-stop(100%,#414141));
+	background: -webkit-linear-gradient(top, #c4c4c4 0%,#686868 2%,#414141 100%);
+	background: -o-linear-gradient(top, #c4c4c4 0%,#686868 2%,#414141 100%);
+	background: -ms-linear-gradient(top, #c4c4c4 0%,#686868 2%,#414141 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c4c4c4', endColorstr='#414141',GradientType=0 );
+	background: linear-gradient(top, #c4c4c4 0%,#686868 2%,#414141 100%);
+}

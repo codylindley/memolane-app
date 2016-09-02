@@ -1,0 +1,30 @@
+<% if ENV["RACK_ENV"] == "production" %><script src='https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'></script><% else %><script src='/javascripts/jquery-1.4.4.js'></script><% end %>
+<script src='/javascripts/underscore-min.js' type='text/javascript'></script>
+<script src='/javascripts/admin.js' type='text/javascript'></script>
+
+<h1 style="color:white;">Removing invalid facebook memos"</h1>
+
+<% if @bad_ids.count == 0 %>
+<h3 style="color:white;">No issues found!</h3>
+<% else %>
+<h3 style="color:white;">Removed <%= @bad_ids.count %>  memos:</h3>
+<table border="1" style="color:white;">
+  <% for memo in @bad_ids %>
+    <tr>
+      <td><%= memo %></td>
+     </tr>
+  <% end %>
+</table>
+
+<% if @contribution_ids.count > 0 %>
+  <h3 style="color:white;">Removed <%= @contribution_ids.count %> story contributions:</h3>
+  <table border="1" style="color:white;">
+    <% for contribution in @contribution_ids %>
+      <tr>
+        <td><%= contribution %></td>
+      </tr>
+    <% end %>
+  </table>
+<%end%>
+
+<%end%>

@@ -1,0 +1,125 @@
+<html>
+	<head>
+		<title>Index</title>
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/shCore.css">
+		<link rel="stylesheet" href="css/shCoreDefault.css">
+		<link rel="stylesheet" href="css/shThemeDefault.css">		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/shCore.js"></script>
+		<script type="text/javascript" src="scripts/shAutoloader.js"></script>
+		<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="scripts/shBrushRuby.js"></script>
+		<script type="text/javascript" src="scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+		<script type="text/javascript">
+		     SyntaxHighlighter.all()
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo"></div>
+			<ul>
+				<li class="top_list"><a href="http://www.memolane.com/oauth/my_apps">My Apps</a></li>
+				<li class="top_list"><a href="index.html">Documentation</a></li>
+				<li class="top_list"><a href="/"></a></li>
+				<li class="top_list"><a href="/"></a></li>
+			</ul>
+		</div>
+		<div>
+			<div id="left_bar">
+				<ul>
+					<li class="left_list"><a href="demo.html">MemoNotes Demo</a></li>
+					<li class="left_list"><a href="managing.html">Managing Your Apps</a></li>
+					<li class="left_list"><a href="displaying.html">Displaying Memos</a></li>
+					<li class="left_list"><a href="data.html">Data Formats</a></li>
+					<li class="left_list"><a href="auth.html">Authentication</a></li>
+				</ul>
+			</div>
+			<div id="container">
+				<div id="column">
+					<div id="content">
+						<h1>
+							Memonotes Demo
+						</h1>
+						<p>The goal of the MemoNote demo is to give you a idea of what is possible with the Memolane API.  We will go step by step to give you an example of the workflow for pushing information to our servers.  First, we will start off from the developer&#39;s point of view and demonstrate how to get our MemoNote application running.  Then, we will shift to the user&#39;s point of view and show the process of approving of MemoNote and viewing it&#39;s interaction with Memolane.</p>
+
+						<p>If you would like to follow along directly with this tutorial, you can download the code and images for this tutorial <a href="https://github.com/Memolane/Public-API-Demos">here</a></p>
+						<h2>DEVELOPER&#39;S POINT OF VIEW</h2>
+						<h3>1. REGISTER YOUR APP</h3>
+							<p>To register a new application, head over to <a href="http://www.memolane.com/oauth/my_apps">your apps</a> and click on &#34;Register Another Service&#34;.</p>
+							<img src="images/demo/Screen shot 2011-06-01 at 2.51.07 PM.png"></img>
+							<p>When you get there, fill in the information on the page.</p>
+							<img src="images/demo/Screen shot 2011-06-01 at 3.23.08 PM.png"></img>
+							<p>For the sake of this tutorial, we are going to use our localhost as well as the callback &#34;finalize&#34;</p>
+							<p>Now, select the three icons that you would like to represent your app, which he have provided inside BLAH/BLAH/....  The large icon is used generally for the applications identity, the medium icon is used with memos, and the small is used in the news feed.  If you choose not to load anything, our defaults will be used as stand-ins.  You can of course always go back and add icons later or modify them at any point</p>
+							<img src="images/demo/Screen shot 2011-06-01 at 3.24.08 PM.png"></img>
+						<h3>2. CUSTOMIZE YOUR APP'S MEMO</h3>
+						<p>The next step is to customize the templates.  All memos have two states, a small state and an expanded state when they are selected.  The format is in HTML (except for h1, h2, iframe, and script) as well as the Mustache template.  Accepted Mustache variables are:</p>
+							<pre>{{{title}}}</pre>
+							<pre>{{{description}}}</pre>
+							<pre>{{{text}}}</pre>
+							<pre>{{{geo}}}</pre>
+							<pre>{{{image}}}</pre>
+							<pre>{{{video}}}</pre>
+							<pre>{{{author}}}</pre>
+							<pre>{{{event}}}</pre>
+						<p>Head over to our <a>template</a> types documentation to get a more in depth understanding of the various templates that you can use.</p>
+						<p>We have arranged the small template to show the title and text of the memo.  </p>
+						<img src="images/demo/Screen shot 2011-06-02 at 3.47.25 PM.png"></img>
+						<p>The expanded template as you can see looks slightly different.  </p> 
+						<img src="images/demo/Screen shot 2011-06-02 at 3.47.43 PM.png"></img>
+						<p>Because we want to optionally have an image, we need a way to say that with code.  This is easy, all we need to do is &#34;if there is an image&#34; : </p>
+						<pre>{{#image}} ... {{/image}} </pre>
+						<p>then, add an image :</p>
+						<pre>{{#image}}  {{{image}}}  {{/image}}</pre>
+						<p>Note the use of double brackets on the conditional and the triple brackets on the templated content.</p>
+						<p>Whatever you add between the &#34;#&#34; and &#34;/&#34; double brackets will be shown if there is an image available.  For example, you could write:</p>
+						<pre>{{#image}}  foo  {{{image}}}  {{/image}}</pre>
+						<p>In this case, if there is an image the text &#34;foo&#34; would appear before it.  Otherwise, if there isn&#39;t an image the text &#34;foo&#34; would not appear at all.</p>
+						<h3>3. KEY AND SECRET</h3>
+						<p>As you can see there are no key or secret codes yet.  No worries, we will get that in a second.  Hit &#34;Save&#34;.</p>
+						<p>We are redirected back to &#34;My Apps&#34;.  As you can see, our new app has been added and our flashy icon is already in good use.</p>
+						<img src="images/demo/Screen shot 2011-06-01 at 4.24.23 PM.png"></img>
+						<p>Click on &#34;Details/Edit&#34;.  Scroll down to the bottom and you will see the icons that we uploaded before are now visable.  </p>
+						<img src="images/demo/Screen shot 2011-06-02 at 4.49.30 PM.png"></img>
+						<p>Also, more importantly a little farther down, we have been provided with our custom key and secret.  Keep that handy.</p>
+						<p>If you are following along directly with the tutorial, you are going to need to navigate to and open up API-Demos/memo-notes/app.rb.  Look for near the top:</p>
+						<pre class="brush: ruby">
+							def client
+							    #create the client using the key and secret in the registrered app
+							    @client ||= OAuth2::Client.new("_ENTER_KEY_HERE_", "_ENTER_SECRET_HERE_", :site => "http://memolane.com/api") 
+							end
+					 	</pre>
+						<p>As you can see, you will need to insert that key and secret that was generated for you earlier.  Save the file.  Then, in terminal you will need to:</p>
+						<pre class="brush: bash">cd API-Demos/memo-notes/</pre>
+						<p>then run,</p>
+						<pre class="brush: bash">ruby app.rb</pre>
+						<h2>USER&#39;S POINT OF VIEW</h2>
+						<h3>4. CREATING AND MANAGING MEMOS</h3>
+						<p>Try running the application in a new window at http://localhost:5678.  You will see that you are redirected to a site that asks you to give authorization for MemoNotes to access your Memolane account.  </p>
+						<img src="images/demo/Screen shot 2011-06-02 at 10.31.56 AM.png"></img>
+						<p>Once you approve, you will then be rerouted to your app.  Also a token.txt file will be created in API-Memos/memo-notes/ after you give approval.  Then, add a title and note which are mandatory as well as an image, which is optional.  Remember, Memolane merely references information, it doesn&#39;t store data such as photos.  This is why we only pass it a URL to the image. </p>
+						<img src="images/demo/Screen shot 2011-06-02 at 4.37.13 PM.png"></img>
+						<p>Alright, now for the moment of truth, after clicking &#34;Post&#34;, head on over to memolane.com and we should see our custom MemoNote.  There will be a small note with title and text fields shown in addition to our custom icon:</p>
+						<img src="images/demo/Screen shot 2011-06-02 at 3.51.53 PM.png"></img>
+						<p>Now click on the memo and our should still have our title, image and text:</p>
+						<img src="images/demo/Screen shot 2011-06-02 at 3.46.56 PM.png"></img>
+						<p>Also, if you go back to our MemoNotes application, you will see that at the bottom there is a history of our posts. </p>
+						<img src="images/demo/Screen shot 2011-06-02 at 4.37.53 PM.png"></img>
+						<h3>5. MANAGING YOUR SERVICE</h3>
+						<p>Any user of a custom content provider will have the ability to manage their privacy settings as well as discontinue entirely the service.  Head over to your <a href="http://www.memolane.com/oauth/authorized_apps">authorized apps</a> and you will see the services that you have granted access to.  Of course, our MemoNotes app will be there.</p>
+						<img src="images/demo/Screen shot 2011-06-02 at 4.15.02 PM.png"></img>
+						<p>Try clicking on &#34;Change for existing memos&#34;, you will see that you can change the privacy on a service in bulk.</p>
+						<img src="images/demo/Screen shot 2011-06-02 at 4.17.31 PM.png"></img>
+						<p>Click &#34;cancel&#34; in the top right.  Back on the services page, you will also see the status as &#34;Active&#34; with the ability to disable.  When you click disable, a confirmation box will pop up because once you agree, your token will be revoked thus your ability to push any more data to our servers will be discontinued.  Any notes already posted will remain however.    </p>
+						<p>Once disabled, you will then be given the additional option to delete the service from your account.  This will remove any trace of your content created with the service while it was activated.  Now you have come full circle, and your Memolane is just as it was when you started this tutorial.  </p>
+						<h3>6. MAKE AN APP!</h3>
+						<p>The last step is to go out and find out unique ways to use our API.  We are very excited with this release, so be sure to get in contact with us about any creative projects that you have developed.  Not only will we like to see it, but we will also be interested in broadcasting your work as inspiration to others.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

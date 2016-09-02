@@ -1,0 +1,31 @@
+<html>
+  <body>
+    <h1>Active / Churn</h1>
+
+    <h2>Signups</h2>
+    <p>
+      Signups:
+      <br />
+      Total: <%= @total %>
+      <br />
+      Last 30 days: <%= @last_month %> (<%= @last_month / @total.to_f * 100 %>)
+      <br />
+      Last 7 days: <%= @last_week %> (<%= @last_week / @total.to_f * 100 %>)
+    </p>
+
+    <h2>Total active, including new signups</h2>
+    <p>
+      Active last 30 days: <%= @active_last_month %> (<%= @active_last_month / @total.to_f * 100 %>)
+      <br />
+      Active last 7 days: <%= @active_last_week %> (<%= @active_last_week / @total.to_f * 100 %>)
+    </p>
+
+    <h2>Total active, excluding new signups</h2>
+    <p>
+      Active last 30 days: <%= @active_last_month - @last_month %> (<%= (@active_last_month - @last_month) / @total.to_f * 100 %>)
+      <br />
+      Active last 7 days: <%= @active_last_week - @last_week %> (<%= (@active_last_week - @last_week) / @total.to_f * 100 %>)
+    </p>
+
+  </body>
+</html>

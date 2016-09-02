@@ -1,0 +1,101 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+html {height:100%;}
+html.touch body {height:auto;}
+
+body {height:100%;}
+
+#header {
+	height:auto;
+	margin-top:0;
+	padding-top:29px;
+}
+	#top-bar {
+		overflow:hidden;
+	}
+
+.makeLane {
+	font-size:13px;
+	text-align:center;
+	color:#777;
+}
+	.btn-green.btn-large {
+		margin-right:6px;
+		padding:8px 18px;
+		font-size:13px;
+	}
+
+.services-available h2,
+.services-added h2 {
+	position:static;
+	top:auto;
+	font-size:12px;
+	
+	padding-bottom:15px;
+	color:#777;
+}
+
+#progressBarContainer {
+	height:100px;
+	overflow:hidden;
+}
+	#progressBarContainer h2 {
+		padding-bottom:20px;
+		font-size:24px;
+		font-weight:bold;
+		color:#444;
+	}
+	.progressBar {
+		height:10px;
+		overflow:hidden;
+		background: #1e5799; /* Old browsers */
+		background: -moz-linear-gradient(top,  #1e5799 0%, #207cca 0%, #cccccc 0%, #ffffff 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(0%,#207cca), color-stop(0%,#cccccc), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #1e5799 0%,#207cca 0%,#cccccc 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #1e5799 0%,#207cca 0%,#cccccc 0%,#ffffff 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #1e5799 0%,#207cca 0%,#cccccc 0%,#ffffff 100%); /* IE10+ */
+		background: linear-gradient(top,  #1e5799 0%,#207cca 0%,#cccccc 0%,#ffffff 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	}
+		.progressBar div {
+			width:1%;
+			height:10px;
+			background:url(/img/common/loader-progressbar.gif) repeat-x left top;
+		}
+	#progressBarContainer li {
+		float:left;
+		width:33%;
+		margin-top:-10px;
+		padding:25px 0 0;
+		font-size:11px;
+		line-height:13px;
+		font-weight:bold;
+		text-align:center;
+		color:#999;
+		background:url(/img/common/loader-progressbarHash.png) no-repeat center top;
+	}
+#progressBarFinished {
+	display:none;
+	height:100px;
+	text-align:center;
+}
+	#progressBarFinished a {
+		margin-top:33px;
+	}

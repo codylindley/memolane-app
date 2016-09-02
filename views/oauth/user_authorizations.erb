@@ -1,0 +1,35 @@
+
+<div id="api_myAuthorizations">
+  <h2>These are the services that you have granted access to your Memolane account:</h2>
+  <a class="apiWhatsUp" href="">What's going on here?</a>
+
+  <ul class="apiServiceList">
+
+    <% for permission in @permissions %>
+      <li class="serviceFullLayout underlineStandard">
+        <div class="serviceDescription">
+          <img src="<%= permission[:client_icon] || "/images/oauth/default50.png" %>" />
+          <div>
+            <a href=""><%= permission[:client_name] %></a>
+            <p><%= permission[:client_notes] %></p>
+          </div>
+        </div>
+        <dl>
+          <dt>Data:</dt>
+          <dd class="apiMemos"><%= permission[:memo_count] %> Memos <span>(last update: <%= permission[:last_access] %>)</span></dd>
+          
+          <dt>Privacy:</dt>
+          <dd class="apiPrivacy">Set By Service <span><a class="apiChangePrivacy" client_id="<%= permission[:client_id] %>"  href="">Change for existing memos</a></span></dd>
+          <dt>Status:</dt>
+          <% if permission[:active] %>
+            <dd class="apiStatus">Active <span><a class="revoke_token" href="" access_token="<%= permission[:token_id] %>" csrf_token="<%= Rack::Csrf.csrf_token(env) %>">Disable</a></span></dd>
+          <% else %>
+            <dd class="apiStatus disabled">Disabled <span><a class="delete_token" href="" access_token="<%= permission[:token_id] %>" csrf_token="<%= Rack::Csrf.csrf_token(env) %>">Delete</a></span></dd>
+          <% end %>
+        </dl>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+

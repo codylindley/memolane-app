@@ -1,0 +1,163 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+/* hide the nav explore button on the explore page */
+#btnExploreMemolane {
+	display:none;
+}
+
+
+#content {
+	visibility:visible;
+	color:#fff;
+}
+
+
+#welcomeText {
+	display:none;
+	max-width:700px;
+	margin-top:-20px;
+	padding:0 44px 10px;
+	font-size:22px;
+	line-height:28px;
+	color:#fff;
+}
+
+.exploreSet {
+	position:relative;
+	padding:0 30px;
+	margin-bottom:20px;
+}
+.exploreSet > div {
+	position:relative;
+}
+	.exploreSet h2 {
+		margin-bottom:15px;
+		margin-left:15px;
+		font-size:24px;
+		font-weight:bold;
+		color:#d7d35d;
+	}
+	
+	.exploreSet > div .rs-carousel-action-prev,
+	.exploreSet > div .rs-carousel-action-next {
+		position:absolute;
+		top:0;
+		left:-30px;
+		width:30px;
+		height:100%;
+		border-radius:5px;
+		border-top-left-radius:0;
+		border-bottom-left-radius:0;
+		text-indent:-99999px;
+		background:#555 url(/img/common/icon-arrow-left.png) no-repeat center;
+	}
+	.exploreSet > div .rs-carousel-action-next {
+		left:auto;
+		right:-30px;
+		border-radius:5px;
+		border-top-right-radius:0;
+		border-bottom-right-radius:0;
+		background-image:url(/img/common/icon-arrow-right.png);
+	}
+	.exploreSet .rs-carousel-disabled .rs-carousel-action-prev,
+	.exploreSet .rs-carousel-disabled .rs-carousel-action-next {
+		display:none;
+	}
+	
+	.rs-carousel-action-disabled {
+		opacity:0.25;
+		cursor:default;
+	}
+	
+	.exploreSet ul {
+		padding-top:5px;
+	}
+		.exploreSet li {
+			display:block;
+			width:102px;
+			padding:0 8px 5px;
+		}
+		.rs-carousel-runner li:first-child {
+			padding-left:16px;
+		}
+		.rs-carousel-runner li:last-child {
+			padding-right:16px;
+		}
+			.exploreSet li a {
+				display:block;
+				line-height:16px;
+				font-weight:bold;
+				color:#ccc;
+			}
+			.exploreSet li a.laneOwner {
+				font-weight:normal;
+				margin-top:2px;
+				font-size:11px;
+				color:#999;
+			}
+			.exploreSet li a:hover,
+			.exploreSet li a.laneOwner:hover {
+				text-decoration:none;
+				color:#00bff3;
+			}
+			.exploreSet li img {
+				width:100px;
+				height:100px;
+				border:1px solid #999;
+				margin-bottom:7px;
+				-webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, .65);
+				-moz-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, .65);
+				box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, .65);
+			}
+			.exploreSet li span {
+				display:block;
+			}
+	
+	.tipsy-inner { max-width: 150px; }
+
+
+
+
+/*
+ * jquery.rs.carousel.css v0.8.5
+ *
+ * Copyright (c) 2011 Richard Scarrott
+ * http://www.richardscarrott.co.uk
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ *
+ * Depends:
+ *  a basic reset + items must have width & height
+ */
+	
+.rs-carousel .rs-carousel-mask {
+	overflow: hidden;
+}
+
+	.rs-carousel .rs-carousel-runner {
+	    position: relative;
+	}
+		
+		.rs-carousel.rs-carousel-horizontal .rs-carousel-item {
+			float: left;
+		}

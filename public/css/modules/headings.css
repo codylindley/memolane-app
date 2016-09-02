@@ -1,0 +1,86 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+.header{ font-weight: bold; margin: 10px; font-size: 12px;}
+
+.header.typeA{
+	color: #3e3e3e;
+	font-size: 24px;
+}
+
+.header.typeB{
+	color: #fefefe;
+	font-size: 24px;
+	border-bottom: 1px solid #020202; 
+	-webkit-box-shadow: 0px 1px 0px #4a4a4a;
+	-moz-box-shadow: 0px 1px 0px #4a4a4a;
+	box-shadow: 0px 1px 0px #4a4a4a;
+	padding-bottom: 5px;
+}
+
+.header.typeC{
+	color: #fefefe;
+	font-size: 16px;
+	border-bottom: 1px solid #020202; 
+	-webkit-box-shadow: 0px 1px 0px #4a4a4a;
+	-moz-box-shadow: 0px 1px 0px #4a4a4a;
+	box-shadow: 0px 1px 0px #4a4a4a;
+	padding-bottom: 5px;
+}
+
+.header.typeD{
+	color: #000;
+	font-size: 13px;
+}
+
+.header.typeE{
+	color: #3e3e3e;
+	font-size: 13px;
+}
+
+.header.typeF{
+	color: #1d1d1d;
+	font-size: 13px;
+}
+
+.header.typeG{
+	color: #fefefe;
+	font-size: 12px;
+	border-bottom: 1px solid #020202; 
+	-webkit-box-shadow: 0px 1px 0px #4a4a4a;
+	-moz-box-shadow: 0px 1px 0px #4a4a4a;
+	box-shadow: 0px 1px 0px #4a4a4a;
+	padding-bottom: 5px;
+}
+
+.header.typeH{
+	color: #fefefe;
+	font-size: 12px;
+}
+
+.header.typeI{
+	color: #787878;
+	font-size: 11px;
+}
+
+.header.typeJ{
+	color: #3e3e3e;
+	font-size: 18px;
+}

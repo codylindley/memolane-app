@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Index</title>
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/shCore.css">
+		<link rel="stylesheet" href="css/shCoreDefault.css">
+		<link rel="stylesheet" href="css/shThemeDefault.css">		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/shCore.js"></script>
+		<script type="text/javascript" src="scripts/shAutoloader.js"></script>
+		<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="scripts/shBrushRuby.js"></script>
+		<script type="text/javascript" src="scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+		<script type="text/javascript">
+		     SyntaxHighlighter.all()
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo"></div>
+			<ul>
+				<li class="top_list"><a href="http://www.memolane.com/oauth/my_apps">My Apps</a></li>
+				<li class="top_list"><a href="index.html">Documentation</a></li>
+				<li class="top_list"><a href="/"></a></li>
+				<li class="top_list"><a href="/"></a></li>
+			</ul>
+		</div>
+		<div>
+			<div id="left_bar">
+				<ul>
+					<li class="left_list"><a href="demo.html">MemoNotes Demo</a></li>
+					<li class="left_list"><a href="managing.html">Managing Your Apps</a></li>
+					<li class="left_list"><a href="displaying.html">Displaying Memos</a></li>
+					<li class="left_list"><a href="data.html">Data Formats</a></li>
+					<li class="left_list"><a href="auth.html">Authentication</a></li>
+				</ul>
+			</div>
+			<div id="container">
+				<div id="column">
+					<div id="content">
+						<h1>Displaying Memos</h1>
+						<p>When memos have been pushed to a users account on memolane they will be rendered based on two templates defined when registering the app on the <a href="http://www.memolane.com/my_apps">my apps</a> page</p>
+						<p>For each registered application, 2 separate templates are needed, one for a small version of a memo and one for the large version (although in some cases having the identical templates for both makes sense)</p>
+						<p>The template language used is based on <a href="http://mustache.github.com/mustache.5.html">mustache</a> which is in essence just plain text with the addition of placeholder tokens for various pieces of data and the option to make these placeholders optional depending on whether a particular element is present in the data that makes up the memo being displayed.</p>
+						<p>For describing a memo, Memolane uses a small block of html with one or more of these &#34;placeholders&#34; added. </p>
+						<p>Like the data format, the templates can utilize a number of building blocks that can be be added to a template as needed. The building blocks used should match the data that is pushed as part of the memo data or should make blocks optional depending on whether that piece of data is available in the data or not.</p>
+						<p>An example of a very simple template for a memo that just displays a bit of short text (such as a Twitter memo) could be:</p>
+						<pre>&lt;div&gt;{{{title}}}&lt;/div&gt;</pre>
+						<p>A slightly more involved example where there is always text to show but where there might or might not be image and author elements included in the data for a particular memo would be:</p>
+						<pre class="brush: xml">
+						{{#author}}
+						  &lt;div&gt;
+						    &lt;b&gt; From {{{author}}}: &lt;/b&gt;  
+						  &lt;/div&gt;
+						{{/author}}
+						{{{title}}}
+						{{#image}}
+						  &lt;div&gt;{{{image}}}&lt;/div&gt;
+						{{/image}}
+						</pre>
+						<p>In these examples {{{_element_name_}}} means that this element should always be shown (this will cause errors if that element is not present in particular memo) and a construct like {{#_element_name_}} &#8230; {{/_element_name_}} means that everything between these two blocks should only be shown if the memo data contains and that particular element. So for instance...</p>
+						<pre class="brush: xml">
+							{{#author}}
+							  &lt;div&gt;
+							    &lt;b&gt; From {{{author}}}: &lt;/b&gt;   
+							  &lt;/div&gt;
+							{{/author}}
+						</pre>
+						<p>&#8230;will only add anything to the memo if the memo data actually includes an &#34;author&#34; element.</p>
+						<p>The types available for use in templates matches the fields available for memo data and are as follows:</p>
+						<pre>{{{title}}}</pre>
+						<pre>{{{description}}}</pre>
+						<pre>{{{text}}}</pre>
+						<pre>{{{geo}}}</pre>
+						<pre>{{{image}}}</pre>
+						<pre>{{{video}}}</pre>
+						<pre>{{{author}}}</pre>
+						<pre>{{{event}}}</pre>
+						<p>Each of these might be shown slightly differently on small and expanded memos respectively.  Check out the requirements for each of these <a href="/data">data formats</a>.</p>
+						<p>Here are some examples of how they are currently being used with other services:</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

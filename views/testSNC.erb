@@ -1,0 +1,99 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<!-- include jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	
+  <div id="fb-root"></div>
+  <script>    
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '<%= FACEBOOK_APP_ID %>',
+        status     : true, 
+        cookie     : true,
+        xfbml      : true,
+        oauth      : true,
+      });
+    
+    FB.login(function(response) {
+	   if (response.authResponse) {
+	     var access_token =   FB.getAuthResponse()['accessToken'];
+	     console.log('Access Token = '+ access_token);
+		
+		// you're welcome
+		$('#access_token').val(access_token);
+		
+		// make automagic post request
+		/*$.ajax({
+			type: 'POST',
+			url: '/_snc/facebook',
+			data: {'access_token': access_token, _csrf: "<%= Rack::Csrf.csrf_token(env) %>"},
+			success: function(data) {
+				console.log('You POSTed up like Shaq!')
+				console.log(data);
+			},
+			error: function(err) {
+				console.log('Your POST was a miserable failure. Perhaps shoveling ditches would be a good vocational fit?');
+				console.log(err);
+			}
+
+		});*/
+	     
+	     FB.api('/me', function(response) {
+		console.log('Good to see you, ' + response.name + '.');
+	     });
+	   } else {
+	     console.log('User cancelled login or did not fully authorize.');
+	   }
+	}, {scope: 'user_about_me,email,user_activities,user_events,user_groups,user_likes,user_location,user_notes,user_photo_video_tags,user_photos,user_videos,read_stream,offline_access,publish_stream'});
+	};
+    
+    (function(d){
+       var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+       js = d.createElement('script'); js.id = id; js.async = true;
+       js.src = "//connect.facebook.net/en_US/all.js";
+       d.getElementsByTagName('head')[0].appendChild(js);
+     }(document));
+   
+  </script>
+  
+  Merging accounts:
+  <form action="/_snc/facebook" id="francois-thinks-that-theblondsmurfishot">
+    <input type="text" name="password" id="password"></input><br/>
+    <input type="text" name="access_token" id="access_token"></input><br/>
+    <input type="submit" value="Send">
+  </form>
+	
+	
+	<script>
+		// handle form submission
+		$('#francois-thinks-that-theblondsmurfishot').submit(function(){
+			// postage
+			$.ajax({
+				type: 'POST',
+				url: $(this).attr('action'),
+				data: {
+					_csrf: "<%= Rack::Csrf.csrf_token(env) %>",
+					'access_token': $('#access_token').val(),
+					'password': $('#password').val()
+				},
+				success: function(data) {
+					console.log('Was that a piece of mail? Cuz it just got POSTed.')
+					console.log(data);
+				},
+				error: function(err) {
+					console.log('You call that a POST? I call it a fail.');
+					console.log(err);
+				}
+			});
+			
+			// this stops the default browser form submission from happening
+			return false;
+		});
+	   
+	</script>
+</body>
+</html>

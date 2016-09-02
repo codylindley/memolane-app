@@ -1,0 +1,56 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+#header{
+	height: 120px;
+	width: 100%;
+	display: block;
+	overflow:hidden;
+}
+
+#header h2.lane-title{
+	margin-top: 0;
+	margin-left: 45px;
+	font-size: 14px;
+	text-shadow: 0 1px 1px #333;
+	display: inline-block;
+}
+
+.lane-name-divider{
+	border-left:1px solid #292929;
+	  -moz-box-shadow:inset 1px 0 0 0 #444;
+  -webkit-box-shadow:inset 1px 0 0 0 #444;
+	box-shadow:inset 1px 0 0 0 #444;
+	padding: 5px 0;
+	display:inline-block;
+	margin-right: 8px;
+}
+
+#header h2.lane-title span{
+	color: #969696;
+	font-size: 11px;
+	font-weight: normal;
+	padding-left: 5px;
+}
+
+#header h2.lane-title a{
+	font-size: 11px;
+	font-weight: normal;
+}

@@ -1,0 +1,32 @@
+/* share lane dialog options */
+
+#language-settings-dialog ul li {
+	float: left;
+	margin-right: 25px;
+}
+
+#language-settings-dialog .dialogContent label {
+	background-image: url(/img/common/iconsFlags.gif);
+	background-repeat: no-repeat;
+	background-position: top right;
+}
+
+#language-settings-dialog #en-flag {
+	background-position: 0 0px;
+}
+
+#language-settings-dialog #ja-flag {
+	background-position: 0 -30px;
+}
+
+#language-settings-dialog .dialogContent label input {
+	margin-left:23px;
+	margin-bottom: 15px;
+	padding: 0;
+}
+
+
+
+
+
+

@@ -1,0 +1,358 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+#top-bar{
+	background-image: url(../../img/topBar/topBarBg.png);
+	background-repeat: repeat-x; 
+	height: 46px;
+	min-width: 1024px;
+	-moz-box-shadow:0px 2px 8px rgba(0%,0%,0%,0.5);
+	-webkit-box-shadow:0px 2px 8px rgba(0%,0%,0%,0.5);
+	box-shadow:0px 3px 7px rgba(0%,0%,0%,0.5);
+	clear: both;
+}
+
+.less1024 #top-bar{
+	min-width:768px;
+}
+
+/* logo */
+
+#top-bar h1{
+	float: left;
+	height: 59px;
+	width: 170px;
+}
+
+#top-bar h1 a{
+	padding-top: 14px;
+	padding-left: 12px;
+	padding-right: 13px;
+	background: url(../../img/topBar/memolaneLogo.png);
+	background-repeat: no-repeat;
+	background-position: 12px 14px;
+	text-indent: -999em;
+	overflow: hidden;
+	outline: none;
+	display: block;
+	height: 31px;
+	width: 144px;
+}
+
+.less1024 #top-bar h1 {
+	width:175px;
+}
+
+/* top bar divider and buttons */
+.top-bar-section{
+	height: 45px;
+	margin-top: 1px;
+	float: left;
+	background-image: url(../../img/topBar/topBarDivider.png);
+	background-position: left top;
+	background-repeat: repeat-y;
+	font-size: 11px;
+	color: #DDDDDD;
+}
+
+.top-bar-section.top-bar-btn{
+	cursor: pointer;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.top-bar-section.top-bar-btn:hover, #dashboard-page #tb-dashboard, #explore-page #tb-explore{
+	background-position: left -46px;
+	background-repeat: no-repeat;
+	background-color: rgba(63%,63%,63%,0.1);
+	background-color: #3f3f3f\0/;	
+}
+
+
+.tb-dropdown{
+	padding-right: 13px;
+}
+
+.tb-dropdown-btn{
+	text-align: center;
+	line-height: 44px;
+	width: 100%;
+	height: 45px;
+	background-image: url(../../img/topBar/iconSprite.png);
+	background-position: right -195px;
+	background-repeat: no-repeat;
+	letter-spacing: 0.1em;
+	text-shadow: 1px 0 0 #333;
+	letter-spacing: 0em\9;
+	font-weight: bold\9;
+}
+
+
+a#tb-dashboard{
+	padding: 0 12px 0 48px;
+	line-height: 44px;
+	position: relative;
+	height: 45px;
+	letter-spacing: 0.1em;
+	text-shadow: 1px 0 0 #333;
+	letter-spacing: 0em\9;
+	font-weight: bold\9;
+	display: block;
+	color: #ddd;
+}
+
+#tb-dashboard:hover{
+	text-decoration: none;
+	color: #00BFF3;
+}
+
+a#tb-explore{
+	padding: 0 12px 0 17px;
+	line-height: 44px;
+	position: relative;
+	height: 45px;
+	letter-spacing: 0.1em;
+	text-shadow: 1px 0 0 #333;
+	letter-spacing: 0em\9;
+	font-weight: bold\9;
+	display: block;
+	color: #ddd;
+}
+
+#tb-explore:hover{
+	text-decoration: none;
+	color: #00BFF3;
+}
+
+#explore-icon{
+	background-image: url(../../img/topBar/iconSprite.png);
+	background-position: left -270px;
+	background-repeat: no-repeat;
+	width: 29px;
+}
+
+.top-bar-section.top-bar-btn:hover #explore-icon{
+	background-position: left -322px;
+}
+
+#tb-dashboard img{
+	position:absolute;
+	border: 2px solid #fff;
+	-moz-box-shadow:0px 0px 5px #000;
+	-webkit-box-shadow:0px 0px 5px #000;
+	box-shadow:0px 0px 5px #000;
+	top: 10px;
+	left: 17px;
+	display: block;
+}
+
+
+#tb-lanes{
+	padding: 0 15px 0 18px;
+	background-position: right -195px;
+} 
+
+.top-bar-section.top-bar-btn:hover #tb-lanes{
+	background-position: right -240px;
+	color: #00bff3;
+}
+
+#tb-friends{
+	padding: 0 15px 0 18px;
+	background-position: right -195px;
+}
+
+.less1024 #tb-friends{
+	padding: 0 0px 0 14px;
+}
+
+.top-bar-section.top-bar-btn:hover #tb-friends{
+	background-position: right -240px;
+	color: #00bff3;
+}
+
+#friends-icon{
+	background-image: url(../../img/topBar/iconSprite.png);
+	background-position: left -90px;
+	background-repeat: no-repeat;
+	width: 43px;
+}
+
+.top-bar-section.top-bar-btn:hover #friends-icon{
+	background-position: left -135px;
+}
+
+
+#tb-news{
+	padding: 0 15px 0 16px;
+	background-position: right -195px;
+	position: relative;
+}
+
+.less1024 #tb-news{
+	padding: 0 0px 0 14px;
+}
+
+.top-bar-section.top-bar-btn:hover #tb-news{
+	background-position: right -240px;
+	color: #00bff3;
+}
+
+#news-icon{
+	background-image: url(../../img/topBar/iconSprite.png);
+	background-position: left 0px;
+	background-repeat: no-repeat;
+	width: 43px;
+}
+
+.top-bar-section.top-bar-btn:hover #news-icon{
+	background-position: left -45px;
+}
+
+#tb-news-count, #tb-friends-count{
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	height: 15px;
+	display: inline-block;
+	line-height: 15px;
+	color: #8CC63E;
+	-moz-box-shadow:0px 0px 3px rgba(63%,63%,63%,0.4);
+	-webkit-box-shadow:0px 0px 3px rgba(63%,63%,63%,0.4);
+	box-shadow:0px 0px 3px rgba(63%,63%,63%,0.4);
+	text-align: center;
+	margin-right: 7px;
+	display:none;
+}
+
+.less1024 #tb-news-count,.less1024 #tb-friends-count{
+	margin-right: 4px;
+}
+
+#tb-news-count span, #tb-friends-count span{
+	background-color: #232629;	
+	color: #ED148A;
+	font-weight: bold;
+	font-weight: bold\9;
+	height: 15px;
+	display: inline-block;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	text-shadow: 1px 0 0 #000;
+	-moz-box-shadow:inset 0px 0px 5px #1e2022;
+	-webkit-box-shadow:inset 0px 0px 5px #1e2022;
+	box-shadow:inset 0px 0px 5px #1e2022;
+	text-align: center;
+	font-size: 10px;
+	padding: 0 4px 0 5px;
+}
+
+#tb-create-lane {
+	padding: 0 10px 0 16px;
+}
+
+#tb-create-lane a{
+	margin-top:16px;
+}
+
+/* deal with changes to bar and browser widths */
+
+
+.less1024 .for-l-1024{
+	display: inline-block;
+}
+
+.less1024 .for-m-1024{
+	display: none;
+}
+
+.more1024 .for-m-1024{
+	display: inherit;
+}
+
+.more1024 .for-l-1024{
+	display: none;
+}
+
+/* not logged in signup topbar */
+
+.top-bar-signup{
+	line-height: 47px;
+	float: left;
+}
+
+.top-bar-signup h2{
+	float: left;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+	margin: 0 20px 0 10px;
+	font-size: 11px;
+	font-family: Helvetica;
+	letter-spacing: 0.1em;
+}
+
+/* top bar dropdown click states */
+
+.top-bar-section.top-bar-btn.tb-dropdown-open,.top-bar-section.top-bar-btn.tb-dropdown-open:hover{
+	margin-top: 1px;
+	background-color: #f1f1f1;
+	color: #3D3D3D;
+	padding-left: 0px;
+	text-shadow: none;
+	background-image:none;
+	width:auto;
+background: -moz-linear-gradient(top, rgba(196,196,196,1) 0%, rgba(241,241,241,1) 52%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(196,196,196,1)), color-stop(52%,rgba(241,241,241,1)));
+background: -webkit-linear-gradient(top, rgba(196,196,196,1) 0%,rgba(241,241,241,1) 52%);
+background: -o-linear-gradient(top, rgba(196,196,196,1) 0%,rgba(241,241,241,1) 52%);
+background: -ms-linear-gradient(top, rgba(196,196,196,1) 0%,rgba(241,241,241,1) 52%);
+}
+
+.top-bar-section.top-bar-btn.tb-dropdown-open:hover #tb-news, .top-bar-section.top-bar-btn.tb-dropdown-open:hover #tb-lanes, .top-bar-section.top-bar-btn.tb-dropdown-open:hover #tb-friends{
+	background-position: right -195px;
+	color: #3D3D3D;
+}
+
+
+.top-bar-section.top-bar-btn.tb-dropdown-open:hover #news-icon{
+	background-position: left 0px;
+}
+
+.top-bar-section.top-bar-btn.tb-dropdown-open:hover #friends-icon{
+	background-position: left -90px;
+}
+
+#new-lane-top-bar-link{
+	width: 100%;
+	text-align: center;
+	margin-top: 5px;
+	float: right;
+	display: block;
+	letter-spacing: 0.1em;
+	text-shadow: 1px 0 0 #333;
+	letter-spacing: 0em\9;
+	font-weight: bold\9;
+}

@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<title>Index</title>
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/shCore.css">
+		<link rel="stylesheet" href="css/shCoreDefault.css">
+		<link rel="stylesheet" href="css/shThemeDefault.css">		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/shCore.js"></script>
+		<script type="text/javascript" src="scripts/shAutoloader.js"></script>
+		<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="scripts/shBrushRuby.js"></script>
+		<script type="text/javascript" src="scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+		<script type="text/javascript">
+		     SyntaxHighlighter.all()
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo"></div>
+			<ul>
+				<li class="top_list"><a href="http://www.memolane.com/oauth/my_apps">My Apps</a></li>
+				<li class="top_list"><a href="index.html">Documentation</a></li>
+				<li class="top_list"><a href="/"></a></li>
+				<li class="top_list"><a href="/"></a></li>
+			</ul>
+		</div>
+		<div>
+			<div id="left_bar">
+				<ul>
+					<li class="left_list"><a href="demo.html">MemoNotes Demo</a></li>
+					<li class="left_list"><a href="managing.html">Managing Your Apps</a></li>
+					<li class="left_list"><a href="displaying.html">Displaying Memos</a></li>
+					<li class="left_list"><a href="data.html">Data Formats</a></li>
+					<li class="left_list"><a href="auth.html">Authentication</a></li>
+				</ul>
+			</div>
+			<div id="container">
+				<div id="column">
+					<div id="content">
+						<h1>Authentication</h1>
+						<h2>Basics</h2>
+						<p>To ensure security, and that only content a user has specifically allowed ends up on his or her profile,  Memolane uses OAuth2 for authentication.</p>
+
+						<p>The official OAuth2 documentation can be found <a href="http://wiki.oauth.net/w/page/25236487/OAuth-2">here.</a></p>
+
+						<p>The endpoints used by Memolane are:</p>
+
+						<p>Base url: <a href="http://memolane.com/oauth">http://memolane.com/oauth</a></p>
+						<p>Authorization url: <a href="http://memolane.com/oauth/authorize">http://memolane.com/oauth/authorize</a></p>
+						<p>Access token url: <a href="http://memolane.com/oauth/access_token">http://memolane.com/oauth/access_token</a></p>
+						<h2>Ruby Example</h2>
+						<p>Here is example ruby code of how authorization is handled in the MemoNotes demo application using the OAuth2 ruby gem and the Sinatra web application framework.</p>
+
+
+						<pre class="brush: ruby">
+						require 'sinatra/base'
+						require "oauth2"
+
+						def client
+						  @client ||= OAuth2::Client.new("_APP_KEY_", "_APP_SECRET_", :site => "  
+						  http://memolane.com/api") 
+						end
+
+						get '/authorize' do
+						  #redirect to the Memolane.com authorization page asking for read and write permissions
+
+						  client.web_server.authorize_url( :redirect_uri => "http://localhost:5678/finalize",  
+						  :response_type => 'code', :scope => "read write" )
+						end
+					</pre>
+
+						<p>Accessing <a href="http://localhost:5678/authorize">http://localhost:5678/authorize</a> in the demo app will send the user to a Memolane page asking whether the user will allow the application to push memos to their account. Once they have accepted this, they are redirected to <a href="http://localhost:5678/finalize">http://localhost:5678/finalize</a> where the application needs to handle getting the actual access token.</p>
+
+						<p>In a Sinatra app this could look like this:</p>
+
+						<pre class="brush: ruby"> 
+						get '/finalize' do
+
+						    #check for error messages
+						    if params[:error]
+						      "something went wrong: #{params[:error]}"
+						    else
+
+						     #get the access code
+						     code = params[:code]
+
+						     #get an access token from this code
+						     new_access_token = client.web_server.get_access_token(code, :redirect_uri => 
+						    "http://localhost:5678/finalize", :grant_type => 'authorization_code', :scope => "read write")
+
+						    #save access token for later use or do something with it
+						  end
+						end
+						</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

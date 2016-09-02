@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Index</title>
+		<link rel="stylesheet" href="css/style.css"/>
+		<link rel="stylesheet" href="css/shCore.css">
+		<link rel="stylesheet" href="css/shCoreDefault.css">
+		<link rel="stylesheet" href="css/shThemeDefault.css">		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="scripts/shCore.js"></script>
+		<script type="text/javascript" src="scripts/shAutoloader.js"></script>
+		<script type="text/javascript" src="scripts/shBrushBash.js"></script>
+		<script type="text/javascript" src="scripts/shBrushRuby.js"></script>
+		<script type="text/javascript" src="scripts/shBrushXml.js"></script>
+		<script type="text/javascript" src="scripts/shBrushJScript.js"></script>
+		<script type="text/javascript">
+		     SyntaxHighlighter.all()
+		</script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo"></div>
+			<ul>
+				<li class="top_list"><a href="http://www.memolane.com/oauth/my_apps">My Apps</a></li>
+				<li class="top_list"><a href="index.html">Documentation</a></li>
+				<li class="top_list"><a href="/"></a></li>
+				<li class="top_list"><a href="/"></a></li>
+			</ul>
+		</div>
+		<div>
+			<div id="left_bar">
+				<ul>
+					<li class="left_list"><a href="demo.html">MemoNotes Demo</a></li>
+					<li class="left_list"><a href="managing.html">Managing Your Apps</a></li>
+					<li class="left_list"><a href="displaying.html">Displaying Memos</a></li>
+					<li class="left_list"><a href="data.html">Data Formats</a></li>
+					<li class="left_list"><a href="auth.html">Authentication</a></li>
+				</ul>
+			</div>
+			<div id="container">
+				<div id="column">
+					<%= yield%>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

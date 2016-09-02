@@ -1,0 +1,33 @@
+<h2>An application is requesting access to your Memolane account</h2>
+
+<div class="serviceFullLayout">
+  <div class="serviceDescription rounded">
+    <img src="<%= oauth.client.icon || "/images/oauth/default50.png" %>" />
+    <div>
+      <a href="<%= oauth.client.link %>"><%= h(oauth.client.display_name) %></a>
+      <p><%= oauth.client.notes %></p>
+    </div>
+  </div>
+  <div class="btnContainer">
+    <form name="GrantForm" action="/oauth/grant" method="POST">
+      <%= csrf_hidden_field %>
+      <a class="btnGreen" href="javascript:document.GrantForm.submit()">Approve</a>
+      <input type="hidden" name="authorization" value="<%= oauth.authorization %>">
+    </form>
+    <form name="DenyForm"  action="/oauth/deny" method="POST">
+      <%= csrf_hidden_field %>
+      <a class="secondary" href="javascript:document.DenyForm.submit()">Reject</a>
+      <input type="hidden" name="authorization" value="<%= oauth.authorization %>">
+    </form>
+  </div>
+</div>
+
+<p>The application is requesting permission to <%= oauth.scope.to_sentence %>.</p>
+<p>The application is also responsible for setting the appropriate privacy level on all its memos.  Only grant this permission if you trust "<%= h(oauth.client.display_name) %>" and its developers.</p>
+
+<!--<p>To report applications sending you to this page without you asking for it, click <a href="">here</a>.</p>-->
+
+
+
+
+

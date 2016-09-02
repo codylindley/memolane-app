@@ -1,0 +1,225 @@
+<!doctype html>
+
+<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+	   Remove this if you use the .htaccess -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="fragment" content="!">
+	
+	<title><%= i18n("%s | Memolane | See, search, and share your life", "The memolane Catchphrase in the page title", [@user.full_name]) %></title>
+	
+	<meta name="title" content='<%= i18n("%s | Memolane | See, search, and share your life", "The memolane Catchphrase in the page title", [@user.full_name]) %>' />	
+	<meta name="description" content='<%= i18n("Keep your memories alive. Capture photos, music, tweets, posts, and much more. View and share your entire online life in one place. Explore and search your history. One timeline, a million memories.") %>' />
+
+	<meta property="og:title" content="<%= i18n("%s | Memolane | See, search, and share your life", "The memolane Catchphrase in the page title", [@user.full_name]) %>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="<%= MEMOLANE_HOST %><%= request.path %>?<%= request.query_string %>"/>
+    <meta property="og:image" content="<%= MEMOLANE_HOST %>/<%= @user.username %>/image"/>
+    <meta property="og:site_name" content="Memolane"/>
+    <meta property="fb:admins" content="<%= FACEBOOK_FRANCOIS_ID %>"/>
+	
+	<!-- Tablet Optimized -->
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	
+	<!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	
+	<!-- CSS: implied media="all" -->
+        <% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+        <%= include_css_bundle "dashboard.css" %>
+        <% else %> 
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/defaults.css">
+	<link rel="stylesheet" href="/css/common.css">
+		<!-- CSS modules used on this page -->
+	<link rel="stylesheet" href="/css/modules/utilityNav.css">
+	<link rel="stylesheet" href="/css/modules/search.css">
+	<link rel="stylesheet" href="/css/modules/topBar.css">
+	<link rel="stylesheet" href="/css/modules/headings.css">
+	<link rel="stylesheet" href="/css/modules/buttons.css">
+	<link rel="stylesheet" href="/css/modules/topBarDropDowns.css">
+	<link rel="stylesheet" href="/css/modules/header.css">
+	<link rel="stylesheet" href="/css/modules/dialogs.css">
+	<link rel="stylesheet" href="/css/modules/tooltips.css">
+	<link rel="stylesheet" href="/css/modules/notifications.css">
+	<link rel="stylesheet" href="/css/modules/buttonBars.css">
+	<link rel="stylesheet" href="/css/modules/language.css">
+		<!-- Page Specific CSS -->
+	<link rel="stylesheet" href="/css/modules/dashboard.css">
+        <% end %>
+
+<!-- start Mixpanel -->
+<script type="text/javascript">
+   mpq=[];mpq.push(["init","<%= MIXPANEL_KEY %>"]);(function(){var b,a,e,d,c;b=document.createElement("script");b.type="text/javascript";b.async=true;b.src=(document.location.protocol==="https:"?"https:":"http:")+"//api.mixpanel.com/site_media/js/api/mixpanel.js";a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(b,a);e=function(f){return function(){mpq.push([f].concat(Array.prototype.slice.call(arguments,0)))}};d=["init","track","track_links","track_forms","register","register_once","identify","name_tag","set_config"];for(c=0;c<d.length;c++){mpq[d[c]]=e(d[c])}})();
+</script>
+<!-- end Mixpanel -->    	
+	
+	<!-- Memolane namespace -->
+	<script type="text/javascript">
+	/*-----------------------------
+	setup application namespace
+	-----------------------------*/
+	window.memolane = {};
+	//setup shortcut
+	window.m = memolane;
+	</script>
+
+</head>
+
+<body id="dashboard-page">
+
+<div id="header" class="more1024">
+
+<%= partial 'includes/utilityNav', @includes %>
+
+<%= partial 'includes/topBar', @includes %>
+
+</div>
+
+
+
+<div id="content" class="content">
+	
+<div id="centerDashBoard">
+
+		<div id="dashProfile">
+			<div class="float-left">
+				<img src="<%= "#{@user.username}/image.large?noCacheImage=#{Time.now().to_i}" %>" alt="Person's profile picture" />
+			</div>
+			<div id="dashProfileInfo" class="float-left">
+				<h2 class="header typeB"><span><!-- This is where the name will go. --></span> <a href="/settings/account" class="dashMineOnly"><%= i18n("Edit Profile", "link on own dashboard to edit your profile information" ) %></a></h2>
+				<div id="dashIsFriend"><!-- This is where the friend status will go. --></div>
+				<p class="text typeC" style="max-width:600px;"><!-- This is where the bio will go. --></p>
+				<ul class="services-used">
+					<li id="editServicesLink"><a href="/settings/services" class="dashMineOnly" style="line-height:16px;"><%= i18n("Edit Services", "link on own dashboard to edit your connected services" ) %></a></li>
+				</ul>
+			</div>
+			<div class="clearNoHeight">&nbsp;</div>
+		</div>
+		
+		
+
+		<div id="dashBoardFriends" style="float:right;width:295px;">
+		<div id="dashFriends">
+                <h3><%= i18n("Friends (%s)", "Header of friends list, with count, on dashboard", ["<span id='dashFriendCount'>0</span>"] ) %> <a href="#" class="sml-btn-orange float-right addFriends dashMineOnly" style="margin-top:-4px;"><%= i18n("Add Friends", "Text on button to start finding or adding friends") %></a></h3>
+                <div class="dashLoading friendsLoading"><span><%= i18n("Loading", "status text when loading list on dashboard") %></span></div>
+                <div class="dashFriendGroups">
+                </div>
+        </div>
+		</div>
+
+		<div id="dashLanesNFaves">
+			<div class="dashLanes">
+				<h3><%= i18n("Lanes (%s)", "Header of lane list, with count, on dashboard", ["<span id='dashLaneCount'>0</span>"] ) %></h3>
+				<div class="dashLoading lanesLoading"><span><%= i18n("Loading", "status text when loading list on dashboard") %></span></div>
+				<ul>
+				</ul>
+			</div>
+
+			<div class="dashFaves">
+
+				<div class="dashLoading lanesLoading"><span><%= i18n("Loading", "status text when loading list on dashboard") %></span></div>
+				<h3><%= i18n("Followed Lanes (%s)", "Header of followed lanes list, with count, on dashboard", ["<span id='dashFavLaneCount'></span>"] ) %></h3>
+
+				<ul>
+				</ul>
+			</div>
+		</div>
+        
+	
+</div>
+	
+</div>
+
+<!-- DROPDOWNS  -->
+<%= partial 'includes/topBarDropDowns', @includes %>
+<%= partial 'includes/topBarSearchDropDowns', @includes %>
+
+<!-- JavaScript at the bottom for fast page loading -->
+
+<!-- translation from english, CAN'T be bundles, must be load before eveything -->
+<script src="/lang.js"></script>
+
+<!-- Thirdparty Scripts -->
+<%= partial 'includes/jsThirdParty', @includes %>
+
+<!-- JS for just this html page  -->
+<script type="text/javascript">
+	m.csrf = "<%= Rack::Csrf.csrf_token(env) %>";
+	<% if current_user %>
+		m.currentUser = {
+			userID : "<%= current_user.id %>",
+			username : "<%= current_user.username%>",
+			first_name : "<%= h current_user.first_name%>",
+			last_name: "<%= h current_user.last_name%>",
+			image : "<%= "#{current_user.username}/image" %>",
+			bio : "<%= h( current_user.bio).gsub( /\n/m, '/n').gsub("\u2028", '') %>"
+		};
+	<% else %>
+		m.currentUser = null;
+	<% end %>
+        m.dashUser = <%= @user.metadata( current_user, false, true ).to_json %>;
+        m.currentLanguage = '<%= session["language"] %>';
+	m.fbAppID = '<%= FACEBOOK_APP_ID %>';
+</script>
+
+<% if env["compact"] != 0 and ( ["production", "staging", "m2"].include?( ENV["RACK_ENV"] ) or env["compact"] == 1 ) %>
+<%= include_js_bundle "dashboard.js" %>
+<% else %> 
+
+<!-- Memolane application setup / modules -->
+<script src="/js/utilities.js"></script>
+<script src="/js/globalTemplates.js"></script>
+<script src="/js/appSetup.js"></script>
+
+<!-- Start adding modules to be used on this page -->
+<script src="/js/modules/language.js"></script>
+<script src="/js/modules/topBar.js"></script>
+<script src="/js/modules/topBarDropDowns.js"></script>
+<script src="/js/modules/addFriends.js"></script>
+<script src="/js/modules/share.js"></script>
+<script src="/js/modules/search.js"></script>
+<script src="/js/modules/dashboard.js"></script>
+<script src="/js/modules/fbConnect.js"></script>
+<!-- /End modules to be used on this page -->
+
+<script src="/js/runApp.js"></script>
+
+<% end %>
+
+<!--Uservoice-->
+<%= include_uservoice_js %>
+
+<!--GOOGLE ANALYTICS-->
+<script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-18503349-1']);
+ _gaq.push(['_setDomainName', '.memolane.com']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+
+<% if current_user %>
+<!-- Mixpanel -->
+<script type="text/javascript">
+mpq.name_tag('<%= current_user.username%>'); 
+</script>
+<!-- Mixpanel -->
+<% end %>
+
+</body>
+</html>

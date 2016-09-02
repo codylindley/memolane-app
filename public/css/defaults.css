@@ -1,0 +1,186 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+
+/* Hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button { 
+	cursor: pointer;
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea { margin: 0;}
+
+/* Make buttons play nice in IE: www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {  width: auto; overflow: visible; }
+
+/* disable default highlight for touch devices on links */
+a:link{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+
+/* for ie 8 */
+html{
+	background-image: url(../img/bg/spotlight.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-color: #333;
+}
+
+body{
+	background-image: url(../img/bg/bgpattern.png);
+	background-repeat: repeat;
+	background-position: left top;
+}
+
+/* for everything but IE 8 */
+html.multiplebgs{
+background: none;
+}
+
+.multiplebgs body{
+background-color: #333;
+background-image: url(../img/bg/bgpattern.png),url(../img/bg/spotlight.jpg);
+background-repeat: repeat, no-repeat;
+background-position: left top, center 0;
+}
+
+html.embededLane, html.embededLane body{
+background: none;
+}
+
+/* default font and font color */
+body, select, input, textarea, button {
+color: #333;
+font-size: 12px;
+font-family:"Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+/* default link color */
+a{color: #00bff3; text-decoration: none;}
+a:hover { text-decoration: underline; color: #00bff3; }
+p a{text-decoration: underline;}
+p a:hover{text-decoration: none;}
+
+/* paragraph */
+p{font-size: 12px; line-height: 19px; margin-bottom: 15px;}
+p.last{margin-bottom: 0;}
+.bgDark p {color:#ececec;}
+
+strong {
+	font-weight:bold;
+}
+
+#content{
+	visibility: hidden;
+}
+
+/* forms */
+form {
+	padding-bottom:20px;
+}
+fieldset {
+	margin-bottom:20px;
+	padding:5px 0;
+	border-bottom:1px solid #fff;
+	-webkit-box-shadow: inset 0px -1px 0 #ddd;
+	-moz-box-shadow: inset 0px -1px 0 #ddd;
+	box-shadow: inset 0px -1px 0 #ddd;
+}
+fieldset:first-child {
+	padding-top:0;
+}
+label {
+	display:block;
+	font-weight:bold;
+	color:#353535;
+}
+input[type=text], input[type=password], textarea {
+	font-size:14px;
+	font-weight:bold;
+	color:#000;
+	display:block;
+	margin-bottom:25px;
+	margin-top:5px;
+	width:200px;
+	padding:5px;
+	border:1px solid #ddd;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+textarea {
+	padding:5px;
+	font-size:11px;
+	font-weight:normal;
+	color:#333;
+}
+input[type=radio], input[type=checkbox] {
+	margin-bottom:20px;
+	margin-right:5px;
+}
+select {
+	margin-bottom:20px;
+	margin-left:5px;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.bgDark fieldset {
+	border-bottom-color:#444;
+	-webkit-box-shadow: inset 0px -1px 4px #000;
+	-moz-box-shadow: inset 0px -1px 4px #000;
+	box-shadow: inset 0px -1px 0px #000;
+}
+.bgDark label {
+	color:#fefefe;
+}
+
+.requiredIndicator {
+	color:#999;
+}
+.formHelpText {
+	font-size:11px;
+	font-weight:normal;
+	color:#a1a1a1;
+}
+
+input[disabled='disabled'],
+textarea[disabled='disabled'],
+select[disabled='disabled']
+{
+   color: #666;
+   background: #e8e8e8;
+}
+
+*:focus {outline: none;}
+
+* {
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: -moz-none;
+-o-user-select: none;
+user-select: none;
+}
+
+p,input,textarea,.commentText {
+-webkit-user-select: text;
+-khtml-user-select: text;
+-moz-user-select: text;
+-o-user-select: text;
+user-select: text;
+}

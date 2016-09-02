@@ -1,0 +1,419 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+html.touch body { height:auto; }
+
+#header {
+	height:75px;
+}
+
+#content {
+	min-width:678px;
+	background-color:#f1f0f1;
+	visibility:visible;
+	padding-top:35px;
+	padding-bottom:10px;
+	-moz-box-shadow:inset 0px 8px 5px -7px #333;
+	-webkit-box-shadow:inset 0px 8px 5px -7px #333;
+	box-shadow:inset 0px 8px 5px -7px #333;
+	text-align:center;
+}
+	#innerContent {
+		display:inline-block;
+		margin:0 auto 30px;
+		text-align:center;
+		border:1px solid #ddd;
+		border-radius:10px;
+		padding:20px 25px;
+		overflow:hidden;
+		box-shadow:0 0 0 1px #fff;
+		background:#eee;
+	}
+	
+		#innerContent h1 {
+			margin:0 0 40px;
+			text-align:left;
+		}
+
+#services-all {
+	position:relative;
+	width:751px;
+	margin:20px auto;
+	text-align:center;
+}
+
+.services-available h2, .services-added h2 {
+	font-size:11px;
+	font-weight:bold;
+	text-align:left;
+	position:absolute;
+	top:-20px;
+}
+
+.services-available {
+	text-align:left;
+	float:left;
+	width:300px;
+	padding:15px 25px 0 0;
+	border-top:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+	.services-available li a {
+		display:block;
+		overflow:hidden;
+		margin-bottom:5px;
+		padding:5px 10px;
+		border:1px solid #c9c9c9;
+		text-decoration:none;
+		background:#cfcfcf;
+		background: -webkit-gradient( linear, left top, left bottom, color-stop(.2, #e5e5e5), color-stop(1, #cfcfcf) );
+		background: -moz-linear-gradient( center top, #e5e5e5 20%, #cfcfcf 100% );
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+	}
+	.services-available li.adding a {
+		background:#fff;
+	}
+		.services-available li img {
+			float:left;
+		}
+		.services-available .add-service {
+			float:right;
+			padding:8px 0 0;
+			font-weight:bold;
+			color:#666;
+		}
+		.services-available a:hover .add-service {
+			color:#333;
+		}
+		.services-available li .addingText {
+			display:none;
+		}
+		.services-available li.adding .defaultText {
+			display:none;
+		}
+		.services-available li.adding .addingText {
+			display:inline;
+		}
+		.services-available .add-service-icon {
+			float:right;
+			width:16px;
+			height:16px;
+			margin-top:-2px;
+			margin-left:8px;
+			background:url(/img/common/iconsUiElements.png) no-repeat right top;
+		}
+		.services-available li.adding a .add-service-icon, .services-available li.adding a:hover .add-service-icon.add {
+			background:url(/img/common/smallLoaderOnWhite.gif) no-repeat right top;
+		}
+		.services-available .add-service-icon.add {
+			background-position:-68px 0;
+		}
+		.services-available a:hover .add-service-icon.add {
+			background-position:-68px -16px;
+		}
+
+.services-added {
+	float:left;
+	width:400px;
+	margin-left:-1px;
+	border:1px solid #ddd;
+	border-right:0;
+	border-bottom:0;
+	padding:15px 0 0 25px;
+	text-align:left;
+	font-weight:bold;
+}
+	.services-added h3 {
+		max-width:190px;
+		padding:8px 0 8px 10px;
+		font-size:13px;
+		text-shadow:1px 1px 1px #ccc;
+	}
+	.services-added ul {
+		color:#555;
+	}
+	.services-added .currentPrivacy {
+		padding:0 0 0 18px;
+		font-size:11px;
+		color:#666;
+		text-shadow:1px 1px 1px #bbb;
+	}
+	
+	.serviceInfo div {
+		color: #6E6E6E;
+		text-shadow: #C3C3C3 1px 1px;
+		font-size: 10px;
+		font-weight: bold;
+		margin: 3px 0 7px 12px;
+		background: url(/img/common/iconsPrivacy.png) no-repeat 0 0;
+		padding: 0 0 0 15px;
+	}
+		.serviceInfo div.iconpublic {
+			background: url(/img/common/iconsPrivacy.png) no-repeat 0 -14px;
+		}
+			
+		.serviceInfo div.iconfriends {
+			background: url(/img/common/iconsPrivacy.png) no-repeat 0 -26px;
+		}
+			
+		.serviceInfo div.iconinherit {
+			background: url(/img/common/iconsPrivacy.png) no-repeat 0 -38px;
+		}
+	
+	.services-added li {
+		margin-bottom:10px;
+	}
+	.services-added > ul > li {
+		background: #c8c8c8;
+		background: -moz-linear-gradient(top, #c8c8c8 0%, #999999 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c8c8c8), color-stop(100%,#999999));
+		background: -webkit-linear-gradient(top, #c8c8c8 0%,#999999 100%);
+		background: -o-linear-gradient(top, #c8c8c8 0%,#999999 100%);
+		background: -ms-linear-gradient(top, #c8c8c8 0%,#999999 100%);
+		background: linear-gradient(top, #c8c8c8 0%,#999999 100%);
+	}
+	.services-added li:last-child {
+		margin-bottom:0;
+	}
+	.serviceAdded {
+		overflow:hidden;
+		padding:5px;
+		border:1px solid #adadad;
+		border-bottom-color:#777;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		background: url(/img/common/services/servicesIcon.png?v=4) no-repeat 5px 8px;
+	}
+	
+	.serviceAdded.facebook {
+		background-position:5px 8px;
+	}
+	
+	.serviceAdded.facebook-pages {
+		background-position:5px -973px;
+	}
+	
+	.serviceAdded.twitter {
+		background-position:5px -62px;
+	}
+	
+	.serviceAdded.picasa {
+		background-position:5px -132px;
+	}
+	
+	.serviceAdded.flickr {
+		background-position:5px -202px;
+	}
+	.serviceAdded.foursquare {
+		background-position:5px -272px;
+	}
+	
+	.serviceAdded.tripit {
+		background-position:5px -342px;
+	}
+	
+	.serviceAdded.youtube {
+		background-position:5px -413px;
+	}
+	
+	.serviceAdded.vimeo {
+		background-position:5px -483px;
+	}
+	
+	.serviceAdded.myspace {
+		background-position:5px -553px;
+	}
+	
+	.serviceAdded.lastfm {
+		background-position:5px -623px;
+	}
+	
+	.serviceAdded.feed { 
+		background-position:5px -693px;
+	}
+	
+	.serviceAdded.instagram {
+		background-position:5px -833px;
+	}
+	
+	.serviceAdded.tumblr {
+		background-position:5px -768px;
+	}
+	
+	.serviceAdded.gowalla {
+		background-position:5px -903px;
+	}
+	
+	.serviceAdded.wordpress {
+		background-position:5px -1043px;
+	}
+	
+	.serviceAdded.soundcloud {
+		background-position:5px -1116px;
+	}
+	
+	.serviceAdded.google-plus {
+		background-position:5px -1188px;
+	}
+	
+	.serviceAdded.mixi {
+		background-position:5px -1260px;
+	}
+	
+	.serviceAdded img {
+		float:left;
+		margin:8px 0 0 39px;
+		border:2px solid #bcbcbc;
+	}
+	
+	.serviceHealth {
+		color: #770003;
+		font-size: 10px;
+		text-align: right;
+		padding-right: 20px;
+		height: 17px;
+		background:url(/img/common/services/serviceOKIcon.png) no-repeat right 1px;
+		position: relative;
+	}
+	.serviceHealth .deletingText {
+		display:none;
+	}
+	.deleting .serviceHealth .deletingText {
+		display:inline;
+	}
+	.serviceAdded.serviceError .serviceHealth {
+		background:url(/img/common/services/serviceErrorIcon.png) no-repeat right 0;
+		overflow: visible;
+		right:-5px;
+		top:-4px;
+		height:19px;
+		margin-bottom:-2px;
+	}
+	.getNewContentBtn {
+		border: 1px solid #777;
+		margin-bottom: 5px;
+		color: #555;
+	}
+	
+	.advancedBtn {
+		color: #555;
+		text-shadow: rgba(255, 255, 255, 0.2) 1px 1px;
+		font-weight: bold;
+		font-size: 10px;
+		background: url(/img/common/iconsArrows.png) no-repeat 0 -14px;
+		padding-left:14px;
+		cursor: pointer;
+		clear: both;
+		float:right;
+	}
+
+	.advancedBtn:hover {
+		color: #333;
+	}
+	
+	.advancedBtn.open {
+		background: url(/img/common/iconsArrows.png) no-repeat 0 1px;
+	}
+	
+	.serviceSettings {
+		display:none;
+		background:#fff;
+		padding:10px;
+		border:1px solid #ccc;
+		border-top:0;
+		text-align:center;
+	}
+		.serviceSettingsContent {
+			font-size:13px;
+		}
+			.serviceErrorText {
+				margin-bottom:10px;
+				padding:10px;
+				font-size:12px;
+				line-height:16px;
+				border:1px solid #fcc;
+				text-align:left;
+				color:red;
+				background:#fdd;
+			}
+				.serviceErrorText a {
+					text-decoration:underline;
+					font-weight:normal;
+					color:red;
+				}
+			.serviceSettingsContent li {
+				display:inline;
+				margin-left:8px;
+			}
+				.serviceSettingsContent li:first-child {
+					margin-left:0;
+				}
+			.serviceSettingsContent label {
+				display:inline;
+			}
+			.serviceSettingsContent select {
+				margin:0;
+			}
+			.serviceSettingsContent label span {
+				display:inline;
+				margin:0;
+				padding-left:10px;
+				max-width:none;
+				font-size:12px;
+			}
+	
+	.services-added li.deleting {
+		background:#fff;
+		border:1px solid #ccc;
+	}
+		.services-added li.deleting .serviceAdded {
+			border:1px solid #fff;
+		}
+			.services-added li.deleting .getNewContent, .services-added li.deleting .advancedBtn {
+				display:none;
+			}
+			.services-added li.deleting .serviceHealth {
+				background:url(/img/common/smallRedLoaderOnWhite.gif) no-repeat left 8px;
+				padding-left:22px;
+				padding-right:0;
+				text-align:left;
+				margin-top:9px;
+				height:32px;
+				width:auto;
+				min-width:32px;
+				line-height:32px;
+				font-size:13px;
+				color:#900;
+			}
+
+.services-added h6 {
+	margin-top: 100px;
+	padding: 20px 40px !important;
+	font-size: 13px !important;
+	font-weight: bold;
+	color: #b8b8b8;
+	text-shadow: 0px 1px 2px #fff;
+	filter: dropshadow(color=#fff, offx=0, offy=1);
+	text-align: center;
+	line-height: 1.4em !important;
+}

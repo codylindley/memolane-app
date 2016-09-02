@@ -1,0 +1,113 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+body { overflow:auto; min-height:100%; }
+
+#header {
+	overflow:visible;
+	height:auto;
+	padding-top:29px;
+	margin-top:0;
+}
+
+.signupSteps {
+	float:left;
+	padding-top:18px;
+	font-size:12px;
+	font-weight:bold;
+}
+.signupSteps li {
+	display:inline;
+	padding-left:35px;
+	color:#777;
+}
+.signupSteps li.current {
+	color:#fff;
+}
+
+#loginForm #content,
+#forgotPassword #content {
+	overflow:auto;
+	width:380px;
+	background-color:#f1f0f1;
+	visibility:visible;
+	margin:23px auto;
+	text-align:center;
+	border:1px solid #333;
+	border-radius:10px;
+	-webkit-box-shadow: inset 0px 0px 1px 1px #333;
+	-moz-box-shadow: inset 0px 0px 1px 1px #333;
+	box-shadow: inset 0px 0px 1px 1px #333;
+}
+
+
+
+#facebookSignupChoice {
+	margin-bottom:-10px;
+	padding:20px 0 0 30px;
+	text-align:left;
+}
+	#facebookSignupChoice p {
+		margin-bottom:0;
+		padding-top:20px;
+		font-size:14px;
+		line-height:14px;
+		font-weight:bold;
+	}
+
+
+
+form {
+	position:relative;
+	padding:30px 30px 10px;
+	text-align:left;
+	overflow:hidden;
+}
+input[type="text"], input[type=password] {
+	width:308px;
+	margin-bottom:20px;
+}
+input[type="checkbox"], input[type="radio"] {
+	margin-bottom:5px;
+}
+label span {
+	display:block;
+	max-width:250px;
+	margin:2px 0 25px 0;
+	padding-left:20px;
+	font-size:11px;
+	line-height:1.2;
+	font-weight:normal;
+	color:#777;
+}
+label {
+	overflow:hidden;
+}
+
+.form-message-processing, .form-message-success, .form-message-error {
+	float:left;
+	padding:4px 12px 0 0;
+	line-height:1.5;
+	font-size:11px;
+	width: 220px;
+}
+.form-message-processing {color:#444;}
+.form-message-success {color:green;}
+.form-message-error {color:red;}

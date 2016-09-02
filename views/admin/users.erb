@@ -1,0 +1,66 @@
+<div id="admin_users">
+
+<script src='/js/thirdparty/underscore-min.js' type='text/javascript'></script>
+<script src='/js/modules/old/admin.js' type='text/javascript'></script>
+
+  <%
+
+    extra_params = ""
+
+    if params[:search] and params[:search].length > 0
+      extra_params += "&search=#{params[:search]}"
+    end
+
+  %>
+
+  <p  style="color:white;">
+    Showing <%= @showing  %> 
+    <a href="/admin/users?page=<%= @prevPage%><%= extra_params %>" > Prev page</a> <a href="/admin/users?page=<%= @nextPage %><%= extra_params %>" > Next page</a>
+  </p>
+  
+  <ul class="userList">
+
+    <% @users.each do |user| %>
+      <li class="userFullLayout underlineStandard">
+        <div class="userDescription">
+          <img width="50px" height=50px" src="<%= user.image %>" />
+          <div>
+            <a href="<%= "#{MEMOLANE_HOST}/#{user.username}" %>"><%= user.username %></a>
+            <p><%= "#{user.first_name} #{user.last_name}" %>
+            <br/>
+            <%= user.email %>
+            <br/>
+            Db Id: <%= user.id %>
+            </p>
+          </div>
+        </div>
+
+         <dl>
+          <dt>Joined:</dt>
+          <dd class="adminInfo"> <span><%= user.created_at ? user.created_at.utc.to_s : "Unknown" %></span></dd>
+          
+          <dt>Last active:</dt>
+          <dd class="adminInfo"><span> <%= user.last_active_at ? user.last_active_at.utc.to_s : "Unknown" %> </span></dd>
+
+          <dt>Early Access:</dt>
+          <dd class="adminInfo"><div class="earlyAccess" contenteditable="true" user_id = "<%=user.id%>" csrf_token="<%= Rack::Csrf.csrf_token(env) %>"> <%= user.early_access ? user.early_access.join(", ") : ""  %></div></dd>
+        </dl>
+
+        <ul class="adminActions">
+          <li><a href="/admin/assume/<%= user.username%>">assume</a></li>
+          <li><a class="pw_reset" href="<%=user.email%>" csrf_token="<%= Rack::Csrf.csrf_token(env) %>">pw reset</a></li>
+          <li><a class="image_reset" href="<%=user.id%>" csrf_token="<%= Rack::Csrf.csrf_token(env) %>">image reset</a></li>
+          <li><a class="delete_user" href="<%= user.id %>" csrf_token="<%= Rack::Csrf.csrf_token(env) %>">delete</a></li>
+        </ul>
+
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<form style="color:white;" name="sarrch" action="/admin/users" method="get">
+Search: <input type="text" name="search" value="<%= params[:search] %>" />
+<br>
+<input type="submit" value="Search" />
+</form>

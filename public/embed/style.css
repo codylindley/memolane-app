@@ -1,0 +1,21 @@
+#customize{
+	display: none;
+}
+
+#embed_code{
+	font-size: 30px;
+	display: none;
+}
+
+iframe{
+	display: none;
+}
+
+#background_widget{
+	display: none;
+}
+
+#border_widget{
+	display: none;
+}
+

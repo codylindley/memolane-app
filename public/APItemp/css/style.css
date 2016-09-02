@@ -1,0 +1,159 @@
+body{
+	background-color: #FFF;
+	margin: 0px;
+}
+
+#header{
+	background-color: #333;
+	background-image: url(http://50.56.78.173/img/topBar/topBarBg.png);
+	background-repeat: repeat-x;
+	height: 46px;
+	min-width: 1026px;
+	-moz-box-shadow: 0px 2px 8px rgba(0%, 0%, 0%, 0.5);
+	-webkit-box-shadow: 0px 2px 8px rgba(0%, 0%, 0%, 0.5);
+	box-shadow: 0px 3px 7px rgba(0%, 0%, 0%, 0.5);
+	z-index: 2;
+	position:relative;
+}
+
+#logo{
+	background-image: url(http://50.56.78.173/img/topBar/memolaneLogo.png);
+	float: left;
+	margin-top: 15px;
+	margin-left: 20px;
+	height: 17px;
+	width: 144px;
+}
+
+#container{
+	padding:20px;
+	margin-left:250px;
+}
+
+#column{
+	width:550px;
+}
+
+h1{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 25px;
+}
+
+h2{
+	font-family: helvetica;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+h3{
+	font-family: helvetica;
+	font-size:15px;
+}
+
+
+p{
+	font-size:12px;
+	font-family:Lucida Grande, Lucida Sans ;
+}
+
+#left_bar{
+	background-color: #EFEFEF;
+	width:200px;
+	height: 100%; 
+	-moz-box-shadow: 0px 2px 8px rgba(0%, 0%, 0%, 0.5);
+	-webkit-box-shadow: 0px 2px 8px rgba(0%, 0%, 0%, 0.5);
+	box-shadow: 0px 3px 7px rgba(0%, 0%, 0%, 0.5);
+	float:left;
+	z-index:1;
+	position:absolute;
+	padding-top: 20px;
+}
+
+a:link {
+    text-decoration: none;
+    color: #0099FF;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #0033CC;
+}
+
+a:active {
+    text-decoration: none;
+    color: #00FFFF;
+}
+
+
+ul{
+	list-style:none;
+}
+
+li{
+	list-style:none;
+	font-size:14px;
+}
+
+ul .top_list{
+	margin-left: 230px;
+}
+
+a{
+	font-weight: bold;
+	font-family:Lucida Grande, Lucida Sans ;
+}
+
+.top_list, .left_list{
+	font-family: helvetica;
+}
+
+.left_list{
+	margin-top: 5px;
+}
+
+.top_list a{
+	font-size: 11px;
+	font-weight: bold;
+	float: left;
+	margin-top: 17px;
+	margin-right:20px;	
+}
+.top_list a:link{
+	color: white;
+}
+.top_list a:visited{
+	color: white;
+}
+.top_list a:hover{
+	color: #00CCFF;
+}
+
+.left_list a:link{
+	color: gray;
+	font-size: 14px;
+}
+.left_list a:visited{
+	color: gray;
+	font-size: 14px;
+}
+.left_list a:hover{
+	color: #00CCFF;
+	font-size: 14px;
+}
+
+pre{
+	font-size:12px;
+}
+
+img{
+	max-width: 600px;
+}
+
+td{
+	width:75px;
+}
+
+#table_type{
+	font-style:italic;
+}

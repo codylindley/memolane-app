@@ -1,0 +1,414 @@
+/*---------------------------------------------------------------------------------------------------- 
+
+CSS Practices
+
+1. Use - to seperate words in selectors E.G. side-right-corner-memo
+2. No capital letters in selectors
+3. Don't over qualify a selector make it as short as possible 
+4. If you are using !important you are doing something wrong
+5. Careful with selectors we have to support IE 8 to a degree (http://goo.gl/wwopi)
+
+CSS Organization
+	- reset.css (resets browser defaults)
+	- defaults.css (default styles/base styles)
+	- commons.css (simple classes used globally)
+	- Modules
+		- Anything can be a module (e.g. buttons.css, dialogs.css, drawerEditLane.css, memo.css)
+		modules can have a corresponding javascript file as well (e.g. drawer.css & drawer.js)
+
+----------------------------------------------------------------------------------------------------*/
+
+/*dialog*/
+.memolaneDialog{
+	-moz-box-shadow:0px 0px 20px 5px rgba(0, 0, 0, 0.4);
+	-webkit-box-shadow:0px 0px 20px 5px rgba(0, 0, 0, 0.4);
+	box-shadow:0px 0px 20px 5px rgba(0, 0, 0, 0.4);
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border: 1px solid #999;
+	width:450px;
+
+}
+
+.memolaneDialog .dialogTopBar{
+	height: 32px;
+	border-bottom: 1px solid #787878;
+	border-top: 1px solid #D9D9D9;
+	background-color: #BEBEBE;
+	background: -moz-linear-gradient(top, #BEBEBE 0%, #878787 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#BEBEBE), color-stop(100%,#878787));
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	font-weight: bold;
+}
+
+.memolaneDialog .dialogContent{
+	overflow:hidden;
+	background-color: #fff;
+	background: -moz-linear-gradient(top, #fff 0%, #EBEBEB 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#EBEBEB));
+	-webkit-border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+	padding: 20px 15px;
+	min-width:250px;
+}
+
+	.memolaneDialog .dialogContent h2 {
+		margin:0 0 15px 0;
+	}
+	.memolaneDialog .dialogContent p {
+		font-size:12px;
+		color: #333;
+		line-height:15px;
+	}
+	/* generally used as a link next to a button, as on the "remove service" dialog in Settings > Services */
+	.memolaneDialog .dialogContent .secondaryAction {
+		display:block;
+		margin:2px 0 0 20px;
+	}
+
+
+.memolaneDialog .dialogTitle{
+	float: left;
+	font-size: 13px;
+	margin: 9px 0 0 18px;
+	color: #464646;
+	text-shadow: rgba(255, 255, 255, 0.4) 1px 1px;
+}
+
+.memolaneDialog .closeMemolaneDialog{
+	float: right;
+	font-size: 11px;
+	margin: 7px 15px 0 0;
+	padding: 3px 0;
+	color: #464646;
+	text-shadow: rgba(255, 255, 255, 0.2) 1px 1px;
+	cursor: pointer;
+}
+
+.memolaneDialog .closeMemolaneDialog:hover{
+	color: #000;
+}
+
+
+
+/*****************************
+ ****  DIALOG INSTANCES!  ****/
+
+	
+	#privacyDialog {
+		-moz-linear-gradient(top, #C8C8C8 0%, #999999 100%); /* firefox */
+		-webkit-gradient(linear, left top, left bottom, color-stop(0%,#C8C8C8), color-stop(100%,#999999)); /* webkit */
+	}
+		#privacyDialog h2 {
+			font-weight:bold;
+			padding:6px 0 0 60px;
+			margin-bottom:10px;
+			height:44px;
+			line-height:1.3;
+			background:url(/img/common/services/servicesIcon.png?v=4) no-repeat left top;
+		}
+		#privacyDialog h2.facebook-pages {background-position:0 -981px;}
+		#privacyDialog h2.twitter {background-position:0 -71px;}
+		#privacyDialog h2.picasa {background-position:0 -140px;}
+		#privacyDialog h2.flickr {background-position:0 -210px;}
+		#privacyDialog h2.foursquare {background-position:0 -280px;}
+		#privacyDialog h2.tripit {background-position:0 -350px;}
+		#privacyDialog h2.youtube {background-position:0 -422px;}
+		#privacyDialog h2.vimeo {background-position:0 -492px;}
+		#privacyDialog h2.myspace {background-position:0 -562px;}
+		#privacyDialog h2.lastfm {background-position:0 -631px;}
+		#privacyDialog h2.feed {background-position:0 -701px;}
+		#privacyDialog h2.instagram {background-position:0 -841px;}
+		#privacyDialog h2.gowalla {background-position:0 -911px;}
+		#privacyDialog h2.wordpress {background-position:0 -1051px;}
+		#privacyDialog h2.soundcloud {background-position:0 -1124px;}
+		#privacyDialog h2.tumblr {background-position:0 -771px;}
+		#privacyDialog h2.google-plus {background-position:0 -1197px;}
+		#privacyDialog h2.mixi {background-position:0 -1268px;}
+			#privacyDialog h2 span {
+				font-weight:normal;
+			}
+		#privacyDialog .privacyTabDescription div {
+			display:none;
+		}
+			#privacyDialog .privacyTabDescription h3 {
+				font-weight:bold;
+				margin:20px 10px 10px;
+			}
+			#privacyDialog .privacyTabDescription p {
+				color:#666;
+				margin-left:20px;
+			}
+			#inheritTabDescription table tbody th {
+				text-align:left;
+				padding:5px 10px;
+				font-style:italic;
+				border-bottom:2px solid #999;
+			}
+			#inheritTabDescription table tbody td {
+				padding:5px 10px;
+				font-weight:bold;
+				border-bottom:1px solid #ccc;
+				line-height:1.3;
+			}
+				#inheritTabDescription table tbody td span {
+					padding:0 10px;
+				}
+	
+	#selectPageDialog {
+		
+	}
+		#selectPageDialog td {
+			vertical-align:middle;
+			padding-right:10px;
+		}
+			#selectPageDialog input[type=radio] {
+				margin:0;
+			}
+			#selectPageDialog img {
+				max-height:40px;
+				max-width:40px;
+			}
+		#selectPageDialog .selectPageBtn {
+			visibility:hidden;
+		}
+	
+	
+	.lane-list {
+		padding-top:5px;
+	}
+		.lane-list li {
+			position:relative;
+			clear:both;
+			overflow:hidden;
+			padding:8px 0;
+			line-height:41px;
+			border-top:1px solid #ddd;
+			font-weight:bold;
+		}
+		.lane-list li:first-child {
+			border-top:0;
+		}
+			.lane-list li img {
+				float:left;
+				border:2px solid #bbb;
+				width:37px;
+				height:37px;
+				margin-right:8px;
+			}
+			.lane-list li .addMemoStatus {
+				color:#690;
+			}
+			
+	#removeMemoDialog #laneListScroller{
+		max-height: 300px;
+		overflow: auto;
+		padding-right: 20px;
+	}
+	
+	
+	#addFriendsDialog {
+		
+	}
+		#addFriendsDialog .dialogContent h2 {
+			font-size:18px;
+			font-weight:bold;
+			color:#999;
+		}
+		#addFriendsDialog .dialogContent a {
+			font-weight:bold;
+			text-decoration:none;
+		}
+		#addFriendsDialog .dialogContent ul {
+			max-height:200px;
+			overflow:auto;
+			margin-top:10px;
+			margin-bottom:20px;
+			border:1px solid #e1e1e1;
+			border-width:1px 0;
+		}
+			#addFriendsDialog .dialogContent li {
+				position:relative;
+				height:37px;
+				line-height:37px;
+				overflow:hidden;
+				padding:10px 0;
+				border-bottom:1px solid #e1e1e1;
+			}
+			#addFriendsDialog .dialogContent li:last-child {
+				border-bottom:0;
+			}
+				#addFriendsDialog .dialogContent ul input {
+					position:absolute;
+					top:24px;
+				}
+				#addFriendsDialog .dialogContent ul img {
+					position:absolute;
+					width:37px;
+					left:20px;
+				}
+				#addFriendsDialog .dialogContent .noCheckbox img {
+					left:0;
+				}
+				#addFriendsDialog .dialogContent ul p {
+					padding-top:5px;
+					padding-left:67px;
+				}
+				#addFriendsDialog .dialogContent .addFriendsFacebook ul p {
+					padding-top:13px;
+				}
+				#addFriendsDialog .dialogContent .noCheckbox p {
+					padding-top:13px;
+					padding-left:47px;
+				}
+				
+					#addFriendsDialog .dialogContent ul p span {
+						color:#999;
+					}
+		#addFriendsDialog .addFriendsStep,
+		#addFriendsDialog .loading {
+			display:none;
+		}
+		#addFriendsDialog img.loading {
+			position:relative;
+			top:4px;
+			left:8px;
+		}
+		#addFriendsDialog .addFriendsStep:first-child {
+			display:block;
+		}
+		
+		
+		/* signup-specific */
+		#addFriendsDialog.signup .dialogContent h2 {
+			font-size:20px;
+			font-weight:bold;
+			color:#777;
+			margin:0;
+			padding-bottom:0;
+		}
+			#addFriendsDialog.signup .addFriendsStep {
+				display:block;
+				padding-top:30px;
+			}
+			#addFriendsDialog.signup .addFriendsStep.twoSteps {
+				width:50%;
+				float:left;
+			}
+				.twoSteps .addFriendsStep1 {
+					margin-right:10px;
+				}
+				.twoSteps .addFriendsStep2 {
+					padding-left:10px;
+					border-left:1px solid #bbb;
+				}
+					#addFriendsDialog.signup .addFriendsStep h3 {
+						position:relative;
+						color:#777;
+						font-weight:bold;
+						font-size:13px;
+						padding-bottom:5px;
+					}
+						#addFriendsDialog.signup .addFriendsStep h3 span {
+							position:absolute;
+							right:0;
+							font-size:11px;
+							font-weight:normal;
+						}
+					
+					#addFriendsDialog.signup .dialogContent ul p {
+						padding-top:12px;
+					}
+		
+/*****************************
+ ****  DIALOG INSTANCES! for user list dialog  ****/
+ 
+#list-users{
+    display: none;
+}
+
+#list-users ul{
+    max-height: 300px;
+    overflow: auto;
+}
+
+
+#list-users li a:hover{
+    text-decoration: none;
+}
+
+#list-users li{
+    padding:12px 40px 7px 15px;
+    border-bottom: 1px solid #e6e6e6;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    min-height: 23px;
+}
+
+#list-users ul li:hover{
+    background-color: #f2f2e4;
+}
+
+#list-users li:last-child{
+    border-bottom:none;
+}
+
+#list-users img{
+    float: left;
+    margin: 0 10px 5px 0;
+    border: 2px solid #fff;
+    -moz-box-shadow:0px 0px 5px #000;
+    -webkit-box-shadow:0px 0px 5px #000;
+    box-shadow:0px 0px 5px #000;
+}
+
+#list-users .list-users-username, #search-users .list-users-pending{
+    color: #A1A1A1;
+    font-weight: normal;
+}
+
+
+.list-users-result{
+    display: block;
+    margin-top: 1px;
+}
+
+#list-users .list-user-fullname-username{
+	float: left;
+	display:block;
+	width:330px;
+	margin-top: 6px;
+}
+
+.list-users-date{
+	color: #333;
+    font-weight: normal;
+}
+
+/*****************************
+ ****  DIALOG INSTANCES! for user list dialog  ****/
+ 
+#changeDateAndTimeDialog{
+width: 500px;
+}
+
+#changeDateAndTimeDialog .dialogContent{
+height: 305px;
+}
+
+#changeDateAndTimeDialog .dialogContent #changeMemoDateReload{
+line-height: normal;
+margin-top: 5px;
+}
